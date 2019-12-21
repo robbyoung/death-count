@@ -1,4 +1,4 @@
-import characters from './characters';
+import characters from './playthroughs';
 import deaths from './deaths';
 import { combineReducers } from 'redux';
 

@@ -1,4 +1,4 @@
 export enum ActionType {
-    ADD_CHARACTER = 'Add Character',
+    ADD_PLAYTHROUGH = 'Add Playthrough',
     ADD_DEATH = 'Add Death',
 }

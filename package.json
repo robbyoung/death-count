@@ -1,5 +1,5 @@
 {
-  "name": "DeathCounter",
+  "name": "deathcount",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,7 +10,8 @@
   "dependencies": {
     "react": "16.8.6",
     "react-native": "0.60.5",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

@@ -1,18 +1,30 @@
-export interface Death {
-    location: string;
-    enemy: string;
-    characterId: string;
+export interface Game {
+    id: string;
+    name: string;
+    options: string;
 }
 
-export interface Character {
+export interface DeathOptions {
+    name: string;
+    options: string[];
+}
+
+export interface Playthrough {
     id: string;
     name: string;
     description: string;
-    game: string;
+    gameId: string;
 }
 
+export interface Death {
+    id: string;
+    playthroughId: string;
+}
 
 export interface State {
+    games: Game[];
+    playthroughs: Playthrough[];
     deaths: Death[];
-    characters: Character[];
+    currentPlaythrough: string;
+    currentGame: string;
 }
