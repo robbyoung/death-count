@@ -1,13 +1,16 @@
 import { Playthrough } from '../state';
 import { Action } from 'redux';
+import { ActionType } from './actionTypes';
 
-export interface AddPlaythroughAction extends Action {
-    newCharacter: Playthrough;
+export class AddPlaythrough implements Action {
+    type: ActionType.ADD_PLAYTHROUGH;
+
+    constructor(public newPlaythrough: Playthrough) {}
 }
 
-export function addPlaythrough(state: Playthrough[], action: AddPlaythroughAction): Playthrough[] {
+export function addPlaythrough(state: Playthrough[], action: AddPlaythrough): Playthrough[] {
     return [
         ...state,
-        action.newCharacter,
+        action.newPlaythrough,
     ]
 }

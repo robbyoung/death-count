@@ -12,7 +12,6 @@ export interface DeathOptions {
 export interface Playthrough {
     id: string;
     name: string;
-    description: string;
     gameId: string;
 }
 

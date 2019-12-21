@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 import { Death } from '../state';
-import { addDeath, AddDeathAction } from '../actions/addDeath';
+import { addDeath, AddDeath } from '../actions/addDeath';
 import { ActionType } from '../actions/actionTypes';
 
 
@@ -10,6 +10,8 @@ export default function deathsReducer(
 ): Death[] {
     switch (action.type) {
         case ActionType.ADD_DEATH: 
-            return addDeath(state, action as AddDeathAction);
+            return addDeath(state, action as AddDeath);
+        default:
+            return state;
     }
 }
