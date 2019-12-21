@@ -3,7 +3,7 @@ import { Action } from 'redux';
 import { ActionType } from './actionTypes';
 
 export class AddGame implements Action {
-    type: ActionType.ADD_GAME;
+    type: ActionType = ActionType.ADD_GAME;
 
     constructor(public newGame: Game) {}
 }

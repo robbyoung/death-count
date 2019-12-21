@@ -3,7 +3,7 @@ import { Action } from 'redux';
 import { ActionType } from './actionTypes';
 
 export class AddPlaythrough implements Action {
-    type: ActionType.ADD_PLAYTHROUGH;
+    type: ActionType = ActionType.ADD_PLAYTHROUGH;
 
     constructor(public newPlaythrough: Playthrough) {}
 }

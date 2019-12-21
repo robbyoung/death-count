@@ -1,7 +1,7 @@
 export interface Game {
     id: string;
     name: string;
-    options: string;
+    options: DeathOptions[];
 }
 
 export interface DeathOptions {
