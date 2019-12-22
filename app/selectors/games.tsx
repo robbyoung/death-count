@@ -9,3 +9,10 @@ export const getAllGames = createSelector(
         return games;
     }
 )
+
+export const getSelectedGame = createSelector(
+    [getGames],
+    (games) => {
+        return games.find(game => game.selected);
+    }
+)

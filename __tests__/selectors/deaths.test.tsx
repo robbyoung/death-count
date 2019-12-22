@@ -24,7 +24,7 @@ describe('Death Selectors', () => {
         const state = createTestState(2, 5, 10, 0, 0);
         const result = getDeathsForCurrentGame(state);
         expect(result.length).toBe(6);
-        const expectedIds = ['d0', 'd2', 'd4', 'd5', 'd7', 'd9']
+        const expectedIds = ['d0', 'd2', 'd4', 'd5', 'd7', 'd9'];
         result.forEach((death, index) => {
             expect(death.id).toBe(expectedIds[index]);
         });

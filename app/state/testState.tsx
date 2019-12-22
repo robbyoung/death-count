@@ -7,6 +7,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
             id: `g${i}`,
             name: `Game ${i}`,
             options: [],
+            selected: currentGame === i,
         });
     }
 
@@ -16,6 +17,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
             id: `p${i}`,
             name: `Playthrough ${i}`,
             gameId: `g${i % gameCount}`,
+            selected: currentPlaythrough === i,
         });
     }
 
@@ -31,7 +33,5 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
         games,
         playthroughs,
         deaths,
-        currentGame: `g${currentGame}`,
-        currentPlaythrough: `p${currentPlaythrough}`
     }
 }

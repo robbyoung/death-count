@@ -1,5 +1,5 @@
 import { createTestState } from '../../app/state';
-import { getAllGames } from '../../app/selectors';
+import { getAllGames, getSelectedGame } from '../../app/selectors';
 
 describe('Game Selectors', () => {
     it('Can select all games', () => {
@@ -9,5 +9,11 @@ describe('Game Selectors', () => {
         result.forEach((playthrough, index) => {
             expect(playthrough.id).toBe(`g${index}`);
         });
+    });
+
+    it('Can select the user-selected game', () => {
+        const state = createTestState(4, 5, 10, 2, 0);
+        const result = getSelectedGame(state);
+        expect(result.id).toBe('g2');
     });
 });
