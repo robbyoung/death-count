@@ -1,9 +1,9 @@
 import { Action } from 'redux';
-import { Game } from '../state';
+import { Game, createTestState } from '../state';
 import { ActionType, addGame, AddGame } from '../actions';
 
 export default function gamesReducer(
-    state: Game[] = [],
+    state: Game[] = createTestState(1, 1, 0, 0, 0).games,
     action: Action,
 ): Game[] {
     switch (action.type) {
