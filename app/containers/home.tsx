@@ -5,6 +5,8 @@ import { Death, Playthrough, Game } from '../state';
 import { getAllDeaths } from '../selectors/deaths';
 import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
+import { addDeathAction } from '../actions';
+import DeathButton from '../components/deathButton';
 
 interface HomeState {
     deaths: Death[];
@@ -26,8 +28,8 @@ export default class Home extends Component<void, HomeState> {
     }
 
     public render() {
-        if (!this.state) {
-            return <View/>
+        if (!this.state || !this.state.game) {
+            return <View><Text>There are no games in the state</Text></View>
         }
 
         return (
@@ -35,6 +37,7 @@ export default class Home extends Component<void, HomeState> {
                 <Text>Playthrough {this.state.playthrough.name}</Text>
                 <Text>Playing {this.state.game.name}</Text>
                 <Text>{this.state.deaths.length} deaths so far</Text>
+                <DeathButton onPress={() => this.addDeath()}></DeathButton>
             </View>
         );
     }
@@ -46,5 +49,10 @@ export default class Home extends Component<void, HomeState> {
             game: getSelectedGame(state),
             playthrough: getSelectedPlaythrough(state),
         });
+    }
+
+    private addDeath() {
+        const action = addDeathAction(this.state.playthrough.id);
+        store.dispatch(action);
     }
 }

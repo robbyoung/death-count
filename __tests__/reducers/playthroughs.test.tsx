@@ -1,6 +1,6 @@
 
 import playthroughsReducer from '../../app/reducers/playthroughs';
-import { Playthrough } from '../../app/state';
+import { Playthrough, createTestState } from '../../app/state';
 
 describe('Playthroughs Reducer', () => {
     it('sets the initial state', () => {
@@ -11,7 +11,7 @@ describe('Playthroughs Reducer', () => {
 
     it('will not change state for unknown actions', () => {
         const action = { type: 'test type' };
-        const state: Playthrough[] = [{gameId: '456', id: '123', name: 'test'}];
+        const state: Playthrough[] = createTestState(1, 1, 0, 0, 0).playthroughs;
         const newState = playthroughsReducer(state, action);
         expect(newState).toEqual(state);
     });

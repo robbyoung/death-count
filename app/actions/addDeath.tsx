@@ -1,16 +1,26 @@
-import { Death } from '../state';
+import uuid from 'uuid';
 import { Action } from 'redux';
+import { Death } from '../state';
 import { ActionType } from './actionTypes';
 
-export class AddDeath implements Action {
-    type: ActionType = ActionType.ADD_DEATH;
-
-    constructor(public newDeath: Death) {}
+export interface AddDeathAction extends Action {
+    type: ActionType.ADD_DEATH;
+    playthroughId: string;
 }
 
-export function addDeath(state: Death[], action: AddDeath): Death[] {
+export function addDeathAction(playthroughId: string): AddDeathAction {
+    return {
+        type: ActionType.ADD_DEATH,
+        playthroughId,
+    };
+}
+
+export function addDeath(state: Death[], action: AddDeathAction): Death[] {
     return [
         ...state,
-        action.newDeath,
+        {
+            id: uuid.v4(),
+            playthroughId: action.playthroughId,
+        },
     ]
 }

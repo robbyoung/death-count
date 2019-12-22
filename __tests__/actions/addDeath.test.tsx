@@ -1,17 +1,14 @@
-import { AddDeath } from '../../app/actions';
 import deathsReducer from '../../app/reducers/deaths';
-import { Death } from '../../app/state';
+import {addDeathAction} from '../../app/actions/addDeath';
 
 describe('Add Death Action', () => {
     it('can add a death to an empty list', () => {
-        const newDeath: Death = {
-            id: '123',
-            playthroughId: '456'
-        };
-        const addDeathAction = new AddDeath(newDeath);
+        const playthroughId = '123';
+        const action = addDeathAction(playthroughId);
         const state = [];
-        const newState = deathsReducer([], addDeathAction);
-        expect(newState).toEqual([newDeath]);
+        const newState = deathsReducer([], action);
+        expect(newState.length).toBe(1);
+        expect(newState[0].playthroughId).toEqual(playthroughId);
         expect(state).not.toEqual(newState);
     });
 })
