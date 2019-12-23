@@ -1,18 +1,12 @@
-import { AddGame } from '../../app/actions';
-import { Game } from '../../app/state';
+import { addGameAction } from '../../app/actions';
 import gamesReducer from '../../app/reducers/games';
 
 describe('Add Game Action', () => {
     it('can add a death to an empty list', () => {
-        const newGame: Game = {
-            id: '123',
-            name: 'test game',
-            options: [],
-        };
-        const addDeathAction = new AddGame(newGame);
+        const action = addGameAction('test action');
         const state = [];
-        const newState = gamesReducer([], addDeathAction);
-        expect(newState).toEqual([newGame]);
+        const newState = gamesReducer([], action);
+        expect(newState).toEqual([action.newGame]);
         expect(state).not.toEqual(newState);
     });
 })

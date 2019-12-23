@@ -5,22 +5,22 @@ import { ActionType } from './actionTypes';
 
 export interface AddDeathAction extends Action {
     type: ActionType.ADD_DEATH;
-    playthroughId: string;
+    newDeath: Death;
 }
 
 export function addDeathAction(playthroughId: string): AddDeathAction {
     return {
         type: ActionType.ADD_DEATH,
-        playthroughId,
+        newDeath: {
+            id: uuid.v4(),
+            playthroughId: playthroughId,
+        },
     };
 }
 
 export function addDeath(state: Death[], action: AddDeathAction): Death[] {
     return [
         ...state,
-        {
-            id: uuid.v4(),
-            playthroughId: action.playthroughId,
-        },
+        action.newDeath,
     ]
 }
