@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import store from '../store';
 import { Death, Playthrough, Game } from '../state';
@@ -7,6 +7,14 @@ import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
 import { addDeathAction } from '../actions';
 import DeathButton from '../components/deathButton';
+import { backgroundColor } from '../colors';
+
+const styles = StyleSheet.create({
+    homeScreen: {
+        backgroundColor: backgroundColor,
+        height: '100%',
+    }
+})
 
 interface HomeState {
     deaths: Death[];
@@ -33,8 +41,8 @@ export default class Home extends Component<void, HomeState> {
         }
 
         return (
-            <View>
-                <Text>Playthrough {this.state.playthrough.name}</Text>
+            <View style={styles.homeScreen}>
+                <Text>{this.state.playthrough.name}</Text>
                 <Text>Playing {this.state.game.name}</Text>
                 <Text>{this.state.deaths.length} deaths so far</Text>
                 <DeathButton onPress={() => this.addDeath()}></DeathButton>

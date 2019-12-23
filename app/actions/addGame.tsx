@@ -24,5 +24,5 @@ export function addGame(state: Game[], action: AddGameAction): Game[] {
     return [
         ...state,
         action.newGame,
-    ]
+    ];
 }

@@ -1,10 +1,10 @@
 import { Action } from 'redux';
-import { Playthrough } from '../state';
+import { Playthrough, createTestState } from '../state';
 import { ActionType, addPlaythrough, AddPlaythroughAction } from '../actions';
 
 export default function playthroughsReducer(
-    // state: Playthrough[] = createTestState(1, 1, 0, 0, 0).playthroughs,
-    state: Playthrough[] = [],
+    state: Playthrough[] = createTestState(1, 1, 0, 0, 0).playthroughs,
+    // state: Playthrough[] = [],
     action: Action,
 ): Playthrough[] {
     switch (action.type) {
