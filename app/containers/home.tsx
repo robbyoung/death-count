@@ -23,7 +23,7 @@ interface HomeState {
     playthrough: Playthrough;
     game: Game;
 }
-export default class Home extends Component<void, HomeState> {
+export default class Home extends Component<{}, HomeState> {
     private unsubscribe = () => undefined;
 
     public componentDidMount() {
@@ -41,7 +41,6 @@ export default class Home extends Component<void, HomeState> {
         if (!this.state || !this.state.game) {
             return <View><Text>There are no games in the state</Text></View>
         }
-
         return (
             <View style={styles.homeScreen}>
                 <DeathButton

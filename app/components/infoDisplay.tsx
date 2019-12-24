@@ -41,7 +41,9 @@ export default class InfoDisplay extends Component<InfoDisplayProps> {
                 <Text style={styles.text}>{this.props.currentPlaythrough.name}</Text>
                 <Text style={styles.text}>Playing {this.props.currentGame.name}</Text>
                 <View style={styles.deathCountContainer}>
-                    <View style={styles.deathCount}><Text style={styles.text}>{this.props.deaths.length}</Text></View>
+                    <View style={styles.deathCount}>
+                        <Text style={styles.text}>{this.props.deaths.length}</Text>
+                    </View>
                     <Text style={styles.text}>
                         Deaths So Far
                     </Text>
