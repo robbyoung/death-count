@@ -10,6 +10,7 @@ import { addDeathAction } from '../actions';
 import DeathButton from '../components/deathButton';
 import { backgroundColor, white, buttonColor } from '../colors';
 import InfoDisplay from '../components/infoDisplay';
+import { Screens } from '../screens';
 
 const styles = StyleSheet.create({
     homeScreen: {
@@ -77,7 +78,8 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
     }
 
     private addDeath() {
-        const action = addDeathAction(this.state.playthrough.id);
-        store.dispatch(action);
+        this.props.navigation.navigate(Screens.NewDeath);
+        // const action = addDeathAction(this.state.playthrough.id);
+        // store.dispatch(action);
     }
 }
