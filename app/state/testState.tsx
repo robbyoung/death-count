@@ -1,3 +1,4 @@
+import uuid from 'uuid';
 import { State, Game, Playthrough, Death } from './state'
 
 export function createTestState(gameCount: number, playthroughCount: number, deathCount: number, currentGame: number, currentPlaythrough: number): State {
@@ -26,6 +27,8 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
         deaths.push({
             id: `d${i}`,
             playthroughId: `p${i % playthroughCount}`,
+            complete: true,
+            details: {}
         });
     }
 
@@ -33,5 +36,19 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
         games,
         playthroughs,
         deaths,
+    }
+}
+
+export function createTestDeath(complete: boolean, id: string = uuid.v4(), numDetails: number = 0): Death {
+    const details = {};
+    for(var i = 0; i < numDetails; i++) {
+        details[`k${i}`] = `v${i}`;
+    }
+    
+    return {
+        complete,
+        details,
+        id,
+        playthroughId: '123',
     }
 }

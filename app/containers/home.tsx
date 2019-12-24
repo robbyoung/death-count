@@ -78,8 +78,8 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
     }
 
     private addDeath() {
+        const action = addDeathAction(this.state.playthrough.id);
+        store.dispatch(action);
         this.props.navigation.navigate(Screens.NewDeath);
-        // const action = addDeathAction(this.state.playthrough.id);
-        // store.dispatch(action);
     }
 }

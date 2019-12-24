@@ -14,13 +14,15 @@ export function addDeathAction(playthroughId: string): AddDeathAction {
         newDeath: {
             id: uuid.v4(),
             playthroughId: playthroughId,
+            complete: false,
+            details: {},
         },
     };
 }
 
 export function addDeath(state: Death[], action: AddDeathAction): Death[] {
     return [
-        ...state,
+        ...state.filter(death => death.complete),
         action.newDeath,
     ]
 }

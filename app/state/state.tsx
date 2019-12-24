@@ -20,6 +20,8 @@ export interface Playthrough {
 export interface Death {
     id: string;
     playthroughId: string;
+    complete: boolean;
+    details: { [id: string] : string };
 }
 
 export interface State {

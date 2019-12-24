@@ -3,7 +3,9 @@ import { State } from '../state'
 import { getSelectedGame } from './games';
 import { getSelectedPlaythrough, getAllPlaythroughs } from './playthroughs';
 
-export const getAllDeaths = (state: State) => state.deaths;
+export const getAllDeaths = (state: State) => state.deaths.filter((death) => death.complete);
+
+export const getIncompleteDeath = (state: State) => state.deaths.find((death) => !death.complete);
 
 export const getDeathsForCurrentPlaythrough = createSelector(
     [getAllDeaths, getSelectedPlaythrough],

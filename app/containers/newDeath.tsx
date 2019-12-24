@@ -2,8 +2,10 @@ import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
-import { Game, DeathOptions } from '../state';
+import { Game, DeathOptions, Death } from '../state';
 import { backgroundColor, white, buttonColor } from '../colors';
+import { getSelectedGame } from '../selectors/games';
+import { getIncompleteDeath } from '../selectors/deaths';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -17,7 +19,7 @@ const styles = StyleSheet.create({
 
 interface NewDeathState {
     options: DeathOptions[];
-    game: Game;
+    death: Death;
 }
 export default class NewDeath extends Component<NavigationInjectedProps, NewDeathState> {
     private unsubscribe = () => undefined;
@@ -50,6 +52,11 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
     }
 
     private refreshState() {
+        const state = store.getState();
+        this.setState({
+            options: getSelectedGame(state).options,
+            death: getIncompleteDeath(state),
+        })
     }
 
 }
