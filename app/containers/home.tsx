@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
+import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
 import { Death, Playthrough, Game } from '../state';
 import { getAllDeaths } from '../selectors/deaths';
@@ -7,7 +8,7 @@ import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
 import { addDeathAction } from '../actions';
 import DeathButton from '../components/deathButton';
-import { backgroundColor } from '../colors';
+import { backgroundColor, white, buttonColor } from '../colors';
 import InfoDisplay from '../components/infoDisplay';
 
 const styles = StyleSheet.create({
@@ -15,6 +16,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: backgroundColor,
         height: '100%',
+    },
+    header: {
+        backgroundColor: buttonColor,
     }
 })
 
@@ -23,8 +27,16 @@ interface HomeState {
     playthrough: Playthrough;
     game: Game;
 }
-export default class Home extends Component<{}, HomeState> {
+export default class Home extends Component<NavigationInjectedProps, HomeState> {
     private unsubscribe = () => undefined;
+
+    public static navigationOptions = () => {
+		return {
+            title: 'Death Counter',
+            headerTintColor: white,
+            headerStyle: styles.header,
+        };
+    };
 
     public componentDidMount() {
         this.refreshState();
