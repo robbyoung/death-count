@@ -1,14 +1,14 @@
 import deathsReducer from '../../app/reducers/deaths';
 import { createTestDeath } from '../../app/state';
-import { addDeathDetailAction } from '../../app/actions';
+import { completeDeathAction } from '../../app/actions';
 
-describe('Add Death Detail Action', () => {
-    it('can add a detail to an incomplete death', () => {
+describe('Complete Death Action', () => {
+    it('can mark an incomplete death as complete', () => {
         const death = createTestDeath(false);
-        const action = addDeathDetailAction('k0', 'v0');
+        const action = completeDeathAction();
         const state = [death];
         const newState = deathsReducer(state, action);
-        expect(newState).toEqual([createTestDeath(false, death.id, 1)]);
+        expect(newState).toEqual([createTestDeath(true, death.id)]);
         expect(state).toEqual([createTestDeath(false, death.id)]);
     });
 });

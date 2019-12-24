@@ -1,5 +1,5 @@
 import deathsReducer from '../../app/reducers/deaths';
-import {addDeathAction} from '../../app/actions/addDeath';
+import { addDeathAction } from '../../app/actions';
 import { createTestDeath } from '../../app/state';
 
 describe('Add Death Action', () => {
