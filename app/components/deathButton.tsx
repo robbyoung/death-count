@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { white, buttonColor } from '../colors';
 import FontAwesome, {SolidIcons} from 'react-native-fontawesome';

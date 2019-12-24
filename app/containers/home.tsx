@@ -8,9 +8,11 @@ import { getSelectedPlaythrough } from '../selectors/playthroughs';
 import { addDeathAction } from '../actions';
 import DeathButton from '../components/deathButton';
 import { backgroundColor } from '../colors';
+import InfoDisplay from '../components/infoDisplay';
 
 const styles = StyleSheet.create({
     homeScreen: {
+        justifyContent: 'center',
         backgroundColor: backgroundColor,
         height: '100%',
     }
@@ -42,10 +44,14 @@ export default class Home extends Component<void, HomeState> {
 
         return (
             <View style={styles.homeScreen}>
-                <Text>{this.state.playthrough.name}</Text>
-                <Text>Playing {this.state.game.name}</Text>
-                <Text>{this.state.deaths.length} deaths so far</Text>
-                <DeathButton onPress={() => this.addDeath()}></DeathButton>
+                <DeathButton
+                    onPress={() => this.addDeath()}>
+                </DeathButton>
+                <InfoDisplay
+                    deaths={this.state.deaths}
+                    currentGame={this.state.game}
+                    currentPlaythrough={this.state.playthrough}>
+                </InfoDisplay>
             </View>
         );
     }
