@@ -4,8 +4,9 @@ import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionList from '../components/optionList';
-import { addDeathDetailAction, completeDeathAction } from '../actions';
+import { addDeathDetailAction, completeDeathAction, addOptionAction } from '../actions';
 import { getOptionsForNewDeath } from '../selectors';
+import OptionInput from '../components/optionInput';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         color: white,
         margin: 10,
-        fontWeight: 'bold',  
+        fontWeight: 'bold',
     }
 })
 
@@ -31,7 +32,7 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
     private unsubscribe = () => undefined;
 
     public static navigationOptions = () => {
-		return {
+        return {
             title: 'New Death',
             headerTintColor: white,
             headerStyle: styles.header,
@@ -50,7 +51,7 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
     }
 
     public render() {
-        if(!this.state) {
+        if (!this.state) {
             return (<View><Text>Invalid state</Text></View>)
         }
 
@@ -59,7 +60,11 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
                 <Text style={styles.title}>{this.state.title}</Text>
                 <OptionList
                     options={this.state.options}
-                    onSelect={(option) => this.addDetail(option)}></OptionList>
+                    onSelect={(option) => this.addDetail(option)}>
+                </OptionList>
+                <OptionInput
+                    onSubmit={(option) => this.newOption(option)}>
+                </OptionInput>
             </ScrollView>
         );
     }
@@ -73,10 +78,16 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
             this.setState(unfinishedOptions);
         }
     }
-    
+
     private addDetail(detail: string) {
         const action = addDeathDetailAction(this.state.title, detail);
         store.dispatch(action);
+    }
+
+    private newOption(option: string) {
+        const action = addOptionAction(this.state.title, option);
+        store.dispatch(action);
+        this.addDetail(option);
     }
 
     private completeAndReturn() {
