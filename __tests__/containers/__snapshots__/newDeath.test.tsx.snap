@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`New Death Container Renders with game and incomplete death in the state 1`] = `
+<RCTScrollView
+  style={
+    Object {
+      "backgroundColor": "#592a29",
+      "height": "100%",
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "fontWeight": "bold",
+          "margin": 10,
+        }
+      }
+    >
+      Death Options
+    </Text>
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#e84641",
+            "borderBottomColor": "#592a29",
+            "borderBottomWidth": 2,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 22,
+              "margin": 10,
+            }
+          }
+        >
+          one
+        </Text>
+      </View>
+    </View>
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#e84641",
+            "borderBottomColor": "#592a29",
+            "borderBottomWidth": 2,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 22,
+              "margin": 10,
+            }
+          }
+        >
+          two
+        </Text>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;

@@ -6,11 +6,11 @@ import { addGameAction, addPlaythroughAction } from '../../app/actions';
 
 describe('Home Container', () => {
     it('Renders with the empty initial state', () => {
-        const component = renderer.create(<Home />);
+        const component = renderer.create(<Home navigation={{} as any} />);
         expect(component.toJSON()).toMatchSnapshot();
     });
 
-    it('Renders with game and playthrough in the state', async () => {
+    it('Renders with game and playthrough in the state', () => {
         const gameAction = addGameAction('Test Game');
         const playthroughAction = addPlaythroughAction('Test Playthrough', gameAction.newGame.id);
         gameAction.newGame.selected = true;
@@ -19,7 +19,7 @@ describe('Home Container', () => {
         store.dispatch(playthroughAction);
         store.dispatch(gameAction);
         
-        const component = renderer.create(<Home />);
+        const component = renderer.create(<Home navigation={{} as any} />);
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

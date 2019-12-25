@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import React, { Component } from 'react';
-import { NavigationInjectedProps, ScrollView } from 'react-navigation';
+import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionList from '../components/optionList';
