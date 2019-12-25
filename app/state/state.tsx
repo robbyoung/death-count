@@ -6,7 +6,7 @@ export interface Game {
 }
 
 export interface DeathOptions {
-    name: string;
+    title: string;
     options: string[];
 }
 

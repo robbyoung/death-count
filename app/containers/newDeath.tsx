@@ -2,10 +2,11 @@ import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
-import { Game, DeathOptions, Death } from '../state';
 import { backgroundColor, white, buttonColor } from '../colors';
 import { getSelectedGame } from '../selectors/games';
-import { getIncompleteDeath } from '../selectors/deaths';
+import OptionList from '../components/optionList';
+import { addDeathDetailAction, completeDeathAction } from '../actions';
+import { getOptionsForNewDeath } from '../selectors';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -18,8 +19,8 @@ const styles = StyleSheet.create({
 })
 
 interface NewDeathState {
-    options: DeathOptions[];
-    death: Death;
+    title: string;
+    options: string[];
 }
 export default class NewDeath extends Component<NavigationInjectedProps, NewDeathState> {
     private unsubscribe = () => undefined;
@@ -44,19 +45,39 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
     }
 
     public render() {
+        if(!this.state) {
+            return (<View><Text>Invalid state</Text></View>)
+        }
+
         return (
             <View style={styles.newDeathScreen}>
-                <Text>Hello</Text>
+                <Text>{this.state.title}</Text>
+                <OptionList
+                    options={this.state.options}
+                    onSelect={(option) => this.addDetail(option)}></OptionList>
             </View>
         );
     }
 
     private refreshState() {
         const state = store.getState();
-        this.setState({
-            options: getSelectedGame(state).options,
-            death: getIncompleteDeath(state),
-        })
+        const unfinishedOptions = getOptionsForNewDeath(state);
+        if (unfinishedOptions === undefined) {
+            this.completeAndReturn();
+        } else {
+            this.setState(unfinishedOptions);
+        }
+    }
+    
+    private addDetail(detail: string) {
+        const action = addDeathDetailAction(this.state.title, detail);
+        store.dispatch(action);
     }
 
+    private completeAndReturn() {
+        this.unsubscribe();
+        const action = completeDeathAction();
+        store.dispatch(action);
+        this.props.navigation.goBack();
+    }
 }
