@@ -1,16 +1,17 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React, { Component } from 'react';
-import { white, buttonColor } from '../colors';
+import { white, buttonColor, backgroundColor } from '../colors';
 
 const styles = StyleSheet.create({
     row: {
         backgroundColor: buttonColor,
-
+        borderBottomColor: backgroundColor,
+        borderBottomWidth: 2,
     },
     text: {
         color: white,
         fontSize: 22,
-        height: 30,
+        margin: 10,
     }
 });
 

@@ -1,9 +1,8 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
-import { NavigationInjectedProps } from 'react-navigation';
+import { NavigationInjectedProps, ScrollView } from 'react-navigation';
 import store from '../store';
 import { backgroundColor, white, buttonColor } from '../colors';
-import { getSelectedGame } from '../selectors/games';
 import OptionList from '../components/optionList';
 import { addDeathDetailAction, completeDeathAction } from '../actions';
 import { getOptionsForNewDeath } from '../selectors';
@@ -15,6 +14,12 @@ const styles = StyleSheet.create({
     },
     header: {
         backgroundColor: buttonColor,
+    },
+    title: {
+        fontSize: 22,
+        color: white,
+        margin: 10,
+        fontWeight: 'bold',  
     }
 })
 
@@ -50,12 +55,12 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
         }
 
         return (
-            <View style={styles.newDeathScreen}>
-                <Text>{this.state.title}</Text>
+            <ScrollView style={styles.newDeathScreen}>
+                <Text style={styles.title}>{this.state.title}</Text>
                 <OptionList
                     options={this.state.options}
                     onSelect={(option) => this.addDetail(option)}></OptionList>
-            </View>
+            </ScrollView>
         );
     }
 
