@@ -5,8 +5,8 @@ describe('Add Game Action', () => {
     it('can add a death to an empty list', () => {
         const action = addGameAction('test action');
         const state = [];
-        const newState = gamesReducer([], action);
+        const newState = gamesReducer(state, action);
         expect(newState).toEqual([action.newGame]);
-        expect(state).not.toEqual(newState);
+        expect(state).toEqual([]);
     });
 })

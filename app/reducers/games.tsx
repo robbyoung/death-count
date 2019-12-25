@@ -1,6 +1,6 @@
 import { Action } from 'redux';
 import { Game, createTestState } from '../state';
-import { ActionType, addGame, AddGameAction } from '../actions';
+import { ActionType, addGame, AddGameAction, AddOptionAction, addOption } from '../actions';
 
 export default function gamesReducer(
     // state: Game[] = createTestState(1, 1, 0, 0, 0).games,
@@ -10,6 +10,8 @@ export default function gamesReducer(
     switch (action.type) {
         case ActionType.ADD_GAME:
             return addGame(state, action as AddGameAction);
+        case ActionType.ADD_OPTION:
+            return addOption(state, action as AddOptionAction);
         default:
             return state;
     }

@@ -47,6 +47,26 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
     }
 }
 
+export function createTestGame(selected: boolean, numOptionSets: number, numOptionsInSet: number, id: string = uuid.v4()): Game {
+    const options: DeathOptions[] = [];
+    for(var i = 0; i < numOptionSets; i++) {
+        options[i] = {
+            title: `Set ${i}`,
+            options: [],
+        };
+        for(var j = 0; j < numOptionsInSet; j++) {
+            options[i].options.push(`Option ${j}`);
+        }
+    }
+    
+    return {
+        name: 'Test Game',
+        id,
+        selected,
+        options,
+    }
+}
+
 export function createTestDeath(complete: boolean, id: string = uuid.v4(), numDetails: number = 0): Death {
     const details = {};
     for(var i = 0; i < numDetails; i++) {

@@ -9,7 +9,7 @@ describe('Add Death Action', () => {
         const state = [];
         const newState = deathsReducer(state, action);
         expect(newState).toEqual([action.newDeath]);
-        expect(state).not.toEqual(newState);
+        expect(state).toEqual([]);
     });
 
     it('put deaths at the end of the list', () => {
@@ -19,7 +19,7 @@ describe('Add Death Action', () => {
         const state = [death1, death2];
         const newState = deathsReducer(state, action);
         expect(newState).toEqual([death1, death2, action.newDeath]);
-        expect(state).not.toEqual(newState);
+        expect(state).toEqual([createTestDeath(true, death1.id), createTestDeath(true, death2.id)]);
     });
 
     it('will remove other incomplete deaths', () => {
@@ -29,6 +29,6 @@ describe('Add Death Action', () => {
         const state = [complete, incomplete];
         const newState = deathsReducer(state, action);
         expect(newState).toEqual([complete, action.newDeath]);
-        expect(state).not.toEqual(newState);
+        expect(state).toEqual([createTestDeath(true, complete.id), createTestDeath(false, incomplete.id)]);
     });
 });
