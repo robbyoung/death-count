@@ -104,8 +104,10 @@ exports[`New Death Container Renders with game and incomplete death in the state
       style={
         Object {
           "alignContent": "center",
+          "borderRadius": 5,
           "flexDirection": "row",
           "justifyContent": "center",
+          "padding": 5,
           "width": "100%",
         }
       }
@@ -113,10 +115,17 @@ exports[`New Death Container Renders with game and incomplete death in the state
       <TextInput
         allowFontScaling={true}
         onChangeText={[Function]}
+        placeholder="Add a new option"
         rejectResponderTermination={true}
         style={
           Object {
             "backgroundColor": "#ffffff",
+            "borderBottomLeftRadius": 10,
+            "borderTopLeftRadius": 10,
+            "flexGrow": 100,
+            "fontSize": 22,
+            "height": 50,
+            "paddingLeft": 10,
           }
         }
         underlineColorAndroid="transparent"
@@ -150,13 +159,14 @@ exports[`New Death Container Renders with game and incomplete death in the state
               },
               Object {
                 "backgroundColor": "#e84641",
-                "borderRadius": 2,
+                "borderBottomRightRadius": 10,
+                "borderTopRightRadius": 10,
                 "color": "#ffffff",
                 "fontSize": 25,
-                "height": 30,
+                "height": 50,
                 "textAlign": "center",
                 "textAlignVertical": "center",
-                "width": 30,
+                "width": 50,
               },
               Object {
                 "fontFamily": "FontAwesome5FreeSolid",
@@ -164,7 +174,7 @@ exports[`New Death Container Renders with game and incomplete death in the state
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>

@@ -11,4 +11,13 @@ describe('Add Option Action', () => {
         expect(newState).toEqual([createTestOptionSet(2, optionSet.id)]);
         expect(state).toEqual([createTestOptionSet(1, optionSet.id)]);
     });
+
+    it('will not create duplicate options', () => {
+        const optionSet = createTestOptionSet(1)
+        const action = addOptionAction(optionSet.id, 'Option 0');
+        const state = [optionSet];
+        const newState = optionsReducer(state, action);
+        expect(newState).toEqual([createTestOptionSet(1, optionSet.id)]);
+        expect(state).toEqual([createTestOptionSet(1, optionSet.id)]);
+    });
 })

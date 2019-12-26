@@ -87,9 +87,11 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
     }
 
     private newOption(option: string) {
-        const action = addOptionAction(this.state.id, option);
-        store.dispatch(action);
-        this.addDetail(option);
+        if (option !== '') {
+            const action = addOptionAction(this.state.id, option);
+            store.dispatch(action);
+            this.addDetail(option);
+        }
     }
 
     private completeAndReturn() {
