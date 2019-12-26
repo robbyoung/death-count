@@ -5,7 +5,7 @@ import store from '../store';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionList from '../components/optionList';
 import { addDeathDetailAction, completeDeathAction, addOptionAction } from '../actions';
-import { getOptionsForNewDeath } from '../selectors';
+import { getOptionSetForNewDeath } from '../selectors';
 import OptionInput from '../components/optionInput';
 
 const styles = StyleSheet.create({
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 })
 
 interface NewDeathState {
+    id: string;
     title: string;
     options: string[];
 }
@@ -71,7 +72,7 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
 
     private refreshState() {
         const state = store.getState();
-        const unfinishedOptions = getOptionsForNewDeath(state);
+        const unfinishedOptions = getOptionSetForNewDeath(state);
         if (unfinishedOptions === undefined) {
             this.completeAndReturn();
         } else {
@@ -85,7 +86,7 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
     }
 
     private newOption(option: string) {
-        const action = addOptionAction(this.state.title, option);
+        const action = addOptionAction(this.state.id, option);
         store.dispatch(action);
         this.addDetail(option);
     }

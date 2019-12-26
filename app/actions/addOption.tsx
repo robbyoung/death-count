@@ -1,42 +1,34 @@
-import { Game } from '../state';
+import { OptionSet } from '../state';
 import { Action } from 'redux';
 import { ActionType } from './actionTypes';
 
 export interface AddOptionAction extends Action {
     type: ActionType.ADD_OPTION;
-    title: string,
+    id: string,
     value: string,
 }
 
-export function addOptionAction(title: string, value: string): AddOptionAction {
+export function addOptionAction(id: string, value: string): AddOptionAction {
     return {
         type: ActionType.ADD_OPTION,
-        title,
+        id,
         value,
     };
 }
 
-export function addOption(state: Game[], action: AddOptionAction): Game[] {
-    const selectedIndex = state.findIndex(game => game.selected);
-    const oldGame = state[selectedIndex];
-    const optionsIndex = state[selectedIndex].options.findIndex(optionSet => optionSet.title === action.title);
-    const oldOptions = oldGame.options[optionsIndex].options;
-
-    const editedGame: Game = {
-        ...oldGame,
-        options: [ ...oldGame.options ],
-    }
-    editedGame.options[optionsIndex] = {
-        title: action.title,
-        options: [
-            ...oldOptions,
-            action.value,
-        ],
-    };
+export function addOption(state: OptionSet[], action: AddOptionAction): OptionSet[] {
+    const optionsIndex = state.findIndex(optionSet => optionSet.id === action.id);
+    const options = [
+        ...state[optionsIndex].options,
+        action.value,
+    ];
 
     const newState = [
         ...state
     ];
-    newState[selectedIndex] = editedGame;
+    newState[optionsIndex] = {
+        ...state[optionsIndex],
+        options,
+    };
     return newState;
 }

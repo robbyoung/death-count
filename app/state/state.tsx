@@ -1,13 +1,7 @@
 export interface Game {
     id: string;
     name: string;
-    options: DeathOptions[];
     selected: boolean;
-}
-
-export interface DeathOptions {
-    title: string;
-    options: string[];
 }
 
 export interface Playthrough {
@@ -24,8 +18,16 @@ export interface Death {
     details: { [id: string] : string };
 }
 
+export interface OptionSet {
+    id: string;
+    gameId: string;
+    title: string;
+    options: string[];
+}
+
 export interface State {
     games: Game[];
     playthroughs: Playthrough[];
     deaths: Death[];
+    optionSets: OptionSet[];
 }

@@ -1,21 +1,12 @@
 import uuid from 'uuid';
-import { State, Game, Playthrough, Death, DeathOptions } from './state'
+import { State, Game, Playthrough, Death, OptionSet } from './state'
 
 export function createTestState(gameCount: number, playthroughCount: number, deathCount: number, currentGame: number, currentPlaythrough: number): State {
-    const options: DeathOptions[] = [];
-    for (var i = 0; i < 3; i++) {
-        options.push({
-            title: `Option Set ${i}`,
-            options: ['Option 1', 'Option 2', 'Option 3']
-        });
-    }
-
     const games: Game[] = [];
     for (var i = 0; i < gameCount; i++) {
         games.push({
             id: `g${i}`,
             name: `Game ${i}`,
-            options,
             selected: currentGame === i,
         });
     }
@@ -40,30 +31,22 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
         });
     }
 
+    const numOptionSets = gameCount * 3;
+    const optionSets: OptionSet[] = [];
+    for (var i = 0; i < numOptionSets; i++) {
+        optionSets.push({
+            title: `Option Set ${i / gameCount}`,
+            options: ['Option 1', 'Option 2', 'Option 3'],
+            gameId: `g${i % gameCount}`,
+            id: `o${i}`
+        });
+    }
+
     return {
         games,
         playthroughs,
         deaths,
-    }
-}
-
-export function createTestGame(selected: boolean, numOptionSets: number, numOptionsInSet: number, id: string = uuid.v4()): Game {
-    const options: DeathOptions[] = [];
-    for(var i = 0; i < numOptionSets; i++) {
-        options[i] = {
-            title: `Set ${i}`,
-            options: [],
-        };
-        for(var j = 0; j < numOptionsInSet; j++) {
-            options[i].options.push(`Option ${j}`);
-        }
-    }
-    
-    return {
-        name: 'Test Game',
-        id,
-        selected,
-        options,
+        optionSets,
     }
 }
 
@@ -79,4 +62,18 @@ export function createTestDeath(complete: boolean, id: string = uuid.v4(), numDe
         id,
         playthroughId: '123',
     }
+}
+
+export function createTestOptionSet(numOptions: number, id: string = uuid.v4()): OptionSet {
+    const options = [];
+    for (var i = 0; i < numOptions; i++) {
+        options.push(`Option ${i}`)
+    }
+
+    return {
+        title: 'Test Options',
+        id,
+        gameId: 'g0',
+        options,
+    };
 }

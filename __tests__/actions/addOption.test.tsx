@@ -1,14 +1,14 @@
 import { addOptionAction } from '../../app/actions';
-import gamesReducer from '../../app/reducers/games';
-import { createTestGame } from '../../app/state';
+import { createTestOptionSet } from '../../app/state';
+import optionsReducer from '../../app/reducers/options';
 
 describe('Add Option Action', () => {
-    it('can add an option to a game with one option set', () => {
-        const testGame = createTestGame(true, 1, 1);
-        const action = addOptionAction(testGame.options[0].title, 'Option 1');
-        const state = [testGame];
-        const newState = gamesReducer(state, action);
-        expect(newState).toEqual([createTestGame(true, 1, 2, testGame.id)]);
-        expect(state).toEqual([createTestGame(true, 1, 1, testGame.id)]);
+    it('can add an option to an option set', () => {
+        const optionSet = createTestOptionSet(1)
+        const action = addOptionAction(optionSet.id, 'Option 1');
+        const state = [optionSet];
+        const newState = optionsReducer(state, action);
+        expect(newState).toEqual([createTestOptionSet(2, optionSet.id)]);
+        expect(state).toEqual([createTestOptionSet(1, optionSet.id)]);
     });
 })

@@ -14,7 +14,6 @@ export function addGameAction(name: string): AddGameAction {
         newGame: {
             name,
             id: uuid.v4(),
-            options: [],
             selected: false,
         }
     };

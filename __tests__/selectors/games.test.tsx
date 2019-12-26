@@ -6,8 +6,8 @@ describe('Game Selectors', () => {
         const state = createTestState(2, 5, 10, 0, 0);
         const result = getAllGames(state);
         expect(result.length).toBe(2);
-        result.forEach((playthrough, index) => {
-            expect(playthrough.id).toBe(`g${index}`);
+        result.forEach((game, index) => {
+            expect(game.id).toBe(`g${index}`);
         });
     });
 
