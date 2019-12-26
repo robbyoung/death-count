@@ -1,4 +1,4 @@
-import { addGameAction, selectGameAction } from '../../app/actions';
+import { selectGameAction } from '../../app/actions';
 import gamesReducer from '../../app/reducers/games';
 import { createTestState } from '../../app/state';
 

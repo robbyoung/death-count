@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 
 interface OptionListProps {
     options: string[];
-    onSelect: (string) => void;
+    onSelect: (string, index) => void;
 }
 export default class OptionList extends Component<OptionListProps> {
 
@@ -25,7 +25,7 @@ export default class OptionList extends Component<OptionListProps> {
         const rows = this.props.options.map((option, index) => {
             return (
                 <TouchableOpacity
-                    onPress={() => this.props.onSelect(option)}
+                    onPress={() => this.props.onSelect(option, index)}
                     key={`option ${index}`}>
                     <View style={styles.row}>
                         <Text style={styles.text}>{option}</Text>

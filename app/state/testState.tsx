@@ -35,7 +35,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
     const optionSets: OptionSet[] = [];
     for (var i = 0; i < numOptionSets; i++) {
         optionSets.push({
-            title: `Option Set ${i / gameCount}`,
+            title: `Option Set ${Math.floor(i / gameCount)}`,
             options: ['Option 1', 'Option 2', 'Option 3'],
             gameId: `g${i % gameCount}`,
             id: `o${i}`

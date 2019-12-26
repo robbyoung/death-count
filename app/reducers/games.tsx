@@ -3,7 +3,7 @@ import { Game, createTestState } from '../state';
 import { ActionType, addGame, AddGameAction, SelectGameAction, selectGame } from '../actions';
 
 export default function gamesReducer(
-    // state: Game[] = createTestState(1, 1, 0, 0, 0).games,
+    // state: Game[] = createTestState(2, 2, 0, 0, 0).games,
     state: Game[] = [],
     action: Action,
 ): Game[] {

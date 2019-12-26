@@ -2,6 +2,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { white, buttonColor } from '../colors';
 import { Game, Playthrough, Death } from '../state';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
     container: {
@@ -33,13 +34,17 @@ interface InfoDisplayProps {
     deaths: Death[];
     currentGame: Game;
     currentPlaythrough: Playthrough;
+    onGamePress: () => void;
 }
 export default class InfoDisplay extends Component<InfoDisplayProps> {
     public render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.text}>{this.props.currentPlaythrough.name}</Text>
-                <Text style={styles.text}>Playing {this.props.currentGame.name}</Text>
+                <TouchableOpacity
+                    onPress={() => this.props.onGamePress()}>
+                    <Text style={styles.text}>Playing {this.props.currentGame.name}</Text>
+                </TouchableOpacity>
                 <View style={styles.deathCountContainer}>
                     <View style={styles.deathCount}>
                         <Text style={styles.text}>{this.props.deaths.length}</Text>

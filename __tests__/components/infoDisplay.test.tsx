@@ -11,6 +11,7 @@ describe('Info Display Component', () => {
             currentGame={testState.games[0]}
             currentPlaythrough={testState.playthroughs[0]}
             deaths={testState.deaths}
+            onGamePress={() => undefined}
         />);
         expect(component.toJSON()).toMatchSnapshot();
     });

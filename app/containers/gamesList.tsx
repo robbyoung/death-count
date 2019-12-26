@@ -4,9 +4,9 @@ import store from '../store';
 import { NavigationInjectedProps } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionList from '../components/optionList';
-import OptionInput from '../components/optionInput';
 import { Game } from '../state';
 import { getAllGames } from '../selectors/games';
+import { selectGameAction } from '../actions';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -46,9 +46,15 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
             <ScrollView style={styles.newDeathScreen}>
                 <OptionList
                     options={this.state.games.map(game => game.name)}
-                    onSelect={(game) => console.error(game)}>
+                    onSelect={(_game, index) => this.onGameSelect(index)}>
                 </OptionList>
             </ScrollView>
         );
+    }
+
+    private onGameSelect(index: number) {
+        const action = selectGameAction(this.state.games[index].id);
+        store.dispatch(action);
+        this.props.navigation.goBack();
     }
 }
