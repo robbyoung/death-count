@@ -7,7 +7,7 @@ import OptionList from '../components/optionList';
 import OptionInput from '../components/optionInput';
 import { Game } from '../state';
 import { getAllGames } from '../selectors/games';
-import { selectGameAction, addGameAction } from '../actions';
+import { selectGameAction, addGameAction, addPlaythrough, addPlaythroughAction } from '../actions';
 import { Screens } from '../screens';
 
 const styles = StyleSheet.create({
@@ -78,8 +78,10 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
     }
 
     private onNewGamePress(name: string) {
-        const action = addGameAction(name);
-        store.dispatch(action);
+        const newGameAction = addGameAction(name);
+        store.dispatch(newGameAction);
+        const newPlaythroughAction = addPlaythroughAction(`${name} Playthrough`, newGameAction.newGame.id);
+        store.dispatch(newPlaythroughAction);
         this.props.navigation.navigate(Screens.NewGame);
     }
 }

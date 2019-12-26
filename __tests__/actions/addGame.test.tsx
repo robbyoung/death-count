@@ -16,6 +16,7 @@ describe('Add Game Action', () => {
         const state = createTestState(2, 2, 0, 1, 1).games;
         const newState = gamesReducer(state, action);
         expect(newState).toEqual([...createTestState(2, 2, 0, -1, 1).games, action.newGame]);
+        expect(newState[2].selected).toBe(true);
         expect(state).toEqual(createTestState(2, 2, 0, 1, 1).games);
     });
 })

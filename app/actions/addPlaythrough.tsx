@@ -15,14 +15,22 @@ export function addPlaythroughAction(name: string, gameId: string): AddPlaythrou
             gameId,
             name,
             id: uuid.v4(),
-            selected: false,
+            selected: true,
         }
     };
 }
 
 export function addPlaythrough(state: Playthrough[], action: AddPlaythroughAction): Playthrough[] {
-    return [
+    const newState = [
         ...state,
-        action.newPlaythrough,
-    ]
+    ];
+
+    const toDeselectIndex = state.findIndex(playthrough => playthrough.selected);
+    const deselected = {
+        ...state[toDeselectIndex],
+        selected: false,
+    };
+    newState[toDeselectIndex] = deselected;
+
+    return [ ...newState, action.newPlaythrough ];
 }
