@@ -11,6 +11,7 @@ import DeathButton from '../components/deathButton';
 import { backgroundColor, white, buttonColor } from '../colors';
 import InfoDisplay from '../components/infoDisplay';
 import { Screens } from '../screens';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
     homeScreen: {
@@ -59,11 +60,14 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
                 <DeathButton
                     onPress={() => this.addDeath()}>
                 </DeathButton>
-                <InfoDisplay
-                    deaths={this.state.deaths}
-                    currentGame={this.state.game}
-                    currentPlaythrough={this.state.playthrough}>
-                </InfoDisplay>
+                <TouchableOpacity
+                    onPress={() => this.props.navigation.navigate(Screens.GamesList)}>
+                    <InfoDisplay
+                        deaths={this.state.deaths}
+                        currentGame={this.state.game}
+                        currentPlaythrough={this.state.playthrough}>
+                    </InfoDisplay>
+                </TouchableOpacity>
             </View>
         );
     }
