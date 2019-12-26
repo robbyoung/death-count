@@ -6,4 +6,5 @@ export enum ActionType {
     COMPLETE_DEATH = 'Complete Death',
     ADD_OPTION = 'Add Option',
     ADD_OPTION_SET = 'Add Option Set',
+    SELECT_GAME = 'Select Game',
 }
