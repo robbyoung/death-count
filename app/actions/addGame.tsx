@@ -14,14 +14,22 @@ export function addGameAction(name: string): AddGameAction {
         newGame: {
             name,
             id: uuid.v4(),
-            selected: false,
+            selected: true,
         }
     };
 }
 
 export function addGame(state: Game[], action: AddGameAction): Game[] {
-    return [
+    const newState = [
         ...state,
-        action.newGame,
     ];
+
+    const toDeselectIndex = state.findIndex(game => game.selected);
+    const deselected = {
+        ...state[toDeselectIndex],
+        selected: false,
+    };
+    newState[toDeselectIndex] = deselected;
+
+    return [ ...newState, action.newGame ];
 }

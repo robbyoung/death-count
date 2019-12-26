@@ -4,9 +4,11 @@ import store from '../store';
 import { NavigationInjectedProps } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionList from '../components/optionList';
+import OptionInput from '../components/optionInput';
 import { Game } from '../state';
 import { getAllGames } from '../selectors/games';
-import { selectGameAction } from '../actions';
+import { selectGameAction, addGameAction } from '../actions';
+import { Screens } from '../screens';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -48,6 +50,10 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
                     options={this.state.games.map(game => game.name)}
                     onSelect={(_game, index) => this.onGameSelect(index)}>
                 </OptionList>
+                <OptionInput
+                    onSubmit={(name) => this.onNewGamePress(name)}
+                    placeholder='Add a new game'>
+                </OptionInput>
             </ScrollView>
         );
     }
@@ -56,5 +62,11 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
         const action = selectGameAction(this.state.games[index].id);
         store.dispatch(action);
         this.props.navigation.goBack();
+    }
+
+    private onNewGamePress(name: string) {
+        const action = addGameAction(name);
+        store.dispatch(action);
+        this.props.navigation.navigate(Screens.NewGame);
     }
 }

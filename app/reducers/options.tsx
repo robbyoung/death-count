@@ -3,8 +3,8 @@ import { ActionType, AddOptionAction, addOption, AddOptionSetAction, addOptionSe
 import { OptionSet, createTestState } from '../state';
 
 export default function optionsReducer(
-    // state: OptionSet[] = createTestState(2, 2, 0, 0, 0).optionSets,
-    state: OptionSet[] = [],
+    state: OptionSet[] = createTestState(2, 2, 0, 0, 0).optionSets,
+    // state: OptionSet[] = [],
     action: Action,
 ): OptionSet[] {
     switch (action.type) {
