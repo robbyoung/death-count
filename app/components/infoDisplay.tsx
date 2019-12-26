@@ -1,8 +1,7 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React, { Component } from 'react';
 import { white, buttonColor } from '../colors';
 import { Game, Playthrough, Death } from '../state';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
     container: {

@@ -86,20 +86,38 @@ exports[`Home Container Renders with game and playthrough in the state 1`] = `
     >
       Test Playthrough
     </Text>
-    <Text
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "borderRadius": 100,
-          "color": "#ffffff",
-          "fontSize": 30,
-          "textAlign": "center",
-          "textAlignVertical": "center",
+          "opacity": 1,
         }
       }
     >
-      Playing 
-      Test Game
-    </Text>
+      <Text
+        style={
+          Object {
+            "borderRadius": 100,
+            "color": "#ffffff",
+            "fontSize": 30,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+          }
+        }
+      >
+        Playing 
+        Test Game
+      </Text>
+    </View>
     <View
       style={
         Object {
