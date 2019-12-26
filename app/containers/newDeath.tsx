@@ -64,7 +64,8 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
                     onSelect={(option) => this.addDetail(option)}>
                 </OptionList>
                 <OptionInput
-                    onSubmit={(option) => this.newOption(option)}>
+                    onSubmit={(option) => this.newOption(option)}
+                    placeholder='Add a new option'>
                 </OptionInput>
             </ScrollView>
         );

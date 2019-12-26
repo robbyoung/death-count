@@ -9,23 +9,33 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignContent: 'center',
+        borderRadius: 5,
+        padding: 5,
     },
     button: {
-        width: 30,
+        width: 50,
         backgroundColor: buttonColor,
-        height: 30,
-        borderRadius: 2,
+        height: 50,
         fontSize: 25,
         textAlign: 'center',
         textAlignVertical: 'center',
         color: white,
+        borderTopRightRadius: 10,
+        borderBottomRightRadius: 10,
     },
     textbox: {
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+        flexGrow: 100,
         backgroundColor: white,
+        fontSize: 22,
+        height: 50,
+        paddingLeft: 10,
     }
 });
 
 interface OptionInputProps {
+    placeholder: string;
     onSubmit: (option: string) => void;
 }
 interface OptionInputState {
@@ -42,11 +52,12 @@ export default class OptionInput extends Component<OptionInputProps, OptionInput
                 <TextInput
                     value={this.state.text}
                     onChangeText={(text) => this.updateText(text)}
-                    style={styles.textbox}>
+                    style={styles.textbox}
+                    placeholder={this.props.placeholder}>
                 </TextInput>
                 <TouchableOpacity
                     onPress={() => this.submitAndClear()}>
-                    <FontAwesome icon={SolidIcons.arrowRight} style={styles.button} />
+                    <FontAwesome icon={SolidIcons.check} style={styles.button} />
                 </TouchableOpacity>
             </View>
         );
