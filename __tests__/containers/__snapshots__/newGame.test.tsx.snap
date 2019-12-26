@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Games List Container Renders with games in the state 1`] = `
+exports[`New Game Container Renders with option sets 1`] = `
 <RCTScrollView
   style={
     Object {
@@ -10,83 +10,59 @@ exports[`Games List Container Renders with games in the state 1`] = `
   }
 >
   <View>
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+    <Text
       style={
         Object {
-          "opacity": 1,
+          "color": "#ffffff",
+          "fontSize": 22,
+          "fontWeight": "bold",
+          "margin": 10,
         }
       }
     >
-      <View
+      Test Game
+    </Text>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#e84641",
+          "borderBottomColor": "#592a29",
+          "borderBottomWidth": 2,
+        }
+      }
+    >
+      <Text
         style={
           Object {
-            "backgroundColor": "#e84641",
-            "borderBottomColor": "#592a29",
-            "borderBottomWidth": 2,
+            "color": "#ffffff",
+            "fontSize": 22,
+            "margin": 10,
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontSize": 22,
-              "margin": 10,
-            }
-          }
-        >
-          Game 1
-        </Text>
-      </View>
+        Set 1
+      </Text>
     </View>
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "backgroundColor": "#e84641",
+          "borderBottomColor": "#592a29",
+          "borderBottomWidth": 2,
         }
       }
     >
-      <View
+      <Text
         style={
           Object {
-            "backgroundColor": "#e84641",
-            "borderBottomColor": "#592a29",
-            "borderBottomWidth": 2,
+            "color": "#ffffff",
+            "fontSize": 22,
+            "margin": 10,
           }
         }
       >
-        <Text
-          style={
-            Object {
-              "color": "#ffffff",
-              "fontSize": 22,
-              "margin": 10,
-            }
-          }
-        >
-          Game 2
-        </Text>
-      </View>
+        Set 2
+      </Text>
     </View>
     <View
       style={
@@ -103,7 +79,7 @@ exports[`Games List Container Renders with games in the state 1`] = `
       <TextInput
         allowFontScaling={true}
         onChangeText={[Function]}
-        placeholder="Add a new game"
+        placeholder="Add a new option set"
         rejectResponderTermination={true}
         style={
           Object {
@@ -170,7 +146,7 @@ exports[`Games List Container Renders with games in the state 1`] = `
 </RCTScrollView>
 `;
 
-exports[`Games List Container Renders with the empty initial state 1`] = `
+exports[`New Game Container Renders without any option sets 1`] = `
 <RCTScrollView
   style={
     Object {
@@ -180,6 +156,18 @@ exports[`Games List Container Renders with the empty initial state 1`] = `
   }
 >
   <View>
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "fontWeight": "bold",
+          "margin": 10,
+        }
+      }
+    >
+      Test Game
+    </Text>
     <View
       style={
         Object {
@@ -195,7 +183,7 @@ exports[`Games List Container Renders with the empty initial state 1`] = `
       <TextInput
         allowFontScaling={true}
         onChangeText={[Function]}
-        placeholder="Add a new game"
+        placeholder="Add a new option set"
         rejectResponderTermination={true}
         style={
           Object {

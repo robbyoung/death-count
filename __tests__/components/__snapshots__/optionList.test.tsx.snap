@@ -1,6 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Options List Component renders correctly 1`] = `
+exports[`Options List Component can render a non-selectable list 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "backgroundColor": "#e84641",
+        "borderBottomColor": "#592a29",
+        "borderBottomWidth": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "margin": 10,
+        }
+      }
+    >
+      one
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#e84641",
+        "borderBottomColor": "#592a29",
+        "borderBottomWidth": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "margin": 10,
+        }
+      }
+    >
+      two
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#e84641",
+        "borderBottomColor": "#592a29",
+        "borderBottomWidth": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "margin": 10,
+        }
+      }
+    >
+      three
+    </Text>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#e84641",
+        "borderBottomColor": "#592a29",
+        "borderBottomWidth": 2,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "margin": 10,
+        }
+      }
+    >
+      four
+    </Text>
+  </View>,
+]
+`;
+
+exports[`Options List Component can render a selectable list 1`] = `
 Array [
   <View
     accessible={true}
