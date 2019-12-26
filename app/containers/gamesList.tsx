@@ -24,6 +24,8 @@ interface GamesListState {
     games: Game[];
 }
 export default class GamesList extends Component<NavigationInjectedProps, GamesListState> {
+    private unsubscribe = () => undefined;
+    
     public static navigationOptions = () => {
         return {
             title: 'Games',
@@ -33,10 +35,14 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
     };
 
     public componentDidMount() {
-        const state = store.getState();
-        this.setState({
-            games: getAllGames(state),
-        })
+        this.refreshState();
+        this.unsubscribe = store.subscribe(
+            () => this.refreshState()
+        );
+    }
+
+    public componentWillUnmount() {
+        this.unsubscribe();
     }
 
     public render() {
@@ -56,6 +62,13 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
                 </OptionInput>
             </ScrollView>
         );
+    }
+
+    private refreshState() {
+        const state = store.getState();
+        this.setState({
+            games: getAllGames(state),
+        });
     }
 
     private onGameSelect(index: number) {

@@ -7,6 +7,7 @@ import { getSelectedGame, getOptionSetsForSelectedGame } from '../selectors';
 import OptionInput from '../components/optionInput';
 import { OptionSet, Game } from '../state';
 import { addOptionSetAction } from '../actions';
+import OptionList from '../components/optionList';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -58,6 +59,9 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
         return (
             <ScrollView style={styles.newDeathScreen}>
                 <Text style={styles.title}>{this.state.game.name}</Text>
+                <OptionList
+                    options={this.state.optionSets.map(set => set.title)}>
+                </OptionList>
                 <OptionInput
                     onSubmit={(name) => this.addOptionSet(name)}
                     placeholder='Add a new option set'>
