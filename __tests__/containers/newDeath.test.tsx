@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import store from '../../app/store';
-import { addGameAction, addPlaythroughAction, addDeathAction } from '../../app/actions';
+import { addGameAction, addPlaythroughAction, addDeathAction, addOptionSetAction } from '../../app/actions';
 import NewDeath from '../../app/containers/newDeath';
 
 const fakeNavigation = {
@@ -11,15 +11,14 @@ const fakeNavigation = {
 describe('New Death Container', () => {
     it('Renders with game and incomplete death in the state', async () => {
         const gameAction = addGameAction('Test Game');
-        const death = addDeathAction('id');
+        const deathAction = addDeathAction('id');
+        const optionSetAction = addOptionSetAction('Death Options', gameAction.newGame.id)
         gameAction.newGame.selected = true;
-        gameAction.newGame.options = [{
-            title: 'Death Options',
-            options: ['one', 'two'],
-        }];
+        optionSetAction.newOptionSet.options = [ 'one', 'two' ];
 
         store.dispatch(gameAction);
-        store.dispatch(death);
+        store.dispatch(deathAction);
+        store.dispatch(optionSetAction);
         
         const component = renderer.create(<NewDeath navigation={fakeNavigation as any} />);
         expect(component.toJSON()).toMatchSnapshot();

@@ -5,3 +5,4 @@ export * from './addGame';
 export * from './addDeathDetail';
 export * from './completeDeath';
 export * from './addOption';
+export * from './addOptionSet';

@@ -100,6 +100,74 @@ exports[`New Death Container Renders with game and incomplete death in the state
         </Text>
       </View>
     </View>
+    <View
+      style={
+        Object {
+          "alignContent": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "width": "100%",
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              Object {
+                "color": undefined,
+              },
+              Object {
+                "backgroundColor": "#e84641",
+                "borderRadius": 2,
+                "color": "#ffffff",
+                "fontSize": 25,
+                "height": 30,
+                "textAlign": "center",
+                "textAlignVertical": "center",
+                "width": 30,
+              },
+              Object {
+                "fontFamily": "FontAwesome5FreeSolid",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
   </View>
 </RCTScrollView>
 `;
