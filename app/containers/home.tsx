@@ -52,8 +52,9 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
 
     public render() {
         if (!this.state || !this.state.game) {
-            return <View><Text>There are no games in the state</Text></View>
+            return <View></View>
         }
+
         return (
             <View style={styles.homeScreen}>
                 <DeathButton
@@ -63,7 +64,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
                     deaths={this.state.deaths}
                     currentGame={this.state.game}
                     currentPlaythrough={this.state.playthrough}
-                    onGamePress={() => this.props.navigation.navigate(Screens.GamesList)}>
+                    onGamePress={() => this.goToGamesList()}>
                 </InfoDisplay>
             </View>
         );
@@ -71,6 +72,10 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
 
     private refreshState() {
         const state = store.getState();
+        if (state.games.length === 0) {
+            this.goToGamesList();
+        }
+
         this.setState({
             deaths: getAllDeaths(state),
             game: getSelectedGame(state),
@@ -82,5 +87,9 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
         const action = addDeathAction(this.state.playthrough.id);
         store.dispatch(action);
         this.props.navigation.navigate(Screens.NewDeath);
+    }
+
+    private goToGamesList() {
+        this.props.navigation.navigate(Screens.GamesList);
     }
 }

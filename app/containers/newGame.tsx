@@ -34,7 +34,7 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
 
     public static navigationOptions = () => {
         return {
-            title: 'New Death',
+            title: 'New Game',
             headerTintColor: white,
             headerStyle: styles.header,
         };
