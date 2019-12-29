@@ -6,6 +6,7 @@ import NewDeath from './containers/newDeath';
 import GamesList from './containers/gamesList';
 import NewGame from './containers/newGame';
 import Loading from './containers/loading';
+import Startup from './containers/startup';
 
 const MainNavigator = createStackNavigator(
 	{
@@ -14,6 +15,7 @@ const MainNavigator = createStackNavigator(
 		NewDeath: {screen: NewDeath},
 		GamesList: { screen: GamesList },
 		NewGame: { screen: NewGame },
+		Startup: {screen: Startup },
 	},
 	{
 		initialRouteName: Screens.Loading,

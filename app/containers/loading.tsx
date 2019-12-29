@@ -7,7 +7,14 @@ import { Screens } from '../screens';
 export default class Loading extends Component<NavigationInjectedProps> {
 
     public componentDidMount() {
-        this.navigateToHome();
+        const state = store.getState();
+        console.dir(state.games)
+        if (state.games.length > 0) {
+            this.navigateWithNoHistory(Screens.Home);
+        } else {
+            this.navigateWithNoHistory(Screens.Startup);
+        }
+        
     }
 
     public render() {
@@ -16,10 +23,10 @@ export default class Loading extends Component<NavigationInjectedProps> {
         );
     }
 
-    private navigateToHome() {
+    private navigateWithNoHistory(screen: Screens) {
 		const resetAction = StackActions.reset({
 			index: 0,
-			actions: [NavigationActions.navigate({ routeName: Screens.Home })],
+			actions: [NavigationActions.navigate({ routeName: screen })],
 		});
 
 		this.props.navigation.dispatch(resetAction);

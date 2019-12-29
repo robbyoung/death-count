@@ -52,7 +52,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
 
     public render() {
         if (!this.state || !this.state.game) {
-            return <View></View>
+            return <View><Text>Invalid state</Text></View>
         }
 
         return (
@@ -72,10 +72,6 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
 
     private refreshState() {
         const state = store.getState();
-        if (state.games.length === 0) {
-            this.goToGamesList();
-        }
-
         this.setState({
             deaths: getAllDeaths(state),
             game: getSelectedGame(state),
