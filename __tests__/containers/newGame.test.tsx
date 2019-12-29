@@ -8,15 +8,17 @@ const fakeNavigation = {
     goBack: () => undefined,
 }
 
+jest.mock('@react-native-community/async-storage', () => ({}));
+
 describe('New Game Container', () => {
-    it('Renders without any option sets', async () => {
+    it('Renders without any option sets', () => {
         store.dispatch(addGameAction('Test Game'));
         
         const component = renderer.create(<NewGame navigation={fakeNavigation as any} />);
         expect(component.toJSON()).toMatchSnapshot();
     });
 
-    it('Renders with option sets', async () => {
+    it('Renders with option sets', () => {
         const gameAction = addGameAction('Test Game');
         store.dispatch(gameAction);
         store.dispatch(addOptionSetAction('Set 1', gameAction.newGame.id));

@@ -15,7 +15,6 @@ export default class Loading extends Component<NavigationInjectedProps> {
         } else {
             this.navigateWithNoHistory(Screens.Startup);
         }
-        
     }
 
     public render() {

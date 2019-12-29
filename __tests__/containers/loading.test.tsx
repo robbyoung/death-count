@@ -19,11 +19,17 @@ jest.mock('react-navigation', () => ({
     }
 }));
 
+jest.mock('../../app/storage', () => ({
+    loadState: () => undefined,
+}));
+
 describe('Loading Container', () => {
     afterEach(() => jest.clearAllMocks());
 
     it('Redirects to the startup screen if there are no games', async () => {
         const component = renderer.create(<Loading navigation={fakeNavigation as any} />);
+        await waitForLoad();
+
         expect(component.toJSON()).toMatchSnapshot();
         expect(NavigationActions.navigate).toHaveBeenCalledWith({ routeName: Screens.Startup });
         expect(StackActions.reset).toHaveBeenCalledTimes(1);
@@ -31,10 +37,17 @@ describe('Loading Container', () => {
 
     it('Redirects to the home screen if there are games', async () => {
         store.dispatch(addGameAction('Test Game'));
-
         const component = renderer.create(<Loading navigation={fakeNavigation as any} />);
+        await waitForLoad();
+
         expect(component.toJSON()).toMatchSnapshot();
         expect(NavigationActions.navigate).toHaveBeenCalledWith({ routeName: Screens.Home });
         expect(StackActions.reset).toHaveBeenCalledTimes(1);
     });
 });
+
+async function waitForLoad() {
+    return new Promise(resolve => {
+        setTimeout(() => resolve(), 0);
+    });
+}

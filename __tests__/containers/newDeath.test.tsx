@@ -8,8 +8,10 @@ const fakeNavigation = {
     goBack: () => undefined,
 }
 
+jest.mock('@react-native-community/async-storage', () => ({}));
+
 describe('New Death Container', () => {
-    it('Renders with game and incomplete death in the state', async () => {
+    it('Renders with game and incomplete death in the state', () => {
         const gameAction = addGameAction('Test Game');
         const deathAction = addDeathAction('id');
         const optionSetAction = addOptionSetAction('Death Options', gameAction.newGame.id)

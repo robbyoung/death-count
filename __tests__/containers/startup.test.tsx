@@ -5,6 +5,7 @@ import Startup from '../../app/containers/startup';
 const fakeNavigation = {
     dispatch: () => undefined,
 }
+jest.mock('@react-native-community/async-storage', () => ({}));
 
 jest.mock('react-navigation', () => ({
     StackActions: {
@@ -16,7 +17,7 @@ jest.mock('react-navigation', () => ({
 }));
 
 describe('Startup Container', () => {
-    it('Renders with nothing in the state', async () => {
+    it('Renders with nothing in the state', () => {
         const component = renderer.create(<Startup navigation={fakeNavigation as any} />);
         expect(component.toJSON()).toMatchSnapshot();
     });

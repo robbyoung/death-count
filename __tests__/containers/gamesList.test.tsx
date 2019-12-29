@@ -7,6 +7,7 @@ import { addGameAction } from '../../app/actions';
 const fakeNavigation = {
     goBack: () => undefined,
 }
+jest.mock('@react-native-community/async-storage', () => ({}));
 
 describe('Games List Container', () => {
     it('Renders with the empty initial state', () => {
