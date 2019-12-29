@@ -2,12 +2,15 @@ import { Action } from 'redux';
 import { Death } from '../state';
 import { ActionType } from '../actions/actionTypes';
 import { addDeath, AddDeathAction, addDeathDetail, AddDeathDetailAction, completeDeath, CompleteDeathAction } from '../actions';
+import { loadDeaths, LoadStateAction } from '../actions/setState';
 
 export default function deathsReducer(
     state: Death[] = [],
     action: Action,
 ): Death[] {
     switch (action.type) {
+        case ActionType.LOAD_STATE:
+            return loadDeaths(state, action as LoadStateAction);
         case ActionType.ADD_DEATH:
             return addDeath(state, action as AddDeathAction);
         case ActionType.ADD_DEATH_DETAIL:

@@ -1,13 +1,15 @@
 import { Action } from 'redux';
-import { Playthrough, createTestState } from '../state';
+import { Playthrough } from '../state';
 import { ActionType, addPlaythrough, AddPlaythroughAction } from '../actions';
+import { loadPlaythroughs, LoadStateAction } from '../actions/setState';
 
 export default function playthroughsReducer(
-    // state: Playthrough[] = createTestState(2, 2, 0, 0, 0).playthroughs,
     state: Playthrough[] = [],
     action: Action,
 ): Playthrough[] {
     switch (action.type) {
+        case ActionType.LOAD_STATE:
+            return loadPlaythroughs(state, action as LoadStateAction);
         case ActionType.ADD_PLAYTHROUGH:
             return addPlaythrough(state, action as AddPlaythroughAction);
         default:
