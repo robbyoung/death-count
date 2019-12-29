@@ -8,6 +8,7 @@ import OptionInput from '../components/optionInput';
 import { OptionSet, Game } from '../state';
 import { addOptionSetAction } from '../actions';
 import OptionList from '../components/optionList';
+import { saveState } from '../storage';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -82,6 +83,7 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
         if (title !== '') {
             const action = addOptionSetAction(title, this.state.game.id);
             store.dispatch(action);
+            void saveState();
         }
     }
 }

@@ -7,6 +7,7 @@ import OptionList from '../components/optionList';
 import { addDeathDetailAction, completeDeathAction, addOptionAction } from '../actions';
 import { getOptionSetForNewDeath } from '../selectors';
 import OptionInput from '../components/optionInput';
+import { saveState } from '../storage';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -98,6 +99,7 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
         this.unsubscribe();
         const action = completeDeathAction();
         store.dispatch(action);
+        void saveState();
         this.props.navigation.goBack();
     }
 }

@@ -3,10 +3,12 @@ import React, { Component } from 'react';
 import { NavigationInjectedProps, StackActions, NavigationActions } from 'react-navigation';
 import store from '../store';
 import { Screens } from '../screens';
+import { loadState } from '../storage';
 
 export default class Loading extends Component<NavigationInjectedProps> {
 
-    public componentDidMount() {
+    public async componentDidMount() {
+        await loadState();
         const state = store.getState();
         if (state.games.length > 0) {
             this.navigateWithNoHistory(Screens.Home);
@@ -29,5 +31,5 @@ export default class Loading extends Component<NavigationInjectedProps> {
 		});
 
 		this.props.navigation.dispatch(resetAction);
-	}
+    }
 }

@@ -6,6 +6,7 @@ import { backgroundColor, white, buttonColor } from '../colors';
 import OptionInput from '../components/optionInput';
 import { addGameAction, addPlaythroughAction } from '../actions';
 import { Screens } from '../screens';
+import { saveState } from '../storage';
 
 const styles = StyleSheet.create({
     startupScreen: {
@@ -54,6 +55,7 @@ export default class Startup extends Component<NavigationInjectedProps> {
         store.dispatch(newGameAction);
         const newPlaythroughAction = addPlaythroughAction(`${name} Playthrough`, newGameAction.newGame.id);
         store.dispatch(newPlaythroughAction);
+        void saveState();
         this.navigateWithNoHistory(Screens.Home);
     }
 

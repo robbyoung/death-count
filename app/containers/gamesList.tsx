@@ -9,6 +9,7 @@ import { Game } from '../state';
 import { getAllGames } from '../selectors/games';
 import { selectGameAction, addGameAction, addPlaythrough, addPlaythroughAction } from '../actions';
 import { Screens } from '../screens';
+import { saveState } from '../storage';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -82,6 +83,7 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
         store.dispatch(newGameAction);
         const newPlaythroughAction = addPlaythroughAction(`${name} Playthrough`, newGameAction.newGame.id);
         store.dispatch(newPlaythroughAction);
+        void saveState();
         this.props.navigation.navigate(Screens.NewGame);
     }
 }

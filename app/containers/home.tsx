@@ -12,6 +12,7 @@ import { backgroundColor, white, buttonColor } from '../colors';
 import InfoDisplay from '../components/infoDisplay';
 import { Screens } from '../screens';
 import { getOptionSetsForSelectedGame } from '../selectors';
+import { saveState } from '../storage';
 
 const styles = StyleSheet.create({
     homeScreen: {
@@ -96,6 +97,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
     private incrementDeathCounter() {
         const action = completeDeathAction();
         store.dispatch(action);
+        saveState();
     }
 
     private goToNewDeath() {
