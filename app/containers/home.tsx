@@ -2,15 +2,16 @@ import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
-import { Death, Playthrough, Game } from '../state';
+import { Death, Playthrough, Game, OptionSet } from '../state';
 import { getAllDeaths } from '../selectors/deaths';
 import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
-import { addDeathAction } from '../actions';
+import { addDeathAction, completeDeathAction } from '../actions';
 import DeathButton from '../components/deathButton';
 import { backgroundColor, white, buttonColor } from '../colors';
 import InfoDisplay from '../components/infoDisplay';
 import { Screens } from '../screens';
+import { getOptionSetsForSelectedGame } from '../selectors';
 
 const styles = StyleSheet.create({
     homeScreen: {
@@ -27,6 +28,7 @@ interface HomeState {
     deaths: Death[];
     playthrough: Playthrough;
     game: Game;
+    options: OptionSet[];
 }
 export default class Home extends Component<NavigationInjectedProps, HomeState> {
     private unsubscribe = () => undefined;
@@ -76,12 +78,27 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
             deaths: getAllDeaths(state),
             game: getSelectedGame(state),
             playthrough: getSelectedPlaythrough(state),
+            options: getOptionSetsForSelectedGame(state),
         });
     }
 
     private addDeath() {
         const action = addDeathAction(this.state.playthrough.id);
         store.dispatch(action);
+
+        if (this.state.options.length > 0) {
+            this.goToNewDeath();
+        } else {
+            this.incrementDeathCounter();
+        }
+    }
+
+    private incrementDeathCounter() {
+        const action = completeDeathAction();
+        store.dispatch(action);
+    }
+
+    private goToNewDeath() {
         this.props.navigation.navigate(Screens.NewDeath);
     }
 
