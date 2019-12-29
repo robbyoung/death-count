@@ -9,6 +9,7 @@ import { OptionSet, Game } from '../state';
 import { addOptionSetAction } from '../actions';
 import OptionList from '../components/optionList';
 import { saveState } from '../storage';
+import Button from '../components/button';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
         color: white,
         margin: 10,
         fontWeight: 'bold',
-    }
+    },
 })
 
 interface NewGameState {
@@ -67,6 +68,9 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
                     onSubmit={(name) => this.addOptionSet(name)}
                     placeholder='Add a new option set'>
                 </OptionInput>
+                <Button
+                    text="Submit"
+                    onPress={() => this.submitGame()}></Button>
             </ScrollView>
         );
     }
@@ -86,4 +90,6 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
             void saveState();
         }
     }
+
+    private submitGame() {}
 }
