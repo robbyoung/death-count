@@ -8,7 +8,6 @@ export default class Loading extends Component<NavigationInjectedProps> {
 
     public componentDidMount() {
         const state = store.getState();
-        console.dir(state.games)
         if (state.games.length > 0) {
             this.navigateWithNoHistory(Screens.Home);
         } else {

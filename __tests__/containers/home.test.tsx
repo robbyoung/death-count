@@ -5,11 +5,6 @@ import store from '../../app/store';
 import { addGameAction, addPlaythroughAction } from '../../app/actions';
 
 describe('Home Container', () => {
-    it('Renders with the empty initial state', () => {
-        const component = renderer.create(<Home navigation={{} as any} />);
-        expect(component.toJSON()).toMatchSnapshot();
-    });
-
     it('Renders with game and playthrough in the state', () => {
         const gameAction = addGameAction('Test Game');
         const playthroughAction = addPlaythroughAction('Test Playthrough', gameAction.newGame.id);

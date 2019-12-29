@@ -170,11 +170,3 @@ exports[`Home Container Renders with game and playthrough in the state 1`] = `
   </View>
 </View>
 `;
-
-exports[`Home Container Renders with the empty initial state 1`] = `
-<View>
-  <Text>
-    There are no games in the state
-  </Text>
-</View>
-`;

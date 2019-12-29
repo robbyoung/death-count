@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Startup Container Renders with nothing in the state 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#592a29",
+      "height": "100%",
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 22,
+        "fontWeight": "bold",
+        "margin": 10,
+      }
+    }
+  >
+    What game are you playing?
+  </Text>
+  <View
+    style={
+      Object {
+        "alignContent": "center",
+        "borderRadius": 5,
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "padding": 5,
+        "width": "100%",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      placeholder=""
+      rejectResponderTermination={true}
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderBottomLeftRadius": 10,
+          "borderTopLeftRadius": 10,
+          "flexGrow": 100,
+          "fontSize": 22,
+          "height": 50,
+          "paddingLeft": 10,
+        }
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+    <View
+      accessible={true}
+      clickable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            Object {
+              "color": undefined,
+            },
+            Object {
+              "backgroundColor": "#e84641",
+              "borderBottomRightRadius": 10,
+              "borderTopRightRadius": 10,
+              "color": "#ffffff",
+              "fontSize": 25,
+              "height": 50,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+              "width": 50,
+            },
+            Object {
+              "fontFamily": "FontAwesome5FreeSolid",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import store from '../../app/store';
-import { addGameAction, addDeathAction, addOptionSetAction } from '../../app/actions';
+import { addGameAction, addOptionSetAction } from '../../app/actions';
 import NewGame from '../../app/containers/newGame';
 
 const fakeNavigation = {

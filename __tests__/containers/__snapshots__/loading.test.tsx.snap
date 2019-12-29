@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading Container Redirects to the home screen if there are games 1`] = `<View />`;
+
+exports[`Loading Container Redirects to the startup screen if there are no games 1`] = `<View />`;
