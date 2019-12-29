@@ -79,6 +79,10 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
     }
 
     private onNewGamePress(name: string) {
+        if (name === '') {
+            return;
+        }
+        
         const newGameAction = addGameAction(name);
         store.dispatch(newGameAction);
         const newPlaythroughAction = addPlaythroughAction(`${name} Playthrough`, newGameAction.newGame.id);
