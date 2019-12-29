@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
 import { Death, Playthrough, Game, OptionSet } from '../state';
-import { getAllDeaths } from '../selectors/deaths';
+import { getAllDeaths, getDeathsForCurrentPlaythrough } from '../selectors/deaths';
 import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
 import { addDeathAction, completeDeathAction } from '../actions';
@@ -76,7 +76,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
     private refreshState() {
         const state = store.getState();
         this.setState({
-            deaths: getAllDeaths(state),
+            deaths: getDeathsForCurrentPlaythrough(state),
             game: getSelectedGame(state),
             playthrough: getSelectedPlaythrough(state),
             options: getOptionSetsForSelectedGame(state),
