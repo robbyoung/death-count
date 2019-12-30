@@ -1,7 +1,6 @@
 import { Action } from 'redux';
 import { Playthrough } from '../state';
-import { ActionType, addPlaythrough, AddPlaythroughAction } from '../actions';
-import { loadPlaythroughs, LoadStateAction } from '../actions/setState';
+import { ActionType, addPlaythrough, AddPlaythroughAction, LoadStateAction, loadPlaythroughs } from '../actions';
 
 export default function playthroughsReducer(
     state: Playthrough[] = [],

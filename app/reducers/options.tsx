@@ -1,7 +1,6 @@
 import { Action } from 'redux';
-import { ActionType, AddOptionAction, addOption, AddOptionSetAction, addOptionSet } from '../actions';
+import { ActionType, AddOptionAction, addOption, AddOptionSetAction, addOptionSet, LoadStateAction, loadOptionSets } from '../actions';
 import { OptionSet } from '../state';
-import { loadOptionSets, LoadStateAction } from '../actions/setState';
 
 export default function optionsReducer(
     state: OptionSet[] = [],

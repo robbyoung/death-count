@@ -4,7 +4,7 @@ import store from '../store';
 import { NavigationInjectedProps, StackActions, NavigationActions } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionInput from '../components/optionInput';
-import { addGameAction, addPlaythroughAction } from '../actions';
+import { addGameAction, addPlaythroughAction, completeGameAction, selectGameAction } from '../actions';
 import { Screens } from '../screens';
 import { saveState } from '../storage';
 
@@ -53,6 +53,8 @@ export default class Startup extends Component<NavigationInjectedProps> {
 
         const newGameAction = addGameAction(name);
         store.dispatch(newGameAction);
+        store.dispatch(completeGameAction());
+        store.dispatch(selectGameAction(newGameAction.newGame.id));
         const newPlaythroughAction = addPlaythroughAction(`${name} Playthrough`, newGameAction.newGame.id);
         store.dispatch(newPlaythroughAction);
         void saveState();

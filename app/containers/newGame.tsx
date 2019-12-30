@@ -1,15 +1,16 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import React, { Component } from 'react';
-import { NavigationInjectedProps } from 'react-navigation';
+import { NavigationInjectedProps, StackActions, NavigationActions } from 'react-navigation';
 import store from '../store';
 import { backgroundColor, white, buttonColor } from '../colors';
-import { getSelectedGame, getOptionSetsForSelectedGame } from '../selectors';
+import { getIncompleteGame, getOptionSetsForIncompleteGame } from '../selectors';
 import OptionInput from '../components/optionInput';
 import { OptionSet, Game } from '../state';
-import { addOptionSetAction } from '../actions';
+import { addOptionSetAction, completeGameAction, selectGameAction } from '../actions';
 import OptionList from '../components/optionList';
 import { saveState } from '../storage';
 import Button from '../components/button';
+import { Screens } from '../screens';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -70,7 +71,7 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
                 </OptionInput>
                 <Button
                     text="Submit"
-                    onPress={() => this.submitGame()}></Button>
+                    onPress={() => this.onSubmit()}></Button>
             </ScrollView>
         );
     }
@@ -78,8 +79,8 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
     private refreshState() {
         const state = store.getState();
         this.setState({
-            game: getSelectedGame(state),
-            optionSets: getOptionSetsForSelectedGame(state),
+            game: getIncompleteGame(state),
+            optionSets: getOptionSetsForIncompleteGame(state),
         });
     }
 
@@ -91,5 +92,19 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
         }
     }
 
-    private submitGame() {}
+    private onSubmit() {
+        const completeAction = completeGameAction();
+        const selectAction = selectGameAction(this.state.game.id);
+        store.dispatch(completeAction);
+        store.dispatch(selectAction);
+        this.navigateToHome();
+    }
+
+    private navigateToHome() {
+		const resetAction = StackActions.reset({
+			index: 0,
+			actions: [NavigationActions.navigate({ routeName: Screens.Home })],
+		});
+		this.props.navigation.dispatch(resetAction);
+    }
 }

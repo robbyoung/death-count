@@ -2,6 +2,7 @@ export interface Game {
     id: string;
     name: string;
     selected: boolean;
+    complete: boolean;
 }
 
 export interface Playthrough {

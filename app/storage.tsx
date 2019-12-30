@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import { State } from './state/state';
-import { loadStateAction } from './actions/setState';
 import store from './store';
+import { loadStateAction } from './actions';
 
 export async function saveState(): Promise<void> {
     const state = store.getState();

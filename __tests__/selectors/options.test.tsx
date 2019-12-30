@@ -1,4 +1,4 @@
-import { getOptionSetForNewDeath, getAllOptionSets, getOptionSetsForSelectedGame } from '../../app/selectors';
+import { getOptionSetForNewDeath, getAllOptionSets, getOptionSetsForSelectedGame, getOptionSetsForIncompleteGame } from '../../app/selectors';
 import { createTestState } from '../../app/state';
 
 describe('Option Selectors', () => {
@@ -16,7 +16,17 @@ describe('Option Selectors', () => {
         const result = getOptionSetsForSelectedGame(state);
         expect(result.length).toBe(3);
         result.forEach((optionSet) => {
-            expect(optionSet.gameId).toBe(`g${0}`);
+            expect(optionSet.gameId).toBe('g0');
+        });
+    });
+
+    it('Can select option sets for an incomplete game', () => {
+        const state = createTestState(2, 5, 10, 0, 0);
+        state.games[1].complete = false;
+        const result = getOptionSetsForIncompleteGame(state);
+        expect(result.length).toBe(3);
+        result.forEach((optionSet) => {
+            expect(optionSet.gameId).toBe('g1');
         });
     });
 

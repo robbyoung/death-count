@@ -11,12 +11,12 @@ describe('Add Game Action', () => {
         expect(state).toEqual([]);
     });
 
-    it('will mark the new game as selected', () => {
+    it('will mark the new game as incomplete', () => {
         const action = addGameAction('test action');
         const state = createTestState(2, 2, 0, 1, 1).games;
         const newState = gamesReducer(state, action);
-        expect(newState).toEqual([...createTestState(2, 2, 0, -1, 1).games, action.newGame]);
-        expect(newState[2].selected).toBe(true);
+        expect(newState).toEqual([...createTestState(2, 2, 0, 1, 1).games, action.newGame]);
+        expect(newState[2].complete).toBe(false);
         expect(state).toEqual(createTestState(2, 2, 0, 1, 1).games);
     });
 })

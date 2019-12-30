@@ -4,13 +4,14 @@ import { NavigationInjectedProps, StackActions, NavigationActions } from 'react-
 import store from '../store';
 import { Screens } from '../screens';
 import { loadState } from '../storage';
+import { getAllGames } from '../selectors/games';
 
 export default class Loading extends Component<NavigationInjectedProps> {
 
     public async componentDidMount() {
         await loadState();
         const state = store.getState();
-        if (state.games.length > 0) {
+        if (getAllGames(state).length > 0) {
             this.navigateWithNoHistory(Screens.Home);
         } else {
             this.navigateWithNoHistory(Screens.Startup);

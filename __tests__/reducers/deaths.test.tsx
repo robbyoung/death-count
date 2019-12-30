@@ -1,6 +1,6 @@
 
 import deathsReducer from '../../app/reducers/deaths';
-import { Death } from '../../app/state';
+import { Death, createTestDeath } from '../../app/state';
 
 describe('Deaths Reducer', () => {
     it('sets the initial state', () => {
@@ -11,8 +11,8 @@ describe('Deaths Reducer', () => {
 
     it('will not change state for unknown actions', () => {
         const action = { type: 'test type' };
-        const state: Death[] = [{ id: '123', playthroughId: '456' }];
+        const state: Death[] = [createTestDeath(true, '123')];
         const newState = deathsReducer(state, action);
-        expect(newState).toEqual(state);
+        expect(newState).toEqual([createTestDeath(true, '123')]);
     });
 });

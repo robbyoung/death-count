@@ -2,7 +2,8 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import GamesList from '../../app/containers/gamesList';
 import store from '../../app/store';
-import { addGameAction } from '../../app/actions';
+import { loadStateAction } from '../../app/actions';
+import { createTestState } from '../../app/state';
 
 const fakeNavigation = {
     goBack: () => undefined,
@@ -16,8 +17,9 @@ describe('Games List Container', () => {
     });
 
     it('Renders with games in the state', () => {
-        store.dispatch(addGameAction('Game 1'));
-        store.dispatch(addGameAction('Game 2'));
+        const state = createTestState(1, 1, 2, 0, 0);
+        const action = loadStateAction(state);
+        store.dispatch(action);
         
         const component = renderer.create(<GamesList navigation={fakeNavigation as any} />);
         expect(component.toJSON()).toMatchSnapshot();

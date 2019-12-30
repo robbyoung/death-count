@@ -7,3 +7,5 @@ export * from './completeDeath';
 export * from './addOption';
 export * from './addOptionSet';
 export * from './selectGame';
+export * from './loadState';
+export * from './completeGame';

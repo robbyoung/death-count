@@ -8,6 +8,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
             id: `g${i}`,
             name: `Game ${i}`,
             selected: currentGame === i,
+            complete: true,
         });
     }
 
@@ -47,6 +48,15 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
         playthroughs,
         deaths,
         optionSets,
+    }
+}
+
+export function createTestGame(complete: boolean, id: string = uuid.v4()): Game {
+    return {
+        complete,
+        id,
+        name: 'Test Game',
+        selected: false,
     }
 }
 

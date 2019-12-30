@@ -12,7 +12,7 @@ export function completeDeathAction(): CompleteDeathAction {
     };
 }
 
-export function completeDeath(state: Death[], action: CompleteDeathAction): Death[] {
+export function completeDeath(state: Death[], _action: CompleteDeathAction): Death[] {
     const incompleteIndex = state.findIndex(death => !death.complete);
     const newState = [
         ...state

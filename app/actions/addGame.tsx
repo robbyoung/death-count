@@ -14,7 +14,8 @@ export function addGameAction(name: string): AddGameAction {
         newGame: {
             name,
             id: uuid.v4(),
-            selected: true,
+            selected: false,
+            complete: false,
         }
     };
 }
@@ -23,13 +24,6 @@ export function addGame(state: Game[], action: AddGameAction): Game[] {
     const newState = [
         ...state,
     ];
-
-    const toDeselectIndex = state.findIndex(game => game.selected);
-    const deselected = {
-        ...state[toDeselectIndex],
-        selected: false,
-    };
-    newState[toDeselectIndex] = deselected;
 
     return [ ...newState, action.newGame ];
 }

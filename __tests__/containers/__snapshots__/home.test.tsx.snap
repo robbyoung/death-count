@@ -84,7 +84,7 @@ exports[`Home Container Renders with game and playthrough in the state 1`] = `
         }
       }
     >
-      Test Playthrough
+      Playthrough 0
     </Text>
     <View
       accessible={true}
@@ -115,7 +115,7 @@ exports[`Home Container Renders with game and playthrough in the state 1`] = `
         }
       >
         Playing 
-        Test Game
+        Game 0
       </Text>
     </View>
     <View

@@ -1,6 +1,6 @@
 import reducer from '../../app/reducers';
 import { createTestState } from '../../app/state';
-import { loadStateAction } from '../../app/actions/setState';
+import { loadStateAction } from '../../app/actions';
 
 describe('Load State Action', () => {
     it('can set the state to a specified value', () => {
