@@ -25,6 +25,48 @@ exports[`New Game Container Renders with option sets 1`] = `
     <View
       style={
         Object {
+          "backgroundColor": "#e84641",
+          "borderBottomColor": "#592a29",
+          "borderBottomWidth": 2,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 22,
+            "margin": 10,
+          }
+        }
+      >
+        Set 1
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#e84641",
+          "borderBottomColor": "#592a29",
+          "borderBottomWidth": 2,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#ffffff",
+            "fontSize": 22,
+            "margin": 10,
+          }
+        }
+      >
+        Set 2
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
           "alignContent": "center",
           "borderRadius": 5,
           "flexDirection": "row",

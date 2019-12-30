@@ -21,9 +21,8 @@ export function addGameAction(name: string): AddGameAction {
 }
 
 export function addGame(state: Game[], action: AddGameAction): Game[] {
-    const newState = [
-        ...state,
+    return [
+        ...state.filter(game => game.complete),
+        action.newGame,
     ];
-
-    return [ ...newState, action.newGame ];
 }

@@ -7,7 +7,7 @@ import OptionList from '../components/optionList';
 import OptionInput from '../components/optionInput';
 import { Game } from '../state';
 import { getAllGames } from '../selectors/games';
-import { selectGameAction, addGameAction, addPlaythrough, addPlaythroughAction } from '../actions';
+import { selectGameAction, addGameAction } from '../actions';
 import { Screens } from '../screens';
 import { saveState } from '../storage';
 
@@ -85,8 +85,6 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
         
         const newGameAction = addGameAction(name);
         store.dispatch(newGameAction);
-        const newPlaythroughAction = addPlaythroughAction(`${name} Playthrough`, newGameAction.newGame.id);
-        store.dispatch(newPlaythroughAction);
         void saveState();
         this.props.navigation.navigate(Screens.NewGame);
     }

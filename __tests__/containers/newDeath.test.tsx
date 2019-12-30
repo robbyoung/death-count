@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import store from '../../app/store';
-import { addGameAction, addDeathAction, addOptionSetAction, loadStateAction } from '../../app/actions';
+import { loadStateAction } from '../../app/actions';
 import NewDeath from '../../app/containers/newDeath';
 import { createTestState } from '../../app/state';
 

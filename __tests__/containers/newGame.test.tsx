@@ -8,6 +8,15 @@ const fakeNavigation = {
     goBack: () => undefined,
 }
 
+jest.mock('react-navigation', () => ({
+    StackActions: {
+        reset: () => undefined,
+    },
+    NavigationActions: {
+        navigate: () => undefined,
+    }
+}));
+
 jest.mock('@react-native-community/async-storage', () => ({}));
 
 describe('New Game Container', () => {

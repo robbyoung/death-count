@@ -6,7 +6,7 @@ import { backgroundColor, white, buttonColor } from '../colors';
 import { getIncompleteGame, getOptionSetsForIncompleteGame } from '../selectors';
 import OptionInput from '../components/optionInput';
 import { OptionSet, Game } from '../state';
-import { addOptionSetAction, completeGameAction, selectGameAction } from '../actions';
+import { addOptionSetAction, completeGameAction, selectGameAction, addPlaythroughAction } from '../actions';
 import OptionList from '../components/optionList';
 import { saveState } from '../storage';
 import Button from '../components/button';
@@ -93,10 +93,11 @@ export default class NewGame extends Component<NavigationInjectedProps, NewGameS
     }
 
     private onSubmit() {
-        const completeAction = completeGameAction();
-        const selectAction = selectGameAction(this.state.game.id);
-        store.dispatch(completeAction);
-        store.dispatch(selectAction);
+        this.unsubscribe();
+
+        store.dispatch(completeGameAction());
+        store.dispatch(selectGameAction(this.state.game.id));
+        store.dispatch(addPlaythroughAction(`${this.state.game.name} Playthrough`, this.state.game.id));
         this.navigateToHome();
     }
 

@@ -20,7 +20,6 @@ export function completeGame(state: Game[], _action: CompleteGameAction): Game[]
     const editedGame: Game = {
         ...state[incompleteIndex],
         complete: true,
-        selected: true,
     }
 
     newState[incompleteIndex] = editedGame;

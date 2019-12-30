@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { StackActions, NavigationActions } from 'react-navigation';
 import Loading from '../../app/containers/loading';
 import { Screens } from '../../app/screens';
-import { addGameAction, loadStateAction } from '../../app/actions';
+import { loadStateAction } from '../../app/actions';
 import store from '../../app/store';
 import { createTestState } from '../../app/state';
 

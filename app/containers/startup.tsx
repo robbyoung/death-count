@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import store from '../store';
-import { NavigationInjectedProps, StackActions, NavigationActions } from 'react-navigation';
+import { NavigationInjectedProps } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionInput from '../components/optionInput';
 import { addGameAction, addPlaythroughAction, completeGameAction, selectGameAction } from '../actions';
@@ -53,20 +53,6 @@ export default class Startup extends Component<NavigationInjectedProps> {
 
         const newGameAction = addGameAction(name);
         store.dispatch(newGameAction);
-        store.dispatch(completeGameAction());
-        store.dispatch(selectGameAction(newGameAction.newGame.id));
-        const newPlaythroughAction = addPlaythroughAction(`${name} Playthrough`, newGameAction.newGame.id);
-        store.dispatch(newPlaythroughAction);
-        void saveState();
-        this.navigateWithNoHistory(Screens.Home);
+        this.props.navigation.navigate(Screens.NewGame);
     }
-
-    private navigateWithNoHistory(screen: Screens) {
-		const resetAction = StackActions.reset({
-			index: 0,
-			actions: [NavigationActions.navigate({ routeName: screen })],
-		});
-
-		this.props.navigation.dispatch(resetAction);
-	}
 }
