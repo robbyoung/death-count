@@ -11,16 +11,9 @@ export const getPlaythroughsForCurrentGame = createSelector(
   }
 )
 
-// export const getSelectedPlaythrough = createSelector(
-//   [getAllPlaythroughs],
-//   (playthroughs) => {
-//       return playthroughs.find(playthrough => playthrough.selected);
-//   }
-// )
-
 export const getSelectedPlaythrough = createSelector(
   [getPlaythroughsForCurrentGame],
   (playthroughs) => {
-    return playthroughs[0];
+      return playthroughs.find(playthrough => playthrough.selected);
   }
 )

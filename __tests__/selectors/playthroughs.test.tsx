@@ -20,9 +20,9 @@ describe('Playthrough Selectors', () => {
         });
     });
 
-    // it('Can select the user-selected playthrough', () => {
-    //     const state = createTestState(4, 5, 10, 0, 4);
-    //     const result = getSelectedPlaythrough(state);
-    //     expect(result.id).toBe('p4');
-    // });
+    it('Can select the user-selected playthrough', () => {
+        const state = createTestState(4, 5, 10, 0, 4);
+        const result = getSelectedPlaythrough(state);
+        expect(result.id).toBe('p4');
+    });
 });

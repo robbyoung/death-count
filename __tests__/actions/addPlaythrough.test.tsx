@@ -12,8 +12,8 @@ describe('Add Playthrough Action', () => {
     });
 
     it('will mark the new playthrough as selected', () => {
-        const action = addPlaythroughAction('test action', 'test id');
         const state = createTestState(2, 2, 0, 1, 1).playthroughs;
+        const action = addPlaythroughAction('test id', state[1].gameId);
         const newState = playthroughsReducer(state, action);
         expect(newState).toEqual([...createTestState(2, 2, 0, 1, -1).playthroughs, action.newPlaythrough]);
         expect(newState[2].selected).toBe(true);

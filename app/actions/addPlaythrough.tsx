@@ -25,12 +25,14 @@ export function addPlaythrough(state: Playthrough[], action: AddPlaythroughActio
         ...state,
     ];
 
-    const toDeselectIndex = state.findIndex(playthrough => playthrough.selected);
-    const deselected = {
-        ...state[toDeselectIndex],
-        selected: false,
-    };
-    newState[toDeselectIndex] = deselected;
+    const toDeselectIndex = state.findIndex(playthrough => playthrough.selected && playthrough.gameId === action.newPlaythrough.gameId);
+    if (toDeselectIndex !== -1) {
+        const deselected = {
+            ...state[toDeselectIndex],
+            selected: false,
+        };
+        newState[toDeselectIndex] = deselected;
+    }
 
     return [ ...newState, action.newPlaythrough ];
 }
