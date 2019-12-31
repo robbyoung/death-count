@@ -67,7 +67,8 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
                     deaths={this.state.deaths}
                     currentGame={this.state.game}
                     currentPlaythrough={this.state.playthrough}
-                    onGamePress={() => this.goToGamesList()}>
+                    onGamePress={() => this.navigateToScreen(Screens.GamesList)}
+                    onPlaythroughPress={() => this.navigateToScreen(Screens.PlaythroughsList)}>
                 </InfoDisplay>
             </View>
         );
@@ -88,7 +89,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
         store.dispatch(action);
 
         if (this.state.options.length > 0) {
-            this.goToNewDeath();
+            this.navigateToScreen(Screens.NewDeath);
         } else {
             this.incrementDeathCounter();
         }
@@ -100,11 +101,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
         saveState();
     }
 
-    private goToNewDeath() {
-        this.props.navigation.navigate(Screens.NewDeath);
-    }
-
-    private goToGamesList() {
-        this.props.navigation.navigate(Screens.GamesList);
+    private navigateToScreen(screen: Screens) {
+        this.props.navigation.navigate(screen);
     }
 }

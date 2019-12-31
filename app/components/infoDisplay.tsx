@@ -34,16 +34,22 @@ interface InfoDisplayProps {
     currentGame: Game;
     currentPlaythrough: Playthrough;
     onGamePress: () => void;
+    onPlaythroughPress: () => void;
 }
 export default class InfoDisplay extends Component<InfoDisplayProps> {
     public render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>{this.props.currentPlaythrough.name}</Text>
+                <TouchableOpacity
+                    onPress={() => this.props.onPlaythroughPress()}>
+                    <Text style={styles.text}>{this.props.currentPlaythrough.name}</Text>
+                </TouchableOpacity>
+
                 <TouchableOpacity
                     onPress={() => this.props.onGamePress()}>
                     <Text style={styles.text}>Playing {this.props.currentGame.name}</Text>
                 </TouchableOpacity>
+
                 <View style={styles.deathCountContainer}>
                     <View style={styles.deathCount}>
                         <Text style={styles.text}>{this.props.deaths.length}</Text>

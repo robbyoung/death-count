@@ -4,7 +4,7 @@ import store from '../store';
 import { NavigationInjectedProps } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionInput from '../components/optionInput';
-import { addGameAction, addPlaythroughAction, completeGameAction, selectGameAction } from '../actions';
+import { addGameAction } from '../actions';
 import { Screens } from '../screens';
 import { saveState } from '../storage';
 
