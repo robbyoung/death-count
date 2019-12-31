@@ -18,6 +18,10 @@ export function addDeathDetailAction(detailKey: string, detailValue: string): Ad
 
 export function addDeathDetail(state: Death[], action: AddDeathDetailAction): Death[] {
     const incompleteIndex = state.findIndex(death => !death.complete);
+    if (incompleteIndex === -1) {
+        return state;
+    }
+
     const newState = [
         ...state
     ];
