@@ -9,3 +9,4 @@ export * from './addOptionSet';
 export * from './selectGame';
 export * from './loadState';
 export * from './completeGame';
+export * from './selectPlaythrough';

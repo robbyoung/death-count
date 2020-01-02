@@ -10,4 +10,12 @@ describe('Select Game Action', () => {
         expect(newState).toEqual(createTestState(2, 5, 10, 1, 0).games);
         expect(state).toEqual(createTestState(2, 5, 10, 0, 0).games);
     });
+
+    it('will leave the state unchanged if the already-selected game is selected', () => {
+        const state = createTestState(2, 5, 10, 0, 0).games;
+        const action = selectGameAction(state[0].id);
+        const newState = gamesReducer(state, action);
+        expect(newState).toEqual(createTestState(2, 5, 10, 0, 0).games);
+        expect(state).toEqual(createTestState(2, 5, 10, 0, 0).games);
+    })
 })

@@ -9,4 +9,5 @@ export enum ActionType {
     SELECT_GAME = 'Select Game',
     LOAD_STATE = 'Load State',
     COMPLETE_GAME = 'Complete Game',
+    SELECT_PLAYTHROUGH = 'Select Playthrough',
 }
