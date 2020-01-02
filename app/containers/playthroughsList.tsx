@@ -7,7 +7,7 @@ import OptionList from '../components/optionList';
 import OptionInput from '../components/optionInput';
 import { Game, Playthrough } from '../state';
 import { getSelectedGame } from '../selectors/games';
-import { addPlaythroughAction } from '../actions';
+import { addPlaythroughAction, selectPlaythroughAction } from '../actions';
 import { saveState } from '../storage';
 import { getPlaythroughsForCurrentGame } from '../selectors';
 
@@ -75,9 +75,9 @@ export default class PlaythroughsList extends Component<NavigationInjectedProps,
     }
 
     private onPlaythroughSelect(index: number) {
-        // const action = selectGameAction(this.state.playthroughs[index].id);
-        // store.dispatch(action);
-        // this.props.navigation.goBack();
+        const action = selectPlaythroughAction(this.state.playthroughs[index].id);
+        store.dispatch(action);
+        this.props.navigation.goBack();
     }
 
     private onNewPlaythroughPress(name: string) {
