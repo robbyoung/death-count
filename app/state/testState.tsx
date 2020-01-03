@@ -39,7 +39,8 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
             title: `Option Set ${Math.floor(i / gameCount)}`,
             options: ['Option 1', 'Option 2', 'Option 3'],
             gameId: `g${i % gameCount}`,
-            id: `o${i}`
+            id: `o${i}`,
+            selected: false,
         });
     }
 
@@ -85,5 +86,6 @@ export function createTestOptionSet(numOptions: number, id: string = uuid.v4()):
         id,
         gameId: 'g0',
         options,
+        selected: false,
     };
 }

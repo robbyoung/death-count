@@ -1,4 +1,4 @@
-import { getOptionSetForNewDeath, getAllOptionSets, getOptionSetsForSelectedGame, getOptionSetsForIncompleteGame } from '../../app/selectors';
+import { getOptionSetForNewDeath, getAllOptionSets, getOptionSetsForSelectedGame, getOptionSetsForIncompleteGame, getSelectedOptionSet } from '../../app/selectors';
 import { createTestState } from '../../app/state';
 
 describe('Option Selectors', () => {
@@ -58,6 +58,22 @@ describe('Option Selectors', () => {
         state.optionSets = [];
         
         const result = getOptionSetForNewDeath(state);
+        expect(result).toBe(undefined);
+    });
+
+    it('Can get the user-selected option set', () => {
+        const state = createTestState(2, 5, 10, 1, 1);
+        state.optionSets[3].selected = true;
+        
+        const result = getSelectedOptionSet(state);
+        expect(result).toBe(state.optionSets[3]);
+    });
+
+    it('Will return undefined if no option sets for the current game are selected', () => {
+        const state = createTestState(2, 5, 10, 1, 1);
+        state.optionSets[0].selected = true;
+        
+        const result = getSelectedOptionSet(state);
         expect(result).toBe(undefined);
     });
 });

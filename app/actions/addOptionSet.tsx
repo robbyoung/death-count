@@ -16,6 +16,7 @@ export function addOptionSetAction(title: string, gameId: string): AddOptionSetA
             options: [],
             gameId,
             title,
+            selected: false,
         }
     };
 }

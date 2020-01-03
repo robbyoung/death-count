@@ -24,7 +24,7 @@ interface StatsState {
     deaths: Death[];
     playthrough: Playthrough;
     game: Game;
-    options: OptionSet[];
+    options: OptionSet;
 }
 export default class Stats extends Component<NavigationInjectedProps, StatsState> {
 
@@ -42,7 +42,7 @@ export default class Stats extends Component<NavigationInjectedProps, StatsState
             deaths: getDeathsForCurrentPlaythrough(state),
             game: getSelectedGame(state),
             playthrough: getSelectedPlaythrough(state),
-            options: getOptionSetsForSelectedGame(state),
+            options: getOptionSetsForSelectedGame(state)[0],
         });
     }
 

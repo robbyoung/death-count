@@ -25,3 +25,10 @@ export const getOptionSetForNewDeath = createSelector(
         return optionSets.find((options => death.details[options.title] === undefined));
     }
 )
+
+export const getSelectedOptionSet = createSelector(
+    [getOptionSetsForSelectedGame],
+    (optionSets) => {
+        return optionSets.find(optionSet => optionSet.selected);
+    }
+)

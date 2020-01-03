@@ -24,6 +24,7 @@ export interface OptionSet {
     gameId: string;
     title: string;
     options: string[];
+    selected: boolean;
 }
 
 export interface State {
