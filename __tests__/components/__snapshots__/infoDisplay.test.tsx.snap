@@ -72,26 +72,57 @@ exports[`Info Display Component renders correctly 1`] = `
     </Text>
   </View>
   <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "alignContent": "center",
-        "flexDirection": "row",
-        "justifyContent": "center",
-        "margin": 20,
+        "opacity": 1,
       }
     }
   >
     <View
       style={
         Object {
-          "backgroundColor": "#e84641",
-          "borderRadius": 25,
-          "color": "#ffffff",
-          "margin": 5,
-          "padding": 10,
+          "alignContent": "center",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "margin": 20,
         }
       }
     >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#e84641",
+            "borderRadius": 25,
+            "color": "#ffffff",
+            "margin": 5,
+            "padding": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "borderRadius": 100,
+              "color": "#ffffff",
+              "fontSize": 30,
+              "textAlign": "center",
+              "textAlignVertical": "center",
+            }
+          }
+        >
+          0
+        </Text>
+      </View>
       <Text
         style={
           Object {
@@ -103,22 +134,9 @@ exports[`Info Display Component renders correctly 1`] = `
           }
         }
       >
-        0
+        Deaths So Far
       </Text>
     </View>
-    <Text
-      style={
-        Object {
-          "borderRadius": 100,
-          "color": "#ffffff",
-          "fontSize": 30,
-          "textAlign": "center",
-          "textAlignVertical": "center",
-        }
-      }
-    >
-      Deaths So Far
-    </Text>
   </View>
 </View>
 `;

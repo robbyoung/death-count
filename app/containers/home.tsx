@@ -68,7 +68,8 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
                     currentGame={this.state.game}
                     currentPlaythrough={this.state.playthrough}
                     onGamePress={() => this.navigateToScreen(Screens.GamesList)}
-                    onPlaythroughPress={() => this.navigateToScreen(Screens.PlaythroughsList)}>
+                    onPlaythroughPress={() => this.navigateToScreen(Screens.PlaythroughsList)}
+                    onDeathsPress={() => this.navigateToScreen(Screens.Stats)}>
                 </InfoDisplay>
             </View>
         );

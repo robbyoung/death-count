@@ -8,6 +8,7 @@ import NewGame from './containers/newGame';
 import Loading from './containers/loading';
 import Startup from './containers/startup';
 import PlaythroughsList from './containers/playthroughsList';
+import Stats from './containers/stats';
 
 const MainNavigator = createStackNavigator(
 	{
@@ -17,7 +18,8 @@ const MainNavigator = createStackNavigator(
 		GamesList: { screen: GamesList },
 		NewGame: { screen: NewGame },
 		Startup: { screen: Startup },
-		PlaythroughsList: { screen: PlaythroughsList }
+		PlaythroughsList: { screen: PlaythroughsList },
+		Stats: { screen: Stats },
 	},
 	{
 		initialRouteName: Screens.Loading,

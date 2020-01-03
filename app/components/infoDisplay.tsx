@@ -35,6 +35,7 @@ interface InfoDisplayProps {
     currentPlaythrough: Playthrough;
     onGamePress: () => void;
     onPlaythroughPress: () => void;
+    onDeathsPress: () => void;
 }
 export default class InfoDisplay extends Component<InfoDisplayProps> {
     public render() {
@@ -50,14 +51,17 @@ export default class InfoDisplay extends Component<InfoDisplayProps> {
                     <Text style={styles.text}>Playing {this.props.currentGame.name}</Text>
                 </TouchableOpacity>
 
-                <View style={styles.deathCountContainer}>
-                    <View style={styles.deathCount}>
-                        <Text style={styles.text}>{this.props.deaths.length}</Text>
+                <TouchableOpacity
+                    onPress={() => this.props.onDeathsPress()}>
+                    <View style={styles.deathCountContainer}>
+                        <View style={styles.deathCount}>
+                            <Text style={styles.text}>{this.props.deaths.length}</Text>
+                        </View>
+                        <Text style={styles.text}>
+                            Deaths So Far
+                        </Text>
                     </View>
-                    <Text style={styles.text}>
-                        Deaths So Far
-                    </Text>
-                </View>
+                </TouchableOpacity>
             </View>
         );
     }
