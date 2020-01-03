@@ -10,4 +10,5 @@ export enum ActionType {
     LOAD_STATE = 'Load State',
     COMPLETE_GAME = 'Complete Game',
     SELECT_PLAYTHROUGH = 'Select Playthrough',
+    SELECT_OPTION_SET = 'Select Option Set',
 }

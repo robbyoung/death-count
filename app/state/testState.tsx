@@ -1,7 +1,7 @@
 import uuid from 'uuid';
 import { State, Game, Playthrough, Death, OptionSet } from './state'
 
-export function createTestState(gameCount: number, playthroughCount: number, deathCount: number, currentGame: number, currentPlaythrough: number): State {
+export function createTestState(gameCount: number, playthroughCount: number, deathCount: number, currentGame: number, currentPlaythrough: number, currentOptions: number = undefined): State {
     const games: Game[] = [];
     for (var i = 0; i < gameCount; i++) {
         games.push({
@@ -40,7 +40,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
             options: ['Option 1', 'Option 2', 'Option 3'],
             gameId: `g${i % gameCount}`,
             id: `o${i}`,
-            selected: false,
+            selected: currentOptions === i,
         });
     }
 
