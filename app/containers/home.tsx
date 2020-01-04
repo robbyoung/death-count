@@ -6,7 +6,7 @@ import { Death, Playthrough, Game, OptionSet } from '../state';
 import { getAllDeaths, getDeathsForCurrentPlaythrough } from '../selectors/deaths';
 import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
-import { addDeathAction, completeDeathAction } from '../actions';
+import { addDeathAction, completeDeathAction, selectOptionSetAction } from '../actions';
 import DeathButton from '../components/deathButton';
 import { backgroundColor, white, buttonColor } from '../colors';
 import InfoDisplay from '../components/infoDisplay';
@@ -69,7 +69,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
                     currentPlaythrough={this.state.playthrough}
                     onGamePress={() => this.navigateToScreen(Screens.GamesList)}
                     onPlaythroughPress={() => this.navigateToScreen(Screens.PlaythroughsList)}
-                    onDeathsPress={() => this.navigateToScreen(Screens.Stats)}>
+                    onDeathsPress={() => this.viewStats()}>
                 </InfoDisplay>
             </View>
         );
@@ -100,6 +100,11 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
         const action = completeDeathAction();
         store.dispatch(action);
         saveState();
+    }
+
+    private viewStats() {
+        store.dispatch(selectOptionSetAction(undefined));
+        this.navigateToScreen(Screens.Stats);
     }
 
     private navigateToScreen(screen: Screens) {

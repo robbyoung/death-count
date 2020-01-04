@@ -10,17 +10,17 @@ describe('Stats Selectors', () => {
                 {
                     name: 'Option 1',
                     count: 4,
-                    percentage: 0.33,
+                    percentage: 33.33,
                 },
                 {
                     name: 'Option 2',
                     count: 4,
-                    percentage: 0.33,
+                    percentage: 33.33,
                 },
                 {
                     name: 'Option 3',
                     count: 4,
-                    percentage: 0.33,
+                    percentage: 33.33,
                 },
             ])
         });

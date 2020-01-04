@@ -11,7 +11,7 @@ export const getDeathStatsForPlaythrough = createSelector(
 
         return optionSet.options.map(option => {
             const count = deaths.filter(death => death.details[optionSet.title] === option).length;
-            const percentage = Math.round(count / deaths.length * 100) / 100;
+            const percentage = Math.round(count / deaths.length * 10000) / 100;
             return {
                 name: option,
                 count,
