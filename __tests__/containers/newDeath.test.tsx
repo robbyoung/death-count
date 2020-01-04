@@ -15,6 +15,8 @@ describe('New Death Container', () => {
     it('Renders with game and incomplete death in the state', () => {
         const state = createTestState(1, 1, 2, 0, 0);
         state.deaths[1].complete = false;
+        state.deaths[1].details = {};
+
         const action = loadStateAction(state);
         store.dispatch(action);
         

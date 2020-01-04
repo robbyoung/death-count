@@ -41,6 +41,7 @@ describe('Option Selectors', () => {
             const state = createTestState(2, 5, 10, 0, 0);
             const death = state.deaths[0];
             death.complete = false;
+            death.details = {};
             
             const result = getOptionSetForNewDeath(state);
             expect(result).toEqual(state.optionSets[0])
@@ -50,9 +51,6 @@ describe('Option Selectors', () => {
             const state = createTestState(2, 5, 10, 0, 0);
             const death = state.deaths[0];
             death.complete = false;
-            death.details['Option Set 0'] = 'Option 1';
-            death.details['Option Set 1'] = 'Option 3';
-            death.details['Option Set 2'] = 'Option 2';
             
             const result = getOptionSetForNewDeath(state);
             expect(result).toBe(undefined);

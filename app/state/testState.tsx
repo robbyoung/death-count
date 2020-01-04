@@ -28,7 +28,11 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
             id: `d${i}`,
             playthroughId: `p${i % playthroughCount}`,
             complete: true,
-            details: {}
+            details: {
+                'Option Set 0': `Option ${i % 3 + 1}`,
+                'Option Set 1': `Option ${i % 3 + 1}`,
+                'Option Set 2': `Option ${i % 3 + 1}`,
+            }
         });
     }
 
