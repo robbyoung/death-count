@@ -17,15 +17,18 @@ export interface OptionPickerProps {
 }
 export default class OptionPicker extends Component<OptionPickerProps> {
     public render() {
+        const pickerItems = this.props.selected === undefined ? 
+            [(<Picker.Item label={'None Selected'} value={undefined} key=''></Picker.Item>)] : [];
+        this.props.options.forEach(option => pickerItems.push(
+            <Picker.Item label={option.key} key={option.value} value={option.value}></Picker.Item>
+        ))
+        
         return (
             <View style={styles.container}>
                 <Picker
                     onValueChange={(key) => this.props.onSelect(key)}
                     selectedValue={this.props.selected}>
-                    {this.props.selected === undefined ? <Picker.Item label={'Pick One'} value={undefined}></Picker.Item> : undefined}
-                    {this.props.options.map(option => (
-                        <Picker.Item label={option.key} key={option.value} value={option.value}></Picker.Item>
-                    ))}
+                    {pickerItems}
                 </Picker>
             </View>
         );

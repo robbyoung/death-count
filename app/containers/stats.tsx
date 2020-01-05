@@ -48,7 +48,7 @@ export default class Stats extends Component<NavigationInjectedProps, StatsState
 
     public render() {
         if(this.state === null) {
-            return <View><Text>Invalid state</Text></View>
+            return <View/>
         }
 
         const picker = <OptionPicker
@@ -58,7 +58,7 @@ export default class Stats extends Component<NavigationInjectedProps, StatsState
         />
 
         if (!this.state.stats) {
-            return <View>{picker}</View>
+            return <View style={styles.statsScreen}>{picker}</View>
         }
 
         return (
