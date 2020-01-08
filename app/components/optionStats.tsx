@@ -5,12 +5,30 @@ import { white, buttonColor, backgroundColor } from '../colors';
 const styles = StyleSheet.create({
     container: {
         backgroundColor: buttonColor,
-        margin: 5,
+        marginBottom: 10,
+        marginLeft: 10,
+        marginRight: 10,
         borderRadius: 5,
+        padding: 5,
     },
-    text: {
+    title: {
         color: white,
-        fontSize: 22,
+        fontWeight: 'bold',
+        fontSize: 24,
+    },
+    statsRow: {
+        flexDirection: 'row',
+    },
+    count: {
+        color: white,
+        fontSize: 18,
+        width: '50%',
+    },
+    percentage: {
+        color: white,
+        fontSize: 18,
+        textAlign: 'right',
+        width: '50%',
     }
 });
 
@@ -23,9 +41,11 @@ export default class OptionStats extends Component<OptionStatsProps> {
     public render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>{this.props.name}</Text>
-                <Text style={styles.text}>{this.props.count} Deaths</Text>
-                <Text style={styles.text}>{this.props.percentage}% of Deaths</Text>
+                <Text style={styles.title}>{this.props.name}</Text>
+                <View style={styles.statsRow}>
+                    <Text style={styles.count}>{this.props.count} Deaths</Text>
+                    <Text style={styles.percentage}>{this.props.percentage}% of Deaths</Text>
+                </View>
             </View>
         );
     }

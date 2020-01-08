@@ -5,7 +5,7 @@ import { white } from '../colors';
 const styles = StyleSheet.create({
     container: {
         backgroundColor: white,
-        margin: 5,
+        margin: 10,
         borderRadius: 5,
     },
 });
