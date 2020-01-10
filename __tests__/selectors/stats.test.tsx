@@ -36,5 +36,30 @@ describe('Stats Selectors', () => {
             const result = getDeathStatsForPlaythrough(state);
             expect(result).toBeUndefined();
         });
+
+        it('Will order the death stats by frequency', () => {
+            const state = createTestState(1, 1, 12, 0, 0, 0);
+            state.deaths[9].details['Option Set 0'] = 'Option 3';
+            state.deaths[10].details['Option Set 0'] = 'Option 3';
+
+            const result = getDeathStatsForPlaythrough(state);
+            expect(result).toEqual([
+                {
+                    name: 'Option 3',
+                    count: 6,
+                    percentage: 50,
+                },
+                {
+                    name: 'Option 1',
+                    count: 3,
+                    percentage: 25,
+                },
+                {
+                    name: 'Option 2',
+                    count: 3,
+                    percentage: 25,
+                },
+            ])
+        });
     });
 });

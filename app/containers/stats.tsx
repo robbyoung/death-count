@@ -1,11 +1,11 @@
 import { View, StyleSheet, Text } from 'react-native';
 import React, { Component } from 'react';
-import { NavigationInjectedProps } from 'react-navigation';
+import { NavigationInjectedProps, ScrollView } from 'react-navigation';
 import store from '../store';
 import { OptionSet } from '../state';
 import { backgroundColor, white, buttonColor } from '../colors';
 import { getDeathStatsForPlaythrough, getOptionSetsForSelectedGame, getSelectedOptionSet } from '../selectors';
-import OptionStats, { OptionStatsProps } from '../components/optionStats';
+import StatDisplay, { StatDisplayProps } from '../components/statDisplay';
 import OptionPicker from '../components/optionPicker';
 import { selectOptionSetAction } from '../actions';
 
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
 })
 
 interface StatsState {
-    stats: OptionStatsProps[] | undefined;
+    stats: StatDisplayProps[] | undefined;
     optionSets: OptionSet[];
     selected: OptionSet;
 }
@@ -64,7 +64,9 @@ export default class Stats extends Component<NavigationInjectedProps, StatsState
         return (
             <View style={styles.statsScreen}>
                 {picker}
-                {this.state.stats.map((statProps, index) => <OptionStats {...statProps} key={index}/>)}
+                <ScrollView>
+                    {this.state.stats.map((statProps, index) => <StatDisplay {...statProps} key={index}/>)}
+                </ScrollView>
             </View>
         );
     }

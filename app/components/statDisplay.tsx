@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
     }
 });
 
-export interface OptionStatsProps {
+export interface StatDisplayProps {
     name: string,
     count: number,
     percentage: number,
 }
-export default class OptionStats extends Component<OptionStatsProps> {
+export default class StatDisplay extends Component<StatDisplayProps> {
     public render() {
         return (
             <View style={styles.container}>
