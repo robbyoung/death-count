@@ -8,6 +8,7 @@ import { getDeathStatsForPlaythrough, getOptionSetsForSelectedGame, getSelectedO
 import StatDisplay, { StatDisplayProps } from '../components/statDisplay';
 import OptionPicker from '../components/optionPicker';
 import { selectOptionSetAction } from '../actions';
+import PieChart from '../components/pieChart';
 
 const styles = StyleSheet.create({
     statsScreen: {
@@ -47,8 +48,8 @@ export default class Stats extends Component<NavigationInjectedProps, StatsState
     }
 
     public render() {
-        if(this.state === null) {
-            return <View/>
+        if (this.state === null) {
+            return <View />
         }
 
         const picker = <OptionPicker
@@ -63,9 +64,12 @@ export default class Stats extends Component<NavigationInjectedProps, StatsState
 
         return (
             <View style={styles.statsScreen}>
-                {picker}
                 <ScrollView>
-                    {this.state.stats.map((statProps, index) => <StatDisplay {...statProps} key={index}/>)}
+                    <PieChart
+                        data={this.state.stats}
+                    ></PieChart>
+                    {picker}
+                    {this.state.stats.map((statProps, index) => <StatDisplay {...statProps} key={index} />)}
                 </ScrollView>
             </View>
         );
