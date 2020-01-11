@@ -6,7 +6,6 @@ import { backgroundColor, white, buttonColor } from '../colors';
 import OptionInput from '../components/optionInput';
 import { addGameAction } from '../actions';
 import { Screens } from '../screens';
-import { saveState } from '../storage';
 
 const styles = StyleSheet.create({
     startupScreen: {

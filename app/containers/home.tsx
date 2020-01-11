@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
 import { Death, Playthrough, Game, OptionSet } from '../state';
-import { getAllDeaths, getDeathsForCurrentPlaythrough } from '../selectors/deaths';
+import { getDeathsForCurrentPlaythrough } from '../selectors/deaths';
 import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
 import { addDeathAction, completeDeathAction, selectOptionSetAction } from '../actions';

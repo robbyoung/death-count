@@ -3,7 +3,7 @@ import { State, Game, Playthrough, Death, OptionSet } from './state'
 
 export function createTestState(gameCount: number, playthroughCount: number, deathCount: number, currentGame: number, currentPlaythrough: number, currentOptions: number = undefined): State {
     const games: Game[] = [];
-    for (var i = 0; i < gameCount; i++) {
+    for (let i = 0; i < gameCount; i++) {
         games.push({
             id: `g${i}`,
             name: `Game ${i}`,
@@ -13,7 +13,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
     }
 
     const playthroughs: Playthrough[] = [];
-    for (var i = 0; i < playthroughCount; i++) {
+    for (let i = 0; i < playthroughCount; i++) {
         playthroughs.push({
             id: `p${i}`,
             name: `Playthrough ${i}`,
@@ -23,7 +23,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
     }
 
     const deaths: Death[] = [];
-    for (var i = 0; i < deathCount; i++) {
+    for (let i = 0; i < deathCount; i++) {
         deaths.push({
             id: `d${i}`,
             playthroughId: `p${i % playthroughCount}`,
@@ -38,7 +38,7 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
 
     const numOptionSets = gameCount * 3;
     const optionSets: OptionSet[] = [];
-    for (var i = 0; i < numOptionSets; i++) {
+    for (let i = 0; i < numOptionSets; i++) {
         optionSets.push({
             title: `Option Set ${Math.floor(i / gameCount)}`,
             options: ['Option 1', 'Option 2', 'Option 3'],
@@ -65,9 +65,9 @@ export function createTestGame(complete: boolean, id: string = uuid.v4()): Game 
     }
 }
 
-export function createTestDeath(complete: boolean, id: string = uuid.v4(), numDetails: number = 0): Death {
+export function createTestDeath(complete: boolean, id: string = uuid.v4(), numDetails = 0): Death {
     const details = {};
-    for(var i = 0; i < numDetails; i++) {
+    for(let i = 0; i < numDetails; i++) {
         details[`k${i}`] = `v${i}`;
     }
     
@@ -81,7 +81,7 @@ export function createTestDeath(complete: boolean, id: string = uuid.v4(), numDe
 
 export function createTestOptionSet(numOptions: number, id: string = uuid.v4()): OptionSet {
     const options = [];
-    for (var i = 0; i < numOptions; i++) {
+    for (let i = 0; i < numOptions; i++) {
         options.push(`Option ${i}`)
     }
 

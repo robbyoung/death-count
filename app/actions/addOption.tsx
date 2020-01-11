@@ -4,8 +4,8 @@ import { ActionType } from './actionTypes';
 
 export interface AddOptionAction extends Action {
     type: ActionType.ADD_OPTION;
-    id: string,
-    value: string,
+    id: string;
+    value: string;
 }
 
 export function addOptionAction(id: string, value: string): AddOptionAction {

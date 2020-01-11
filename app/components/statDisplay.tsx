@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
-import { white, buttonColor, backgroundColor } from '../colors';
+import { white, buttonColor } from '../colors';
 
 const styles = StyleSheet.create({
     container: {
@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
 });
 
 export interface StatDisplayProps {
-    name: string,
-    count: number,
-    percentage: number,
+    name: string;
+    count: number;
+    percentage: number;
 }
 export default class StatDisplay extends Component<StatDisplayProps> {
     public render() {
