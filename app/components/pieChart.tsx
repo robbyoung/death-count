@@ -16,14 +16,16 @@ export interface PieChartProps {
 }
 export default class PieChart extends Component<PieChartProps> {
 	public render() {
+		const firstColor = chartColors[0];
+		const repeatedColors = chartColors.slice(1);
 		return (
 			<View style={styles.chart}>
 				<Pie
 					radius={(Dimensions.get('window').width - CHART_MARGINS * 2) / 2}
 					sections={this.props.data.map(
 						(data, index) => ({
-                            percentage: data.percentage,
-                            color: chartColors[index % chartColors.length],
+							percentage: data.percentage,
+                            color: index === 0 ? firstColor : repeatedColors[index % repeatedColors.length],
                         })
 					)}
 				/>

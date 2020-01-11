@@ -65,10 +65,10 @@ export default class Stats extends Component<NavigationInjectedProps, StatsState
         return (
             <View style={styles.statsScreen}>
                 <ScrollView>
+                    {picker}
                     <PieChart
                         data={this.state.stats}
                     ></PieChart>
-                    {picker}
                     {this.state.stats.map((statProps, index) => <StatDisplay {...statProps} key={index} />)}
                 </ScrollView>
             </View>
