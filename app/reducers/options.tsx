@@ -1,5 +1,15 @@
 import { Action } from 'redux';
-import { ActionType, AddOptionAction, addOption, AddOptionSetAction, addOptionSet, LoadStateAction, loadOptionSets, selectOptionSet, SelectOptionSetAction } from '../actions';
+import {
+    ActionType,
+    AddOptionAction,
+    addOption,
+    AddOptionSetAction,
+    addOptionSet,
+    LoadStateAction,
+    loadOptionSets,
+    selectOptionSet,
+    SelectOptionSetAction,
+} from '../actions';
 import { OptionSet } from '../state';
 
 export default function optionsReducer(

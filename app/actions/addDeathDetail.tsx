@@ -8,7 +8,10 @@ export interface AddDeathDetailAction extends Action {
     detailValue: string;
 }
 
-export function addDeathDetailAction(detailKey: string, detailValue: string): AddDeathDetailAction {
+export function addDeathDetailAction(
+    detailKey: string,
+    detailValue: string,
+): AddDeathDetailAction {
     return {
         type: ActionType.ADD_DEATH_DETAIL,
         detailKey,
@@ -16,21 +19,22 @@ export function addDeathDetailAction(detailKey: string, detailValue: string): Ad
     };
 }
 
-export function addDeathDetail(state: Death[], action: AddDeathDetailAction): Death[] {
+export function addDeathDetail(
+    state: Death[],
+    action: AddDeathDetailAction,
+): Death[] {
     const incompleteIndex = state.findIndex(death => !death.complete);
     if (incompleteIndex === -1) {
         return state;
     }
 
-    const newState = [
-        ...state
-    ];
+    const newState = [...state];
     const editedDeath: Death = {
         ...state[incompleteIndex],
         details: {
             ...state[incompleteIndex].details,
-        }
-    }
+        },
+    };
 
     editedDeath.details[action.detailKey] = action.detailValue;
     newState[incompleteIndex] = editedDeath;

@@ -16,21 +16,21 @@ export function addOptionAction(id: string, value: string): AddOptionAction {
     };
 }
 
-export function addOption(state: OptionSet[], action: AddOptionAction): OptionSet[] {
-    const optionsIndex = state.findIndex(optionSet => optionSet.id === action.id);
-    if(state[optionsIndex].options.find(option => option === action.value)) {
+export function addOption(
+    state: OptionSet[],
+    action: AddOptionAction,
+): OptionSet[] {
+    const optionsIndex = state.findIndex(
+        optionSet => optionSet.id === action.id,
+    );
+    if (state[optionsIndex].options.find(option => option === action.value)) {
         return state;
     }
 
-    const newState = [
-        ...state
-    ];
+    const newState = [...state];
     newState[optionsIndex] = {
         ...state[optionsIndex],
-        options: [
-            ...state[optionsIndex].options,
-            action.value,
-        ],
+        options: [...state[optionsIndex].options, action.value],
     };
     return newState;
 }

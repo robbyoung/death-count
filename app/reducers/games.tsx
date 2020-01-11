@@ -1,6 +1,16 @@
 import { Action } from 'redux';
 import { Game } from '../state';
-import { ActionType, addGame, AddGameAction, SelectGameAction, selectGame, loadGames, LoadStateAction, CompleteGameAction, completeGame } from '../actions';
+import {
+    ActionType,
+    addGame,
+    AddGameAction,
+    SelectGameAction,
+    selectGame,
+    loadGames,
+    LoadStateAction,
+    CompleteGameAction,
+    completeGame,
+} from '../actions';
 
 export default function gamesReducer(
     state: Game[] = [],

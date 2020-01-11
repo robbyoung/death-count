@@ -8,7 +8,10 @@ export interface AddOptionSetAction extends Action {
     newOptionSet: OptionSet;
 }
 
-export function addOptionSetAction(title: string, gameId: string): AddOptionSetAction {
+export function addOptionSetAction(
+    title: string,
+    gameId: string,
+): AddOptionSetAction {
     return {
         type: ActionType.ADD_OPTION_SET,
         newOptionSet: {
@@ -17,13 +20,13 @@ export function addOptionSetAction(title: string, gameId: string): AddOptionSetA
             gameId,
             title,
             selected: false,
-        }
+        },
     };
 }
 
-export function addOptionSet(state: OptionSet[], action: AddOptionSetAction): OptionSet[] {
-    return [
-        ...state,
-        action.newOptionSet,
-    ]
+export function addOptionSet(
+    state: OptionSet[],
+    action: AddOptionSetAction,
+): OptionSet[] {
+    return [...state, action.newOptionSet];
 }

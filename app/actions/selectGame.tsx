@@ -15,7 +15,7 @@ export function selectGameAction(id: string): SelectGameAction {
 }
 
 export function selectGame(state: Game[], action: SelectGameAction): Game[] {
-    const newState = [ ...state ];
+    const newState = [...state];
 
     const toDeselectIndex = state.findIndex(game => game.selected);
     const deselected = {

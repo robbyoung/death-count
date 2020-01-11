@@ -14,16 +14,23 @@ export function selectPlaythroughAction(id: string): SelectPlaythroughAction {
     };
 }
 
-export function selectPlaythrough(state: Playthrough[], action: SelectPlaythroughAction): Playthrough[] {
-    const newState = [ ...state ];
-    const toSelectIndex = state.findIndex(playthrough => playthrough.id === action.id);
+export function selectPlaythrough(
+    state: Playthrough[],
+    action: SelectPlaythroughAction,
+): Playthrough[] {
+    const newState = [...state];
+    const toSelectIndex = state.findIndex(
+        playthrough => playthrough.id === action.id,
+    );
     const selected = {
         ...state[toSelectIndex],
         selected: true,
     };
     const gameId = selected.gameId;
 
-    const toDeselectIndex = state.findIndex(playthrough => playthrough.selected && playthrough.gameId === gameId);
+    const toDeselectIndex = state.findIndex(
+        playthrough => playthrough.selected && playthrough.gameId === gameId,
+    );
     if (toDeselectIndex !== -1) {
         const deselected = {
             ...state[toDeselectIndex],

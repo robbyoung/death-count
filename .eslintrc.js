@@ -4,10 +4,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-  ],
-  plugins: [
-    'react',
-    '@typescript-eslint',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
     "ecmaFeatures": {
@@ -17,7 +14,7 @@ module.exports = {
     sourceType: 'module',
     project: "./tsconfig.json",
   },
-  "settings": {
+  settings: {
 		"react": {
 			"version": "detect",
 		}

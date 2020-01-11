@@ -4,7 +4,11 @@ import { NavigationInjectedProps } from 'react-navigation';
 import store from '../store';
 import { backgroundColor, white, buttonColor } from '../colors';
 import OptionList from '../components/optionList';
-import { addDeathDetailAction, completeDeathAction, addOptionAction } from '../actions';
+import {
+    addDeathDetailAction,
+    completeDeathAction,
+    addOptionAction,
+} from '../actions';
 import { getOptionSetForNewDeath } from '../selectors';
 import OptionInput from '../components/optionInput';
 import { saveState } from '../storage';
@@ -22,15 +26,18 @@ const styles = StyleSheet.create({
         color: white,
         margin: 10,
         fontWeight: 'bold',
-    }
-})
+    },
+});
 
 interface NewDeathState {
     id: string;
     title: string;
     options: string[];
 }
-export default class NewDeath extends Component<NavigationInjectedProps, NewDeathState> {
+export default class NewDeath extends Component<
+    NavigationInjectedProps,
+    NewDeathState
+> {
     private unsubscribe = () => undefined;
 
     public static navigationOptions = () => {
@@ -43,9 +50,7 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
 
     public componentDidMount() {
         this.refreshState();
-        this.unsubscribe = store.subscribe(
-            () => this.refreshState()
-        );
+        this.unsubscribe = store.subscribe(() => this.refreshState());
     }
 
     public componentWillUnmount() {
@@ -54,7 +59,11 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
 
     public render() {
         if (!this.state) {
-            return (<View><Text>Invalid state</Text></View>)
+            return (
+                <View>
+                    <Text>Invalid state</Text>
+                </View>
+            );
         }
 
         return (
@@ -62,12 +71,10 @@ export default class NewDeath extends Component<NavigationInjectedProps, NewDeat
                 <Text style={styles.title}>{this.state.title}</Text>
                 <OptionList
                     options={this.state.options}
-                    onSelect={(option) => this.addDetail(option)}>
-                </OptionList>
+                    onSelect={option => this.addDetail(option)}></OptionList>
                 <OptionInput
-                    onSubmit={(option) => this.newOption(option)}
-                    placeholder='Add a new option'>
-                </OptionInput>
+                    onSubmit={option => this.newOption(option)}
+                    placeholder="Add a new option"></OptionInput>
             </ScrollView>
         );
     }

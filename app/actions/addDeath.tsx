@@ -21,8 +21,5 @@ export function addDeathAction(playthroughId: string): AddDeathAction {
 }
 
 export function addDeath(state: Death[], action: AddDeathAction): Death[] {
-    return [
-        ...state.filter(death => death.complete),
-        action.newDeath,
-    ]
+    return [...state.filter(death => death.complete), action.newDeath];
 }

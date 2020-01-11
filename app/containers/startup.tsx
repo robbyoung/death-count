@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
 });
 
 export default class Startup extends Component<NavigationInjectedProps> {
-
     public static navigationOptions = () => {
         return {
             title: 'Getting Started',
@@ -38,9 +37,8 @@ export default class Startup extends Component<NavigationInjectedProps> {
             <View style={styles.startupScreen}>
                 <Text style={styles.title}>What game are you playing?</Text>
                 <OptionInput
-                    onSubmit={(name) => this.onSubmit(name)}
-                    placeholder=''>
-                </OptionInput>
+                    onSubmit={name => this.onSubmit(name)}
+                    placeholder=""></OptionInput>
             </View>
         );
     }

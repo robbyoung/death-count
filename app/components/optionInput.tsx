@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         height: 50,
         paddingLeft: 10,
-    }
+    },
 });
 
 interface OptionInputProps {
@@ -41,30 +41,34 @@ interface OptionInputProps {
 interface OptionInputState {
     text: string;
 }
-export default class OptionInput extends Component<OptionInputProps, OptionInputState> {
+export default class OptionInput extends Component<
+    OptionInputProps,
+    OptionInputState
+> {
     public state: OptionInputState = {
         text: '',
-    }
+    };
 
     public render() {
         return (
             <View style={styles.container}>
                 <TextInput
                     value={this.state.text}
-                    onChangeText={(text) => this.updateText(text)}
+                    onChangeText={text => this.updateText(text)}
                     style={styles.textbox}
-                    placeholder={this.props.placeholder}>
-                </TextInput>
-                <TouchableOpacity
-                    onPress={() => this.submitAndClear()}>
-                    <FontAwesome icon={SolidIcons.check} style={styles.button} />
+                    placeholder={this.props.placeholder}></TextInput>
+                <TouchableOpacity onPress={() => this.submitAndClear()}>
+                    <FontAwesome
+                        icon={SolidIcons.check}
+                        style={styles.button}
+                    />
                 </TouchableOpacity>
             </View>
         );
     }
 
     private updateText(text: string) {
-        this.setState({ text })
+        this.setState({ text });
     }
 
     private submitAndClear() {

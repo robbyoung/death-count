@@ -25,9 +25,12 @@ interface PlaythroughsListState {
     playthroughs: Playthrough[];
     selectedGame: Game;
 }
-export default class PlaythroughsList extends Component<NavigationInjectedProps, PlaythroughsListState> {
+export default class PlaythroughsList extends Component<
+    NavigationInjectedProps,
+    PlaythroughsListState
+> {
     private unsubscribe = () => undefined;
-    
+
     public static navigationOptions = () => {
         return {
             title: 'Playthroughs',
@@ -38,9 +41,7 @@ export default class PlaythroughsList extends Component<NavigationInjectedProps,
 
     public componentDidMount() {
         this.refreshState();
-        this.unsubscribe = store.subscribe(
-            () => this.refreshState()
-        );
+        this.unsubscribe = store.subscribe(() => this.refreshState());
     }
 
     public componentWillUnmount() {
@@ -49,19 +50,25 @@ export default class PlaythroughsList extends Component<NavigationInjectedProps,
 
     public render() {
         if (!this.state) {
-            return (<View><Text>Invalid state</Text></View>)
+            return (
+                <View>
+                    <Text>Invalid state</Text>
+                </View>
+            );
         }
 
         return (
             <ScrollView style={styles.newDeathScreen}>
                 <OptionList
-                    options={this.state.playthroughs.map(playthrough => playthrough.name)}
-                    onSelect={(_playthrough, index) => this.onPlaythroughSelect(index)}>
-                </OptionList>
+                    options={this.state.playthroughs.map(
+                        playthrough => playthrough.name,
+                    )}
+                    onSelect={(_playthrough, index) =>
+                        this.onPlaythroughSelect(index)
+                    }></OptionList>
                 <OptionInput
-                    onSubmit={(name) => this.onNewPlaythroughPress(name)}
-                    placeholder='Add a new playthrough'>
-                </OptionInput>
+                    onSubmit={name => this.onNewPlaythroughPress(name)}
+                    placeholder="Add a new playthrough"></OptionInput>
             </ScrollView>
         );
     }
@@ -75,7 +82,9 @@ export default class PlaythroughsList extends Component<NavigationInjectedProps,
     }
 
     private onPlaythroughSelect(index: number) {
-        const action = selectPlaythroughAction(this.state.playthroughs[index].id);
+        const action = selectPlaythroughAction(
+            this.state.playthroughs[index].id,
+        );
         store.dispatch(action);
         this.props.navigation.goBack();
     }
@@ -84,8 +93,11 @@ export default class PlaythroughsList extends Component<NavigationInjectedProps,
         if (name === '') {
             return;
         }
-        
-        const newPlaythroughAction = addPlaythroughAction(name, this.state.selectedGame.id);
+
+        const newPlaythroughAction = addPlaythroughAction(
+            name,
+            this.state.selectedGame.id,
+        );
         store.dispatch(newPlaythroughAction);
         void saveState();
         this.props.navigation.goBack();

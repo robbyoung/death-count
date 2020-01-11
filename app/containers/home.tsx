@@ -6,7 +6,11 @@ import { Death, Playthrough, Game, OptionSet } from '../state';
 import { getDeathsForCurrentPlaythrough } from '../selectors/deaths';
 import { getSelectedGame } from '../selectors/games';
 import { getSelectedPlaythrough } from '../selectors/playthroughs';
-import { addDeathAction, completeDeathAction, selectOptionSetAction } from '../actions';
+import {
+    addDeathAction,
+    completeDeathAction,
+    selectOptionSetAction,
+} from '../actions';
 import DeathButton from '../components/deathButton';
 import { backgroundColor, white, buttonColor } from '../colors';
 import InfoDisplay from '../components/infoDisplay';
@@ -22,8 +26,8 @@ const styles = StyleSheet.create({
     },
     header: {
         backgroundColor: buttonColor,
-    }
-})
+    },
+});
 
 interface HomeState {
     deaths: Death[];
@@ -31,7 +35,10 @@ interface HomeState {
     game: Game;
     options: OptionSet[];
 }
-export default class Home extends Component<NavigationInjectedProps, HomeState> {
+export default class Home extends Component<
+    NavigationInjectedProps,
+    HomeState
+> {
     private unsubscribe = () => undefined;
 
     public static navigationOptions = () => {
@@ -44,9 +51,7 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
 
     public componentDidMount() {
         this.refreshState();
-        this.unsubscribe = store.subscribe(
-            () => this.refreshState()
-        );
+        this.unsubscribe = store.subscribe(() => this.refreshState());
     }
 
     public componentWillUnmount() {
@@ -55,22 +60,25 @@ export default class Home extends Component<NavigationInjectedProps, HomeState> 
 
     public render() {
         if (!this.state || !this.state.game) {
-            return <View><Text>Invalid state</Text></View>
+            return (
+                <View>
+                    <Text>Invalid state</Text>
+                </View>
+            );
         }
 
         return (
             <View style={styles.homeScreen}>
-                <DeathButton
-                    onPress={() => this.addDeath()}>
-                </DeathButton>
+                <DeathButton onPress={() => this.addDeath()}></DeathButton>
                 <InfoDisplay
                     deaths={this.state.deaths}
                     currentGame={this.state.game}
                     currentPlaythrough={this.state.playthrough}
                     onGamePress={() => this.navigateToScreen(Screens.GamesList)}
-                    onPlaythroughPress={() => this.navigateToScreen(Screens.PlaythroughsList)}
-                    onDeathsPress={() => this.viewStats()}>
-                </InfoDisplay>
+                    onPlaythroughPress={() =>
+                        this.navigateToScreen(Screens.PlaythroughsList)
+                    }
+                    onDeathsPress={() => this.viewStats()}></InfoDisplay>
             </View>
         );
     }

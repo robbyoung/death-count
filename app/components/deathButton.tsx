@@ -1,7 +1,7 @@
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { white, buttonColor } from '../colors';
-import FontAwesome, {SolidIcons} from 'react-native-fontawesome';
+import FontAwesome, { SolidIcons } from 'react-native-fontawesome';
 
 const styles = StyleSheet.create({
     container: {
@@ -29,9 +29,11 @@ export default class DeathButton extends Component<DeathButtonProps> {
     public render() {
         return (
             <View style={styles.container}>
-                <TouchableOpacity
-                    onPress={() => this.props.onPress()}>
-                        <FontAwesome icon={SolidIcons.skull} style={styles.button} />
+                <TouchableOpacity onPress={() => this.props.onPress()}>
+                    <FontAwesome
+                        icon={SolidIcons.skull}
+                        style={styles.button}
+                    />
                 </TouchableOpacity>
             </View>
         );

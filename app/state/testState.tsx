@@ -1,7 +1,14 @@
 import uuid from 'uuid';
-import { State, Game, Playthrough, Death, OptionSet } from './state'
+import { State, Game, Playthrough, Death, OptionSet } from './state';
 
-export function createTestState(gameCount: number, playthroughCount: number, deathCount: number, currentGame: number, currentPlaythrough: number, currentOptions: number = undefined): State {
+export function createTestState(
+    gameCount: number,
+    playthroughCount: number,
+    deathCount: number,
+    currentGame: number,
+    currentPlaythrough: number,
+    currentOptions: number = undefined,
+): State {
     const games: Game[] = [];
     for (let i = 0; i < gameCount; i++) {
         games.push({
@@ -29,10 +36,10 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
             playthroughId: `p${i % playthroughCount}`,
             complete: true,
             details: {
-                'Option Set 0': `Option ${i % 3 + 1}`,
-                'Option Set 1': `Option ${i % 3 + 1}`,
-                'Option Set 2': `Option ${i % 3 + 1}`,
-            }
+                'Option Set 0': `Option ${(i % 3) + 1}`,
+                'Option Set 1': `Option ${(i % 3) + 1}`,
+                'Option Set 2': `Option ${(i % 3) + 1}`,
+            },
         });
     }
 
@@ -53,36 +60,46 @@ export function createTestState(gameCount: number, playthroughCount: number, dea
         playthroughs,
         deaths,
         optionSets,
-    }
+    };
 }
 
-export function createTestGame(complete: boolean, id: string = uuid.v4()): Game {
+export function createTestGame(
+    complete: boolean,
+    id: string = uuid.v4(),
+): Game {
     return {
         complete,
         id,
         name: 'Test Game',
         selected: false,
-    }
+    };
 }
 
-export function createTestDeath(complete: boolean, id: string = uuid.v4(), numDetails = 0): Death {
+export function createTestDeath(
+    complete: boolean,
+    id: string = uuid.v4(),
+    numDetails = 0,
+): Death {
     const details = {};
-    for(let i = 0; i < numDetails; i++) {
+    for (let i = 0; i < numDetails; i++) {
         details[`k${i}`] = `v${i}`;
     }
-    
+
     return {
         complete,
         details,
         id,
         playthroughId: '123',
-    }
+    };
 }
 
-export function createTestOptionSet(numOptions: number, id: string = uuid.v4()): OptionSet {
+export function createTestOptionSet(
+    numOptions: number,
+    id: string = uuid.v4(),
+): OptionSet {
     const options = [];
     for (let i = 0; i < numOptions; i++) {
-        options.push(`Option ${i}`)
+        options.push(`Option ${i}`);
     }
 
     return {

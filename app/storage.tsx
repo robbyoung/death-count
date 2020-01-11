@@ -7,7 +7,7 @@ export async function saveState(): Promise<void> {
     const state = store.getState();
     await AsyncStorage.setItem('state', JSON.stringify(state));
 }
- 
+
 export async function loadState(): Promise<void> {
     const state = await AsyncStorage.getItem('state');
     let savedState: State;

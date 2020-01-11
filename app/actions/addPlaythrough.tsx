@@ -8,7 +8,10 @@ export interface AddPlaythroughAction extends Action {
     newPlaythrough: Playthrough;
 }
 
-export function addPlaythroughAction(name: string, gameId: string): AddPlaythroughAction {
+export function addPlaythroughAction(
+    name: string,
+    gameId: string,
+): AddPlaythroughAction {
     return {
         type: ActionType.ADD_PLAYTHROUGH,
         newPlaythrough: {
@@ -16,16 +19,21 @@ export function addPlaythroughAction(name: string, gameId: string): AddPlaythrou
             name,
             id: uuid.v4(),
             selected: true,
-        }
+        },
     };
 }
 
-export function addPlaythrough(state: Playthrough[], action: AddPlaythroughAction): Playthrough[] {
-    const newState = [
-        ...state,
-    ];
+export function addPlaythrough(
+    state: Playthrough[],
+    action: AddPlaythroughAction,
+): Playthrough[] {
+    const newState = [...state];
 
-    const toDeselectIndex = state.findIndex(playthrough => playthrough.selected && playthrough.gameId === action.newPlaythrough.gameId);
+    const toDeselectIndex = state.findIndex(
+        playthrough =>
+            playthrough.selected &&
+            playthrough.gameId === action.newPlaythrough.gameId,
+    );
     if (toDeselectIndex !== -1) {
         const deselected = {
             ...state[toDeselectIndex],
@@ -34,5 +42,5 @@ export function addPlaythrough(state: Playthrough[], action: AddPlaythroughActio
         newState[toDeselectIndex] = deselected;
     }
 
-    return [ ...newState, action.newPlaythrough ];
+    return [...newState, action.newPlaythrough];
 }

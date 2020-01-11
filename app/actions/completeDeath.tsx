@@ -12,15 +12,16 @@ export function completeDeathAction(): CompleteDeathAction {
     };
 }
 
-export function completeDeath(state: Death[], _action: CompleteDeathAction): Death[] {
+export function completeDeath(
+    state: Death[],
+    _action: CompleteDeathAction,
+): Death[] {
     const incompleteIndex = state.findIndex(death => !death.complete);
-    const newState = [
-        ...state
-    ];
+    const newState = [...state];
     const editedDeath: Death = {
         ...state[incompleteIndex],
         complete: true,
-    }
+    };
 
     newState[incompleteIndex] = editedDeath;
     return newState;

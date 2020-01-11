@@ -24,9 +24,12 @@ const styles = StyleSheet.create({
 interface GamesListState {
     games: Game[];
 }
-export default class GamesList extends Component<NavigationInjectedProps, GamesListState> {
+export default class GamesList extends Component<
+    NavigationInjectedProps,
+    GamesListState
+> {
     private unsubscribe = () => undefined;
-    
+
     public static navigationOptions = () => {
         return {
             title: 'Games',
@@ -37,9 +40,7 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
 
     public componentDidMount() {
         this.refreshState();
-        this.unsubscribe = store.subscribe(
-            () => this.refreshState()
-        );
+        this.unsubscribe = store.subscribe(() => this.refreshState());
     }
 
     public componentWillUnmount() {
@@ -48,19 +49,23 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
 
     public render() {
         if (!this.state) {
-            return (<View><Text>Invalid state</Text></View>)
+            return (
+                <View>
+                    <Text>Invalid state</Text>
+                </View>
+            );
         }
 
         return (
             <ScrollView style={styles.newDeathScreen}>
                 <OptionList
                     options={this.state.games.map(game => game.name)}
-                    onSelect={(_game, index) => this.onGameSelect(index)}>
-                </OptionList>
+                    onSelect={(_game, index) =>
+                        this.onGameSelect(index)
+                    }></OptionList>
                 <OptionInput
-                    onSubmit={(name) => this.onNewGamePress(name)}
-                    placeholder='Add a new game'>
-                </OptionInput>
+                    onSubmit={name => this.onNewGamePress(name)}
+                    placeholder="Add a new game"></OptionInput>
             </ScrollView>
         );
     }
@@ -82,7 +87,7 @@ export default class GamesList extends Component<NavigationInjectedProps, GamesL
         if (name === '') {
             return;
         }
-        
+
         const newGameAction = addGameAction(name);
         store.dispatch(newGameAction);
         void saveState();

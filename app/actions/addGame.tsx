@@ -16,13 +16,10 @@ export function addGameAction(name: string): AddGameAction {
             id: uuid.v4(),
             selected: false,
             complete: false,
-        }
+        },
     };
 }
 
 export function addGame(state: Game[], action: AddGameAction): Game[] {
-    return [
-        ...state.filter(game => game.complete),
-        action.newGame,
-    ];
+    return [...state.filter(game => game.complete), action.newGame];
 }

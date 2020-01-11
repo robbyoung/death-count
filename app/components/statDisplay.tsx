@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         textAlign: 'right',
         width: '50%',
-    }
+    },
 });
 
 export interface StatDisplayProps {
@@ -44,7 +44,9 @@ export default class StatDisplay extends Component<StatDisplayProps> {
                 <Text style={styles.title}>{this.props.name}</Text>
                 <View style={styles.statsRow}>
                     <Text style={styles.count}>{this.props.count} Deaths</Text>
-                    <Text style={styles.percentage}>{this.props.percentage}% of Deaths</Text>
+                    <Text style={styles.percentage}>
+                        {this.props.percentage}% of Deaths
+                    </Text>
                 </View>
             </View>
         );

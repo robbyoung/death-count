@@ -18,7 +18,10 @@ export function loadGames(_state: Game[], action: LoadStateAction): Game[] {
     return action.newState.games;
 }
 
-export function loadPlaythroughs(_state: Playthrough[], action: LoadStateAction): Playthrough[] {
+export function loadPlaythroughs(
+    _state: Playthrough[],
+    action: LoadStateAction,
+): Playthrough[] {
     return action.newState.playthroughs;
 }
 
@@ -26,6 +29,9 @@ export function loadDeaths(_state: Death[], action: LoadStateAction): Death[] {
     return action.newState.deaths;
 }
 
-export function loadOptionSets(_state: OptionSet[], action: LoadStateAction): OptionSet[] {
+export function loadOptionSets(
+    _state: OptionSet[],
+    action: LoadStateAction,
+): OptionSet[] {
     return action.newState.optionSets;
 }

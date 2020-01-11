@@ -1,7 +1,16 @@
 import { Action } from 'redux';
 import { Death } from '../state';
 import { ActionType } from '../actions/actionTypes';
-import { addDeath, AddDeathAction, addDeathDetail, AddDeathDetailAction, completeDeath, CompleteDeathAction, loadDeaths, LoadStateAction } from '../actions';
+import {
+    addDeath,
+    AddDeathAction,
+    addDeathDetail,
+    AddDeathDetailAction,
+    completeDeath,
+    CompleteDeathAction,
+    loadDeaths,
+    LoadStateAction,
+} from '../actions';
 
 export default function deathsReducer(
     state: Death[] = [],

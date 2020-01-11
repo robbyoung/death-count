@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         color: white,
         fontSize: 22,
         margin: 10,
-    }
+    },
 });
 
 interface OptionListProps {
@@ -20,11 +20,11 @@ interface OptionListProps {
     onSelect?: (string, index) => void;
 }
 export default class OptionList extends Component<OptionListProps> {
-
     public render() {
         return this.props.options.map((option, index) => {
-            return this.props.onSelect === undefined ?
-                this.getNonSelectableRow(option, index) : this.getSelectableRow(option, index);
+            return this.props.onSelect === undefined
+                ? this.getNonSelectableRow(option, index)
+                : this.getSelectableRow(option, index);
         });
     }
 

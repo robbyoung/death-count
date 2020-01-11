@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         fontSize: 30,
         textAlign: 'center',
-        textAlignVertical: 'center'
+        textAlignVertical: 'center',
     },
     deathCountContainer: {
         flexDirection: 'row',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         color: white,
         padding: 10,
         margin: 5,
-    }
+    },
 });
 
 interface InfoDisplayProps {
@@ -43,23 +43,25 @@ export default class InfoDisplay extends Component<InfoDisplayProps> {
             <View style={styles.container}>
                 <TouchableOpacity
                     onPress={() => this.props.onPlaythroughPress()}>
-                    <Text style={styles.text}>{this.props.currentPlaythrough.name}</Text>
+                    <Text style={styles.text}>
+                        {this.props.currentPlaythrough.name}
+                    </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={() => this.props.onGamePress()}>
-                    <Text style={styles.text}>Playing {this.props.currentGame.name}</Text>
+                <TouchableOpacity onPress={() => this.props.onGamePress()}>
+                    <Text style={styles.text}>
+                        Playing {this.props.currentGame.name}
+                    </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity
-                    onPress={() => this.props.onDeathsPress()}>
+                <TouchableOpacity onPress={() => this.props.onDeathsPress()}>
                     <View style={styles.deathCountContainer}>
                         <View style={styles.deathCount}>
-                            <Text style={styles.text}>{this.props.deaths.length}</Text>
+                            <Text style={styles.text}>
+                                {this.props.deaths.length}
+                            </Text>
                         </View>
-                        <Text style={styles.text}>
-                            Deaths So Far
-                        </Text>
+                        <Text style={styles.text}>Deaths So Far</Text>
                     </View>
                 </TouchableOpacity>
             </View>
