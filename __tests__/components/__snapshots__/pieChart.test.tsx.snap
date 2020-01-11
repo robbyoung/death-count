@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stat Display Component can render a pie chart 1`] = `
+<View
+  style={
+    Object {
+      "margin": 20,
+    }
+  }
+>
+  <ARTSurfaceView
+    style={
+      Array [
+        undefined,
+        Object {
+          "height": 710,
+          "width": 710,
+        },
+      ]
+    }
+  >
+    <ARTGroup
+      opacity={1}
+      transform={
+        Array [
+          6.123233995736766e-17,
+          -1,
+          1,
+          6.123233995736766e-17,
+          0,
+          710,
+        ]
+      }
+    >
+      <ARTShape
+        d={
+          Array [
+            0,
+            532.5,
+            355,
+            4,
+            355,
+            355,
+            177.5,
+            0,
+            360,
+            1,
+          ]
+        }
+        fill={null}
+        opacity={1}
+        stroke={
+          Array [
+            1,
+            1,
+            1,
+            1,
+          ]
+        }
+        strokeCap={1}
+        strokeDash={null}
+        strokeJoin={1}
+        strokeWidth={355}
+        transform={
+          Array [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+          ]
+        }
+      />
+      <ARTShape
+        d={
+          Array [
+            0,
+            532.5,
+            355,
+            4,
+            355,
+            355,
+            177.5,
+            0,
+            6.283185307179586,
+            1,
+          ]
+        }
+        fill={null}
+        opacity={1}
+        stroke={
+          Array [
+            1,
+            1,
+            1,
+            1,
+          ]
+        }
+        strokeCap={1}
+        strokeDash={null}
+        strokeJoin={1}
+        strokeWidth={355}
+        transform={
+          Array [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+          ]
+        }
+      />
+      <ARTShape
+        d={
+          Array [
+            0,
+            532.5,
+            355,
+            4,
+            355,
+            355,
+            177.5,
+            0,
+            2.5132741228718345,
+            1,
+          ]
+        }
+        fill={null}
+        opacity={1}
+        stroke={
+          Array [
+            0.3215686274509804,
+            0.8431372549019608,
+            0.14901960784313725,
+            1,
+          ]
+        }
+        strokeCap={0}
+        strokeDash={null}
+        strokeJoin={1}
+        strokeWidth={355}
+        transform={
+          Array [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+          ]
+        }
+      />
+      <ARTShape
+        d={
+          Array [
+            0,
+            211.39948349844684,
+            459.331882281914,
+            4,
+            355,
+            355,
+            177.5,
+            2.5132741228718345,
+            6.283185307179586,
+            1,
+          ]
+        }
+        fill={null}
+        opacity={1}
+        stroke={
+          Array [
+            1,
+            0.45098039215686275,
+            0,
+            1,
+          ]
+        }
+        strokeCap={0}
+        strokeDash={null}
+        strokeJoin={1}
+        strokeWidth={355}
+        transform={
+          Array [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+          ]
+        }
+      />
+    </ARTGroup>
+  </ARTSurfaceView>
+</View>
+`;

@@ -1,0 +1,529 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stats Container Renders with chart and stats 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#592a29",
+      "height": "100%",
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ffffff",
+            "borderRadius": 5,
+            "margin": 10,
+          }
+        }
+      >
+        <View>
+          <RCTPicker
+            items={
+              Array [
+                Object {
+                  "label": "Option Set 0",
+                  "textColor": undefined,
+                  "value": "o0",
+                },
+                Object {
+                  "label": "Option Set 1",
+                  "textColor": undefined,
+                  "value": "o2",
+                },
+                Object {
+                  "label": "Option Set 2",
+                  "textColor": undefined,
+                  "value": "o4",
+                },
+              ]
+            }
+            onChange={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            selectedIndex={0}
+            style={
+              Array [
+                Object {
+                  "height": 216,
+                },
+                undefined,
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "margin": 20,
+          }
+        }
+      >
+        <ARTSurfaceView
+          style={
+            Array [
+              undefined,
+              Object {
+                "height": 710,
+                "width": 710,
+              },
+            ]
+          }
+        >
+          <ARTGroup
+            opacity={1}
+            transform={
+              Array [
+                6.123233995736766e-17,
+                -1,
+                1,
+                6.123233995736766e-17,
+                0,
+                710,
+              ]
+            }
+          >
+            <ARTShape
+              d={
+                Array [
+                  0,
+                  532.5,
+                  355,
+                  4,
+                  355,
+                  355,
+                  177.5,
+                  0,
+                  360,
+                  1,
+                ]
+              }
+              fill={null}
+              opacity={1}
+              stroke={
+                Array [
+                  1,
+                  1,
+                  1,
+                  1,
+                ]
+              }
+              strokeCap={1}
+              strokeDash={null}
+              strokeJoin={1}
+              strokeWidth={355}
+              transform={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            />
+            <ARTShape
+              d={
+                Array [
+                  0,
+                  532.5,
+                  355,
+                  4,
+                  355,
+                  355,
+                  177.5,
+                  0,
+                  6.283185307179586,
+                  1,
+                ]
+              }
+              fill={null}
+              opacity={1}
+              stroke={
+                Array [
+                  1,
+                  1,
+                  1,
+                  1,
+                ]
+              }
+              strokeCap={1}
+              strokeDash={null}
+              strokeJoin={1}
+              strokeWidth={355}
+              transform={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            />
+            <ARTShape
+              d={
+                Array [
+                  0,
+                  532.5,
+                  355,
+                  4,
+                  355,
+                  355,
+                  177.5,
+                  0,
+                  3.141592653589793,
+                  1,
+                ]
+              }
+              fill={null}
+              opacity={1}
+              stroke={
+                Array [
+                  0.3215686274509804,
+                  0.8431372549019608,
+                  0.14901960784313725,
+                  1,
+                ]
+              }
+              strokeCap={0}
+              strokeDash={null}
+              strokeJoin={1}
+              strokeWidth={355}
+              transform={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            />
+            <ARTShape
+              d={
+                Array [
+                  0,
+                  177.5,
+                  355,
+                  4,
+                  355,
+                  355,
+                  177.5,
+                  3.141592653589793,
+                  4.71238898038469,
+                  1,
+                ]
+              }
+              fill={null}
+              opacity={1}
+              stroke={
+                Array [
+                  1,
+                  0.45098039215686275,
+                  0,
+                  1,
+                ]
+              }
+              strokeCap={0}
+              strokeDash={null}
+              strokeJoin={1}
+              strokeWidth={355}
+              transform={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            />
+            <ARTShape
+              d={
+                Array [
+                  0,
+                  354.99999999999994,
+                  177.5,
+                  4,
+                  355,
+                  355,
+                  177.5,
+                  4.71238898038469,
+                  6.283185307179586,
+                  1,
+                ]
+              }
+              fill={null}
+              opacity={1}
+              stroke={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                ]
+              }
+              strokeCap={0}
+              strokeDash={null}
+              strokeJoin={1}
+              strokeWidth={355}
+              transform={
+                Array [
+                  1,
+                  0,
+                  0,
+                  1,
+                  0,
+                  0,
+                ]
+              }
+            />
+          </ARTGroup>
+        </ARTSurfaceView>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#e84641",
+            "borderRadius": 5,
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "padding": 5,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Option 1
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+                "width": "50%",
+              }
+            }
+          >
+            2
+             Deaths
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+                "textAlign": "right",
+                "width": "50%",
+              }
+            }
+          >
+            50
+            % of Deaths
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#e84641",
+            "borderRadius": 5,
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "padding": 5,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Option 2
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+                "width": "50%",
+              }
+            }
+          >
+            1
+             Deaths
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+                "textAlign": "right",
+                "width": "50%",
+              }
+            }
+          >
+            25
+            % of Deaths
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#e84641",
+            "borderRadius": 5,
+            "marginBottom": 10,
+            "marginLeft": 10,
+            "marginRight": 10,
+            "padding": 5,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "bold",
+            }
+          }
+        >
+          Option 3
+        </Text>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+                "width": "50%",
+              }
+            }
+          >
+            1
+             Deaths
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 18,
+                "textAlign": "right",
+                "width": "50%",
+              }
+            }
+          >
+            25
+            % of Deaths
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`Stats Container Renders with no option set selected 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#592a29",
+      "height": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderRadius": 5,
+        "margin": 10,
+      }
+    }
+  >
+    <View>
+      <RCTPicker
+        items={
+          Array [
+            Object {
+              "label": "None Selected",
+              "textColor": undefined,
+              "value": undefined,
+            },
+            Object {
+              "label": "Option Set 0",
+              "textColor": undefined,
+              "value": "o0",
+            },
+            Object {
+              "label": "Option Set 1",
+              "textColor": undefined,
+              "value": "o2",
+            },
+            Object {
+              "label": "Option Set 2",
+              "textColor": undefined,
+              "value": "o4",
+            },
+          ]
+        }
+        onChange={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        selectedIndex={0}
+        style={
+          Array [
+            Object {
+              "height": 216,
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

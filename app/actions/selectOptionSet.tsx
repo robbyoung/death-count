@@ -33,7 +33,6 @@ export function selectOptionSet(state: OptionSet[], action: SelectOptionSetActio
             selected: true,
         };
         newState[toSelectIndex] = selected;
-        console.log(selected.title)
     }
 
     return newState;
