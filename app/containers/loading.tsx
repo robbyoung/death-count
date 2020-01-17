@@ -11,6 +11,7 @@ import { loadState } from '../storage';
 import { getAllGames } from '../selectors/games';
 
 export default class Loading extends Component<NavigationInjectedProps> {
+
     public async componentDidMount() {
         await loadState();
         const state = store.getState();

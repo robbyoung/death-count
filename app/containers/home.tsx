@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
+import SplashScreen from 'react-native-splash-screen';
 import store from '../store';
 import { Death, Playthrough, Game, OptionSet } from '../state';
 import { getDeathsForCurrentPlaythrough } from '../selectors/deaths';
@@ -52,6 +53,7 @@ export default class Home extends Component<
     public componentDidMount() {
         this.refreshState();
         this.unsubscribe = store.subscribe(() => this.refreshState());
+        SplashScreen.hide();
     }
 
     public componentWillUnmount() {
