@@ -14,7 +14,7 @@ import { backgroundColor } from '../colors';
 export default class Loading extends Component<NavigationInjectedProps> {
     public static navigationOptions = () => {
         return {
-            headerShown: false
+            headerShown: false,
         };
     };
 
@@ -29,7 +29,7 @@ export default class Loading extends Component<NavigationInjectedProps> {
     }
 
     public render() {
-        return <View style={{backgroundColor: backgroundColor}}></View>;
+        return <View style={{ backgroundColor: backgroundColor }}></View>;
     }
 
     private navigateWithNoHistory(screen: Screens) {

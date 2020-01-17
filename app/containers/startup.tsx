@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native';
-import SplashScreen from 'react-native-splash-screen'
+import SplashScreen from 'react-native-splash-screen';
 import React, { Component } from 'react';
 import store from '../store';
 import { NavigationInjectedProps } from 'react-navigation';
@@ -36,7 +36,6 @@ export default class Startup extends Component<NavigationInjectedProps> {
     public componentDidMount() {
         SplashScreen.hide();
     }
-
 
     public render() {
         return (
