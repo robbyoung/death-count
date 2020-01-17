@@ -9,8 +9,14 @@ import store from '../store';
 import { Screens } from '../screens';
 import { loadState } from '../storage';
 import { getAllGames } from '../selectors/games';
+import { backgroundColor } from '../colors';
 
 export default class Loading extends Component<NavigationInjectedProps> {
+    public static navigationOptions = () => {
+        return {
+            headerShown: false
+        };
+    };
 
     public async componentDidMount() {
         await loadState();
@@ -23,7 +29,7 @@ export default class Loading extends Component<NavigationInjectedProps> {
     }
 
     public render() {
-        return <View></View>;
+        return <View style={{backgroundColor: backgroundColor}}></View>;
     }
 
     private navigateWithNoHistory(screen: Screens) {
