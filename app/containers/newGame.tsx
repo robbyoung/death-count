@@ -103,7 +103,6 @@ export default class NewGame extends Component<
         if (title !== '') {
             const action = addOptionSetAction(title, this.state.game.id);
             store.dispatch(action);
-            void saveState();
         }
     }
 
@@ -118,6 +117,7 @@ export default class NewGame extends Component<
                 this.state.game.id,
             ),
         );
+        saveState();
         this.navigateToHome();
     }
 
