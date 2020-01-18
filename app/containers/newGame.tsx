@@ -117,7 +117,7 @@ export default class NewGame extends Component<
         );
         store.dispatch(completeGameAction());
         store.dispatch(selectGameAction(this.state.game.id));
-        
+
         saveState();
         this.navigateToHome();
     }
