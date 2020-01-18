@@ -109,14 +109,15 @@ export default class NewGame extends Component<
     private onSubmit() {
         this.unsubscribe();
 
-        store.dispatch(completeGameAction());
-        store.dispatch(selectGameAction(this.state.game.id));
         store.dispatch(
             addPlaythroughAction(
                 `${this.state.game.name} Playthrough`,
                 this.state.game.id,
             ),
         );
+        store.dispatch(completeGameAction());
+        store.dispatch(selectGameAction(this.state.game.id));
+        
         saveState();
         this.navigateToHome();
     }
