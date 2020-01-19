@@ -12,6 +12,11 @@ export interface Playthrough {
     selected: boolean;
 }
 
+export interface ExpandedPlaythrough extends Playthrough {
+    gameName: string;
+    deathCount: number;
+}
+
 export interface Death {
     id: string;
     playthroughId: string;
