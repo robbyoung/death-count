@@ -65,9 +65,9 @@ export default class PlaythroughsList extends Component<
                             key={playthrough.id}
                             playthrough={playthrough}
                             onSelect={id => this.onPlaythroughSelect(id)}
-                            onDelete={id => undefined}>
-                        </PlaythroughDisplay>
-                )})}
+                            onDelete={_id => undefined}></PlaythroughDisplay>
+                    );
+                })}
                 <OptionInput
                     onSubmit={name => this.onNewPlaythroughPress(name)}
                     placeholder="Add a new playthrough"></OptionInput>

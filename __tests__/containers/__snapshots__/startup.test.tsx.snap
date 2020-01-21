@@ -28,7 +28,7 @@ exports[`Startup Container Renders with nothing in the state 1`] = `
         "borderRadius": 5,
         "flexDirection": "row",
         "justifyContent": "center",
-        "padding": 5,
+        "padding": 15,
         "width": "100%",
       }
     }

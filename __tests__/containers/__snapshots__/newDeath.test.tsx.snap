@@ -146,7 +146,7 @@ exports[`New Death Container Renders with game and incomplete death in the state
           "borderRadius": 5,
           "flexDirection": "row",
           "justifyContent": "center",
-          "padding": 5,
+          "padding": 15,
           "width": "100%",
         }
       }

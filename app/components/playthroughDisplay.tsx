@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         color: white,
         fontSize: 30,
         paddingRight: 5,
-    }
+    },
 });
 
 interface PlaythroughDisplayProps {
@@ -36,10 +36,13 @@ interface PlaythroughDisplayProps {
     onDelete: (id: string) => void;
     onSelect: (id: string) => void;
 }
-export default class PlaythroughDisplay extends Component<PlaythroughDisplayProps> {
+export default class PlaythroughDisplay extends Component<
+    PlaythroughDisplayProps
+> {
     public render() {
         return (
-            <TouchableOpacity style={styles.container}
+            <TouchableOpacity
+                style={styles.container}
                 onPress={() => this.props.onSelect(this.props.playthrough.id)}>
                 <View style={styles.row}>
                     <View>
@@ -47,10 +50,15 @@ export default class PlaythroughDisplay extends Component<PlaythroughDisplayProp
                             {this.props.playthrough.name}
                         </Text>
                         <Text style={styles.details}>
-                            {this.props.playthrough.deathCount} Deaths  •  {this.props.playthrough.gameName}
+                            {this.props.playthrough.deathCount}
+                            {' Deaths  •  '}
+                            {this.props.playthrough.gameName}
                         </Text>
                     </View>
-                    <TouchableOpacity onPress={() => this.props.onDelete(this.props.playthrough.id)}>
+                    <TouchableOpacity
+                        onPress={() =>
+                            this.props.onDelete(this.props.playthrough.id)
+                        }>
                         <FontAwesome
                             icon={SolidIcons.times}
                             style={styles.deleteButton}

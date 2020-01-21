@@ -56,7 +56,7 @@ exports[`Games List Container Renders with games in the state 1`] = `
           "borderRadius": 5,
           "flexDirection": "row",
           "justifyContent": "center",
-          "padding": 5,
+          "padding": 15,
           "width": "100%",
         }
       }
@@ -148,7 +148,7 @@ exports[`Games List Container Renders with the empty initial state 1`] = `
           "borderRadius": 5,
           "flexDirection": "row",
           "justifyContent": "center",
-          "padding": 5,
+          "padding": 15,
           "width": "100%",
         }
       }

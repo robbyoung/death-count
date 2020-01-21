@@ -1,6 +1,12 @@
 import { Playthrough, Game, Death, ExpandedPlaythrough } from '../state';
 import { createSelector } from 'reselect';
-import { getAllPlaythroughs, getAllGames, getAllDeaths, getSelectedGame, getPlaythroughsForCurrentGame } from '.';
+import {
+    getAllPlaythroughs,
+    getAllGames,
+    getAllDeaths,
+    getSelectedGame,
+    getPlaythroughsForCurrentGame,
+} from '.';
 
 function getExpandedPlaythrough(
     playthrough: Playthrough,

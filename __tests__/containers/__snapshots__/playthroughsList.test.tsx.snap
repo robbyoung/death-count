@@ -23,30 +23,87 @@ exports[`Playthroughs List Container Renders with playthroughs in the state 1`] 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "#e84641",
+          "borderRadius": 10,
+          "margin": 15,
+          "marginBottom": 0,
           "opacity": 1,
+          "padding": 10,
         }
       }
     >
       <View
         style={
           Object {
-            "backgroundColor": "#e84641",
-            "borderBottomColor": "#592a29",
-            "borderBottomWidth": 2,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
           }
         }
       >
-        <Text
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+              }
+            }
+          >
+            Playthrough 0
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#592a29",
+                "fontSize": 18,
+              }
+            }
+          >
+            1
+             Deaths  •  
+            Game 0
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "color": "#ffffff",
-              "fontSize": 22,
-              "margin": 10,
+              "opacity": 1,
             }
           }
         >
-          Playthrough 0
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": undefined,
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 30,
+                  "paddingRight": 5,
+                },
+                Object {
+                  "fontFamily": "FontAwesome5FreeSolid",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
       </View>
     </View>
     <View
@@ -62,30 +119,87 @@ exports[`Playthroughs List Container Renders with playthroughs in the state 1`] 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
+          "backgroundColor": "#e84641",
+          "borderRadius": 10,
+          "margin": 15,
+          "marginBottom": 0,
           "opacity": 1,
+          "padding": 10,
         }
       }
     >
       <View
         style={
           Object {
-            "backgroundColor": "#e84641",
-            "borderBottomColor": "#592a29",
-            "borderBottomWidth": 2,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
           }
         }
       >
-        <Text
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#ffffff",
+                "fontSize": 22,
+              }
+            }
+          >
+            Playthrough 1
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#592a29",
+                "fontSize": 18,
+              }
+            }
+          >
+            1
+             Deaths  •  
+            Game 0
+          </Text>
+        </View>
+        <View
+          accessible={true}
+          clickable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "color": "#ffffff",
-              "fontSize": 22,
-              "margin": 10,
+              "opacity": 1,
             }
           }
         >
-          Playthrough 1
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                Object {
+                  "color": undefined,
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 30,
+                  "paddingRight": 5,
+                },
+                Object {
+                  "fontFamily": "FontAwesome5FreeSolid",
+                },
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
       </View>
     </View>
     <View
@@ -95,7 +209,7 @@ exports[`Playthroughs List Container Renders with playthroughs in the state 1`] 
           "borderRadius": 5,
           "flexDirection": "row",
           "justifyContent": "center",
-          "padding": 5,
+          "padding": 15,
           "width": "100%",
         }
       }
@@ -187,7 +301,7 @@ exports[`Playthroughs List Container Renders with the empty initial state 1`] = 
           "borderRadius": 5,
           "flexDirection": "row",
           "justifyContent": "center",
-          "padding": 5,
+          "padding": 15,
           "width": "100%",
         }
       }
