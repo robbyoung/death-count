@@ -1,6 +1,6 @@
 import { Playthrough, Game, Death, ExpandedPlaythrough } from '../state';
 import { createSelector } from 'reselect';
-import { getAllPlaythroughs, getAllGames, getAllDeaths } from '.';
+import { getAllPlaythroughs, getAllGames, getAllDeaths, getSelectedGame, getPlaythroughsForCurrentGame } from '.';
 
 function getExpandedPlaythrough(
     playthrough: Playthrough,
@@ -24,6 +24,15 @@ export const getAllPlaythroughsExpanded = createSelector(
     (playthroughs, games, deaths) => {
         return playthroughs.map(playthrough =>
             getExpandedPlaythrough(playthrough, games, deaths),
+        );
+    },
+);
+
+export const getPlaythroughsForCurrentGameExpanded = createSelector(
+    [getPlaythroughsForCurrentGame, getSelectedGame, getAllDeaths],
+    (playthroughs, game, deaths) => {
+        return playthroughs.map(playthrough =>
+            getExpandedPlaythrough(playthrough, [game], deaths),
         );
     },
 );

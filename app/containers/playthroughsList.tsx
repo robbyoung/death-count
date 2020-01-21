@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import store from '../store';
 import { NavigationInjectedProps } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
-import OptionList from '../components/optionList';
 import OptionInput from '../components/optionInput';
-import { Game, Playthrough } from '../state';
+import { Game, ExpandedPlaythrough } from '../state';
 import { getSelectedGame } from '../selectors/games';
 import { addPlaythroughAction, selectPlaythroughAction } from '../actions';
 import { saveState } from '../storage';
-import { getPlaythroughsForCurrentGame } from '../selectors';
+import { getPlaythroughsForCurrentGameExpanded } from '../selectors';
+import PlaythroughDisplay from '../components/playthroughDisplay';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
 });
 
 interface PlaythroughsListState {
-    playthroughs: Playthrough[];
+    playthroughs: ExpandedPlaythrough[];
     selectedGame: Game;
 }
 export default class PlaythroughsList extends Component<
@@ -59,13 +59,15 @@ export default class PlaythroughsList extends Component<
 
         return (
             <ScrollView style={styles.newDeathScreen}>
-                <OptionList
-                    options={this.state.playthroughs.map(
-                        playthrough => playthrough.name,
-                    )}
-                    onSelect={(_playthrough, index) =>
-                        this.onPlaythroughSelect(index)
-                    }></OptionList>
+                {this.state.playthroughs.map(playthrough => {
+                    return (
+                        <PlaythroughDisplay
+                            key={playthrough.id}
+                            playthrough={playthrough}
+                            onSelect={id => this.onPlaythroughSelect(id)}
+                            onDelete={id => undefined}>
+                        </PlaythroughDisplay>
+                )})}
                 <OptionInput
                     onSubmit={name => this.onNewPlaythroughPress(name)}
                     placeholder="Add a new playthrough"></OptionInput>
@@ -76,15 +78,13 @@ export default class PlaythroughsList extends Component<
     private refreshState() {
         const state = store.getState();
         this.setState({
-            playthroughs: getPlaythroughsForCurrentGame(state),
+            playthroughs: getPlaythroughsForCurrentGameExpanded(state),
             selectedGame: getSelectedGame(state),
         });
     }
 
-    private onPlaythroughSelect(index: number) {
-        const action = selectPlaythroughAction(
-            this.state.playthroughs[index].id,
-        );
+    private onPlaythroughSelect(id: string) {
+        const action = selectPlaythroughAction(id);
         store.dispatch(action);
         this.props.navigation.goBack();
     }
