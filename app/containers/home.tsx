@@ -14,10 +14,11 @@ import {
 } from '../actions';
 import DeathButton from '../components/deathButton';
 import { backgroundColor, white, buttonColor } from '../colors';
-import InfoDisplay from '../components/infoDisplay';
+import DeathCounter from '../components/deathCounter';
 import { Screens } from '../screens';
 import { getOptionSetsForSelectedGame } from '../selectors';
 import { saveState } from '../storage';
+import CurrentPlaythrough from '../components/currentPlaythrough';
 
 const styles = StyleSheet.create({
     homeScreen: {
@@ -39,7 +40,7 @@ interface HomeState {
 export default class Home extends Component<
     NavigationInjectedProps,
     HomeState
-> {
+    > {
     private unsubscribe = () => undefined;
 
     public static navigationOptions = () => {
@@ -71,16 +72,16 @@ export default class Home extends Component<
 
         return (
             <View style={styles.homeScreen}>
-                <DeathButton onPress={() => this.addDeath()}></DeathButton>
-                <InfoDisplay
-                    deaths={this.state.deaths}
-                    currentGame={this.state.game}
-                    currentPlaythrough={this.state.playthrough}
-                    onGamePress={() => this.navigateToScreen(Screens.GamesList)}
-                    onPlaythroughPress={() =>
+                <CurrentPlaythrough
+                    gameName={this.state.game.name}
+                    playthroughName={this.state.playthrough.name}
+                    onPress={() =>
                         this.navigateToScreen(Screens.PlaythroughsList)
-                    }
-                    onDeathsPress={() => this.viewStats()}></InfoDisplay>
+                    }></CurrentPlaythrough>
+                <DeathButton onPress={() => this.addDeath()}></DeathButton>
+                <DeathCounter
+                    deaths={this.state.deaths}
+                    onPress={() => this.viewStats()}></DeathCounter>
             </View>
         );
     }

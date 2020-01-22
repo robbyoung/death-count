@@ -1,6 +1,7 @@
 export const backgroundColor = '#592a29';
 export const buttonColor = '#e84641';
 export const white = '#ffffff';
+export const grey = '#a9a9a9';
 
 export const chartColors = [
     '#52D726',
