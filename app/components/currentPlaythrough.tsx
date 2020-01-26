@@ -1,11 +1,10 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React, { Component } from 'react';
-import { white, buttonColor, grey } from '../colors';
-import { ExpandedPlaythrough } from '../state';
+import { white, grey } from '../colors';
 
 const styles = StyleSheet.create({
     container: {
-        margin: 10,
+        marginBottom: 30,
     },
     text: {
         color: white,
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         textAlign: 'center',
         textAlignVertical: 'center',
-    }
+    },
 });
 
 interface CurrentPlaythroughProps {
@@ -26,17 +25,16 @@ interface CurrentPlaythroughProps {
     gameName: string;
     onPress: () => void;
 }
-export default class currentPlaythrough extends Component<CurrentPlaythroughProps> {
+export default class CurrentPlaythrough extends Component<
+    CurrentPlaythroughProps
+> {
     public render() {
         return (
-            <TouchableOpacity style={styles.container}
+            <TouchableOpacity
+                style={styles.container}
                 onPress={() => this.props.onPress()}>
-                <Text style={styles.text}>
-                    {this.props.playthroughName}
-                </Text>
-                <Text style={styles.text}>
-                    {this.props.gameName}
-                </Text>
+                <Text style={styles.text}>{this.props.playthroughName}</Text>
+                <Text style={styles.subText}>{this.props.gameName}</Text>
             </TouchableOpacity>
         );
     }

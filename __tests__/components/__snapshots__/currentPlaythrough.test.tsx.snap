@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Current Playthrough Component renders correctly 1`] = `
+<View
+  accessible={true}
+  clickable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "marginBottom": 30,
+      "opacity": 1,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 30,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    Playthrough 1
+  </Text>
+  <Text
+    style={
+      Object {
+        "color": "#a9a9a9",
+        "fontSize": 24,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+      }
+    }
+  >
+    Test Game
+  </Text>
+</View>
+`;

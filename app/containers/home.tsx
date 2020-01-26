@@ -40,7 +40,7 @@ interface HomeState {
 export default class Home extends Component<
     NavigationInjectedProps,
     HomeState
-    > {
+> {
     private unsubscribe = () => undefined;
 
     public static navigationOptions = () => {
