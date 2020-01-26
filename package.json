@@ -7,7 +7,7 @@
     "tsc": "rm -f node_modules/react-native-fontawesome/*.d.ts && tsc -p tsconfig.json",
     "lint": "eslint app/**/*.tsx",
     "test": "jest",
-    "check": "npm run tsc && npm run lint && npm run test"
+    "check": "yarn run tsc && yarn run lint && yarn run test"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.7.1",

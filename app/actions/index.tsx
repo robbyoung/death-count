@@ -11,3 +11,4 @@ export * from './loadState';
 export * from './completeGame';
 export * from './selectPlaythrough';
 export * from './selectOptionSet';
+export * from './deletePlaythrough';

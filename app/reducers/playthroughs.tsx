@@ -8,6 +8,8 @@ import {
     loadPlaythroughs,
     SelectPlaythroughAction,
     selectPlaythrough,
+    deletePlaythrough,
+    DeletePlaythroughAction,
 } from '../actions';
 
 export default function playthroughsReducer(
@@ -21,6 +23,8 @@ export default function playthroughsReducer(
             return addPlaythrough(state, action as AddPlaythroughAction);
         case ActionType.SELECT_PLAYTHROUGH:
             return selectPlaythrough(state, action as SelectPlaythroughAction);
+        case ActionType.DELETE_PLAYTHROUGH:
+            return deletePlaythrough(state, action as DeletePlaythroughAction);
         default:
             return state;
     }
