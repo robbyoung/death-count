@@ -6,7 +6,11 @@ import { backgroundColor, white, buttonColor } from '../colors';
 import OptionInput from '../components/optionInput';
 import { Game, ExpandedPlaythrough } from '../state';
 import { getSelectedGame } from '../selectors/games';
-import { addPlaythroughAction, selectPlaythroughAction } from '../actions';
+import {
+    addPlaythroughAction,
+    selectPlaythroughAction,
+    DeletePlaythroughAction,
+} from '../actions';
 import { saveState } from '../storage';
 import { getPlaythroughsForCurrentGameExpanded } from '../selectors';
 import PlaythroughDisplay from '../components/playthroughDisplay';
@@ -65,7 +69,9 @@ export default class PlaythroughsList extends Component<
                             key={playthrough.id}
                             playthrough={playthrough}
                             onSelect={id => this.onPlaythroughSelect(id)}
-                            onDelete={_id => undefined}></PlaythroughDisplay>
+                            onDelete={id =>
+                                this.onPlaythroughDelete(id)
+                            }></PlaythroughDisplay>
                     );
                 })}
                 <OptionInput
@@ -87,6 +93,13 @@ export default class PlaythroughsList extends Component<
         const action = selectPlaythroughAction(id);
         store.dispatch(action);
         this.props.navigation.goBack();
+        saveState();
+    }
+
+    private onPlaythroughDelete(id: string) {
+        const action = DeletePlaythroughAction(id);
+        store.dispatch(action);
+        saveState();
     }
 
     private onNewPlaythroughPress(name: string) {

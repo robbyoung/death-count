@@ -77,6 +77,7 @@ exports[`Playthroughs List Container Renders with playthroughs in the state 1`] 
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "display": "none",
               "opacity": 1,
             }
           }

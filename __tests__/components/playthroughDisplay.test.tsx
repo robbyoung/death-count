@@ -11,6 +11,22 @@ describe('Playthrough Display Component', () => {
                 gameName: 'Test Game',
                 id: '456',
                 name: 'Test Playthrough',
+                selected: false,
+            }}
+            onSelect={() => undefined}
+            onDelete={() => undefined}
+        />);
+        expect(component.toJSON()).toMatchSnapshot();
+    });
+
+    it('will correctly details of the selected playthrough', () => {
+        const component = renderer.create(<PlaythroughDisplay
+            playthrough={{
+                deathCount: 80,
+                gameId: '123',
+                gameName: 'Test Game',
+                id: '456',
+                name: 'Test Playthrough',
                 selected: true,
             }}
             onSelect={() => undefined}

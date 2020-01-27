@@ -56,6 +56,11 @@ export default class PlaythroughDisplay extends Component<
                         </Text>
                     </View>
                     <TouchableOpacity
+                        style={
+                            this.props.playthrough.selected
+                                ? { display: 'none' }
+                                : {}
+                        }
                         onPress={() =>
                             this.props.onDelete(this.props.playthrough.id)
                         }>
