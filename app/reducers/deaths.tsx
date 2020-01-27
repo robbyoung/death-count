@@ -10,6 +10,8 @@ import {
     CompleteDeathAction,
     loadDeaths,
     LoadStateAction,
+    DeletePlaythroughAction,
+    deleteDeathsForPlaythrough,
 } from '../actions';
 
 export default function deathsReducer(
@@ -25,6 +27,11 @@ export default function deathsReducer(
             return addDeathDetail(state, action as AddDeathDetailAction);
         case ActionType.COMPLETE_DEATH:
             return completeDeath(state, action as CompleteDeathAction);
+        case ActionType.DELETE_PLAYTHROUGH:
+            return deleteDeathsForPlaythrough(
+                state,
+                action as DeletePlaythroughAction,
+            );
         default:
             return state;
     }

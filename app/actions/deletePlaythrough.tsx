@@ -1,4 +1,4 @@
-import { Playthrough } from '../state';
+import { Playthrough, Death } from '../state';
 import { Action } from 'redux';
 import { ActionType } from './actionTypes';
 
@@ -19,4 +19,11 @@ export function deletePlaythrough(
     action: DeletePlaythroughAction,
 ): Playthrough[] {
     return state.filter(playthrough => playthrough.id !== action.id);
+}
+
+export function deleteDeathsForPlaythrough(
+    state: Death[],
+    action: DeletePlaythroughAction,
+): Death[] {
+    return state.filter(death => death.playthroughId !== action.id);
 }
