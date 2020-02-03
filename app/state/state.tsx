@@ -10,6 +10,7 @@ export interface Playthrough {
     name: string;
     gameId: string;
     selected: boolean;
+    complete: boolean;
 }
 
 export interface ExpandedPlaythrough extends Playthrough {

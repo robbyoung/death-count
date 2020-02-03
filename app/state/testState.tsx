@@ -26,6 +26,7 @@ export function createTestState(
             name: `Playthrough ${i}`,
             gameId: `g${i % gameCount}`,
             selected: currentPlaythrough === i,
+            complete: true,
         });
     }
 
@@ -71,6 +72,19 @@ export function createTestGame(
         complete,
         id,
         name: 'Test Game',
+        selected: false,
+    };
+}
+
+export function createTestPlaythrough(
+    complete: boolean,
+    id: string = uuid.v4(),
+): Playthrough {
+    return {
+        id,
+        complete,
+        gameId: 'Test Game',
+        name: 'Test Name',
         selected: false,
     };
 }

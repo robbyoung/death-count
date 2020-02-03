@@ -12,6 +12,7 @@ describe('Playthrough Display Component', () => {
                 id: '456',
                 name: 'Test Playthrough',
                 selected: false,
+                complete: true,
             }}
             onSelect={() => undefined}
             onDelete={() => undefined}
@@ -28,6 +29,7 @@ describe('Playthrough Display Component', () => {
                 id: '456',
                 name: 'Test Playthrough',
                 selected: true,
+                complete: true,
             }}
             onSelect={() => undefined}
             onDelete={() => undefined}
