@@ -1,6 +1,6 @@
 import { addPlaythroughAction } from '../../app/actions';
 import playthroughsReducer from '../../app/reducers/playthroughs';
-import { createTestState } from '../../app/state';
+import { createTestState, createTestPlaythrough } from '../../app/state';
 
 describe('Add Playthrough Action', () => {
     it('can add a playthrough to an empty list', () => {
@@ -21,5 +21,15 @@ describe('Add Playthrough Action', () => {
         expect(newState[2].selected).toBe(false);
         expect(newState[2].complete).toBe(false);
         expect(state).toEqual(createTestState(2, 2, 0, 1, 1).playthroughs);
+    });
+
+    it('will remove other incomplete playthroughs', () => {
+        const state = [...createTestState(2, 2, 0, 1, 1).playthroughs, createTestPlaythrough(false, 'incomplete')];
+        const action = addPlaythroughAction('test id', state[1].gameId);
+        const newState = playthroughsReducer(state, action);
+        expect(newState).toEqual([...createTestState(2, 2, 0, 1, 1).playthroughs, action.newPlaythrough]);
+        expect(newState[2].selected).toBe(false);
+        expect(newState[2].complete).toBe(false);
+        expect(state).toEqual([...createTestState(2, 2, 0, 1, 1).playthroughs, createTestPlaythrough(false, 'incomplete')]);
     });
 })

@@ -1,5 +1,5 @@
-import { getAllPlaythroughs, getPlaythroughsForCurrentGame, getSelectedPlaythrough } from '../../app/selectors';
-import { createTestState } from '../../app/state';
+import { getAllPlaythroughs, getPlaythroughsForCurrentGame, getSelectedPlaythrough, getIncompletePlaythrough } from '../../app/selectors';
+import { createTestState, createTestPlaythrough } from '../../app/state';
 
 describe('Playthrough Selectors', () => {
     describe('Get All Playthroughs', () => {
@@ -29,6 +29,21 @@ describe('Playthrough Selectors', () => {
             const state = createTestState(4, 5, 10, 0, 4);
             const result = getSelectedPlaythrough(state);
             expect(result.id).toBe('p4');
+        });
+    });
+
+    describe('Get Incomplete Playthrough', () => {
+        it('Can select the incomplete playthrough', () => {
+            const state = createTestState(4, 5, 10, 0, 4);
+            state.playthroughs.push(createTestPlaythrough(false, 'incomplete'));
+            const result = getIncompletePlaythrough(state);
+            expect(result.id).toBe('incomplete');
+        });
+
+        it('Will return nothing if all playthroughs are complete', () => {
+            const state = createTestState(4, 5, 10, 0, 4);
+            const result = getIncompletePlaythrough(state);
+            expect(result).toBeUndefined();
         });
     });
 });

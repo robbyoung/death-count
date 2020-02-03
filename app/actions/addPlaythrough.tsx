@@ -28,5 +28,8 @@ export function addPlaythrough(
     state: Playthrough[],
     action: AddPlaythroughAction,
 ): Playthrough[] {
-    return [...state, action.newPlaythrough];
+    return [
+        ...state.filter(playthrough => playthrough.complete),
+        action.newPlaythrough,
+    ];
 }

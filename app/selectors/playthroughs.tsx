@@ -2,7 +2,11 @@ import { createSelector } from 'reselect';
 import { State } from '../state';
 import { getSelectedGame } from './games';
 
-export const getAllPlaythroughs = (state: State) => state.playthroughs;
+export const getAllPlaythroughs = (state: State) =>
+    state.playthroughs.filter(playthrough => playthrough.complete);
+
+export const getIncompletePlaythrough = (state: State) =>
+    state.playthroughs.find(playthrough => !playthrough.complete);
 
 export const getPlaythroughsForCurrentGame = createSelector(
     [getAllPlaythroughs, getSelectedGame],
