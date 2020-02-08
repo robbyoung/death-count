@@ -7,4 +7,5 @@ export enum Screens {
     Startup = 'Startup',
     PlaythroughsList = 'PlaythroughsList',
     Stats = 'Stats',
+    PlaythroughCreator = 'PlaythroughCreator',
 }

@@ -4,18 +4,17 @@ import { SolidIcons } from 'react-native-fontawesome';
 import store from '../store';
 import { NavigationInjectedProps } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
-import OptionInput from '../components/optionInput';
 import { Game, ExpandedPlaythrough } from '../state';
 import { getSelectedGame } from '../selectors/games';
 import {
-    addPlaythroughAction,
     selectPlaythroughAction,
-    DeletePlaythroughAction,
+    deletePlaythroughAction,
 } from '../actions';
 import { saveState } from '../storage';
 import { getPlaythroughsForCurrentGameExpanded } from '../selectors';
 import PlaythroughDisplay from '../components/playthroughDisplay';
 import HeaderButton from '../components/headerButton';
+import { Screens } from '../screens';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -37,14 +36,14 @@ export default class PlaythroughsList extends Component<
 > {
     private unsubscribe = () => undefined;
 
-    public static navigationOptions = () => {
+    public static navigationOptions = (props: NavigationInjectedProps) => {
         return {
             title: 'Playthroughs',
             headerTintColor: white,
             headerStyle: styles.header,
             headerRight: () => (<HeaderButton
                 icon={SolidIcons.plus}
-                onPress={() => undefined}
+                onPress={() => PlaythroughsList.onPlaythroughAdd(props)}
             ></HeaderButton>)
         };
     };
@@ -80,9 +79,6 @@ export default class PlaythroughsList extends Component<
                             }></PlaythroughDisplay>
                     );
                 })}
-                <OptionInput
-                    onSubmit={name => this.onNewPlaythroughPress(name)}
-                    placeholder="Add a new playthrough"></OptionInput>
             </ScrollView>
         );
     }
@@ -95,6 +91,10 @@ export default class PlaythroughsList extends Component<
         });
     }
 
+    private static onPlaythroughAdd(props: NavigationInjectedProps) {
+        props.navigation.navigate(Screens.PlaythroughCreator);
+    }
+
     private onPlaythroughSelect(id: string) {
         const action = selectPlaythroughAction(id);
         store.dispatch(action);
@@ -103,22 +103,8 @@ export default class PlaythroughsList extends Component<
     }
 
     private onPlaythroughDelete(id: string) {
-        const action = DeletePlaythroughAction(id);
+        const action = deletePlaythroughAction(id);
         store.dispatch(action);
         saveState();
-    }
-
-    private onNewPlaythroughPress(name: string) {
-        if (name === '') {
-            return;
-        }
-
-        const newPlaythroughAction = addPlaythroughAction(
-            name,
-            this.state.selectedGame.id,
-        );
-        store.dispatch(newPlaythroughAction);
-        void saveState();
-        this.props.navigation.goBack();
     }
 }

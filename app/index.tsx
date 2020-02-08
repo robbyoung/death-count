@@ -9,6 +9,7 @@ import Loading from './containers/loading';
 import Startup from './containers/startup';
 import PlaythroughsList from './containers/playthroughsList';
 import Stats from './containers/stats';
+import PlaythroughCreator from './containers/playthroughCreator';
 
 const MainNavigator = createStackNavigator(
     {
@@ -20,6 +21,7 @@ const MainNavigator = createStackNavigator(
         Startup: { screen: Startup },
         PlaythroughsList: { screen: PlaythroughsList },
         Stats: { screen: Stats },
+        PlaythroughCreator: { screen: PlaythroughCreator },
     },
     {
         initialRouteName: Screens.Loading,

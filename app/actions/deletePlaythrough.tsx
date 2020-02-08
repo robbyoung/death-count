@@ -7,7 +7,7 @@ export interface DeletePlaythroughAction extends Action {
     id: string;
 }
 
-export function DeletePlaythroughAction(id: string): DeletePlaythroughAction {
+export function deletePlaythroughAction(id: string): DeletePlaythroughAction {
     return {
         type: ActionType.DELETE_PLAYTHROUGH,
         id,
