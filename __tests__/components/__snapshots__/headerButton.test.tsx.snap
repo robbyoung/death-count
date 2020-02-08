@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Button Component renders correctly 1`] = `
+<View>
+  <View
+    accessible={true}
+    clickable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          Object {
+            "color": undefined,
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 22,
+            "marginRight": 20,
+          },
+          Object {
+            "fontFamily": "FontAwesome5FreeSolid",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</View>
+`;

@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import React, { Component } from 'react';
+import { SolidIcons } from 'react-native-fontawesome';
 import store from '../store';
 import { NavigationInjectedProps } from 'react-navigation';
 import { backgroundColor, white, buttonColor } from '../colors';
@@ -14,6 +15,7 @@ import {
 import { saveState } from '../storage';
 import { getPlaythroughsForCurrentGameExpanded } from '../selectors';
 import PlaythroughDisplay from '../components/playthroughDisplay';
+import HeaderButton from '../components/headerButton';
 
 const styles = StyleSheet.create({
     newDeathScreen: {
@@ -40,6 +42,10 @@ export default class PlaythroughsList extends Component<
             title: 'Playthroughs',
             headerTintColor: white,
             headerStyle: styles.header,
+            headerRight: () => (<HeaderButton
+                icon={SolidIcons.plus}
+                onPress={() => undefined}
+            ></HeaderButton>)
         };
     };
 
