@@ -17,7 +17,6 @@ import {
     addOptionSetAction,
     completeGameAction,
     selectGameAction,
-    addPlaythroughAction,
 } from '../actions';
 import OptionList from '../components/optionList';
 import { saveState } from '../storage';
@@ -109,12 +108,6 @@ export default class NewGame extends Component<
     private onSubmit() {
         this.unsubscribe();
 
-        store.dispatch(
-            addPlaythroughAction(
-                `${this.state.game.name} Playthrough`,
-                this.state.game.id,
-            ),
-        );
         store.dispatch(completeGameAction());
         store.dispatch(selectGameAction(this.state.game.id));
 

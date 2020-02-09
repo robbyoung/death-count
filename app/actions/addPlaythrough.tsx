@@ -9,17 +9,16 @@ export interface AddPlaythroughAction extends Action {
 }
 
 export function addPlaythroughAction(
-    name: string,
-    gameId: string,
+    id?: string
 ): AddPlaythroughAction {
     return {
         type: ActionType.ADD_PLAYTHROUGH,
         newPlaythrough: {
-            gameId,
-            name,
-            id: uuid.v4(),
+            id: id ? id : uuid.v4(),
             selected: false,
             complete: false,
+            gameId: undefined,
+            name: '',
         },
     };
 }
