@@ -3,6 +3,7 @@ import { State } from '../state';
 import { getSelectedGame } from './games';
 
 export const getAllPlaythroughs = (state: State) =>
+    // state.playthroughs.filter(playthrough => playthrough.complete)
     state.playthroughs
 
 export const getIncompletePlaythrough = (state: State) =>
