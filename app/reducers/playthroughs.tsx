@@ -12,6 +12,8 @@ import {
     DeletePlaythroughAction,
     updatePlaythrough,
     UpdatePlaythroughAction,
+    completePlaythrough,
+    CompletePlaythroughAction,
 } from '../actions';
 
 export default function playthroughsReducer(
@@ -29,6 +31,8 @@ export default function playthroughsReducer(
             return deletePlaythrough(state, action as DeletePlaythroughAction);
         case ActionType.UPDATE_PLAYTHROUGH:
             return updatePlaythrough(state, action as UpdatePlaythroughAction);
+        case ActionType.COMPLETE_PLAYTHROUGH:
+            return completePlaythrough(state, action as CompletePlaythroughAction);
         default:
             return state;
     }

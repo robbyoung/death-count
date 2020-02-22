@@ -13,4 +13,5 @@ export enum ActionType {
     SELECT_OPTION_SET = 'Select Option Set',
     DELETE_PLAYTHROUGH = 'Delete Playthrough',
     UPDATE_PLAYTHROUGH = 'Update Playthrough',
+    COMPLETE_PLAYTHROUGH = 'Complete Playthrough',
 }

@@ -13,3 +13,4 @@ export * from './selectPlaythrough';
 export * from './selectOptionSet';
 export * from './deletePlaythrough';
 export * from './updatePlaythrough';
+export * from './completePlaythrough';
