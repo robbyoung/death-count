@@ -1,15 +1,14 @@
 import { View, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
 import { NavigationInjectedProps } from 'react-navigation';
-import { SolidIcons } from 'react-native-fontawesome';
 import { backgroundColor, white, buttonColor } from '../colors';
 import Input from '../components/input';
 import OptionPicker from '../components/optionPicker';
 import { Game, Playthrough } from '../state';
 import store from '../store';
 import { getAllGames, getIncompletePlaythrough } from '../selectors';
-import { updatePlaythroughAction } from '../actions';
-import HeaderButton from '../components/headerButton';
+import { updatePlaythroughAction, completePlaythroughAction } from '../actions';
+import Button from '../components/button';
 
 const styles = StyleSheet.create({
     header: {
@@ -28,15 +27,11 @@ interface PlaythroughCreatorState {
 export default class PlaythroughCreator extends Component<NavigationInjectedProps, PlaythroughCreatorState> {
     private unsubscribe = () => undefined;
 
-    public static navigationOptions = (props: NavigationInjectedProps) => {
+    public static navigationOptions = () => {
         return {
             title: 'New Playthrough',
             headerTintColor: white,
             headerStyle: styles.header,
-            headerRight: () => (<HeaderButton
-                icon={SolidIcons.check}
-                onPress={() => PlaythroughCreator.onPlaythroughComplete(props)}
-            ></HeaderButton>)
         };
     };
 
@@ -50,9 +45,9 @@ export default class PlaythroughCreator extends Component<NavigationInjectedProp
     }
 
     public render() {
-        if (!this.state) {
+        if (!this.state || !this.state.playthrough) {
             return (
-                <View/>
+                <View style={styles.background} />
             );
         }
 
@@ -71,6 +66,11 @@ export default class PlaythroughCreator extends Component<NavigationInjectedProp
                     onSelect={key => this.onGameUpdate(key)}
                     selected={this.state.playthrough.gameId}>
                 </OptionPicker>
+
+                <Button
+                    text="Submit"
+                    onPress={() => this.onSubmit()}>
+                </Button>
             </View>
         );
     }
@@ -98,8 +98,16 @@ export default class PlaythroughCreator extends Component<NavigationInjectedProp
         });
         store.dispatch(action);
     }
-    
-    private static onPlaythroughComplete(props: NavigationInjectedProps) {
-        props.navigation.goBack();
+
+    private validatePlaythrough(): boolean {
+        const playthrough = this.state.playthrough;
+        return playthrough.name.length > 0 && playthrough.gameId !== undefined;
+    }
+
+    private onSubmit() {
+        if (this.validatePlaythrough()) {
+            store.dispatch(completePlaythroughAction());
+            this.props.navigation.goBack();
+        }
     }
 }

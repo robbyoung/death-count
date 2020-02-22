@@ -9,6 +9,7 @@ import { getSelectedGame } from '../selectors/games';
 import {
     selectPlaythroughAction,
     deletePlaythroughAction,
+    addPlaythroughAction,
 } from '../actions';
 import { saveState } from '../storage';
 import { getPlaythroughsForCurrentGameExpanded } from '../selectors';
@@ -92,6 +93,7 @@ export default class PlaythroughsList extends Component<
     }
 
     private static onPlaythroughAdd(props: NavigationInjectedProps) {
+        store.dispatch(addPlaythroughAction());
         props.navigation.navigate(Screens.PlaythroughCreator);
     }
 
