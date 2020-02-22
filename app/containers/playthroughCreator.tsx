@@ -17,14 +17,17 @@ const styles = StyleSheet.create({
     background: {
         backgroundColor: backgroundColor,
         height: '100%',
-    }
+    },
 });
 
 interface PlaythroughCreatorState {
     games: Game[];
     playthrough: Playthrough;
 }
-export default class PlaythroughCreator extends Component<NavigationInjectedProps, PlaythroughCreatorState> {
+export default class PlaythroughCreator extends Component<
+    NavigationInjectedProps,
+    PlaythroughCreatorState
+> {
     private unsubscribe = () => undefined;
 
     public static navigationOptions = () => {
@@ -46,17 +49,15 @@ export default class PlaythroughCreator extends Component<NavigationInjectedProp
 
     public render() {
         if (!this.state || !this.state.playthrough) {
-            return (
-                <View style={styles.background} />
-            );
+            return <View style={styles.background} />;
         }
 
         return (
             <View style={styles.background}>
                 <Input
                     title="Playthrough Name"
-                    onTextChange={text => this.onNameUpdate(text)}>
-                </Input>
+                    value={this.state.playthrough.name}
+                    onTextChange={text => this.onNameUpdate(text)}></Input>
 
                 <OptionPicker
                     title="Game"
@@ -65,13 +66,9 @@ export default class PlaythroughCreator extends Component<NavigationInjectedProp
                         value: game.id,
                     }))}
                     onSelect={key => this.onGameUpdate(key)}
-                    selected={this.state.playthrough.gameId}>
-                </OptionPicker>
+                    selected={this.state.playthrough.gameId}></OptionPicker>
 
-                <Button
-                    text="Submit"
-                    onPress={() => this.onSubmit()}>
-                </Button>
+                <Button text="Submit" onPress={() => this.onSubmit()}></Button>
             </View>
         );
     }

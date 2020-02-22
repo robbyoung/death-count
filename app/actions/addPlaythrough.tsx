@@ -8,9 +8,7 @@ export interface AddPlaythroughAction extends Action {
     newPlaythrough: Playthrough;
 }
 
-export function addPlaythroughAction(
-    id?: string
-): AddPlaythroughAction {
+export function addPlaythroughAction(id?: string): AddPlaythroughAction {
     return {
         type: ActionType.ADD_PLAYTHROUGH,
         newPlaythrough: {

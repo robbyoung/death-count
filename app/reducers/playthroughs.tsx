@@ -32,7 +32,10 @@ export default function playthroughsReducer(
         case ActionType.UPDATE_PLAYTHROUGH:
             return updatePlaythrough(state, action as UpdatePlaythroughAction);
         case ActionType.COMPLETE_PLAYTHROUGH:
-            return completePlaythrough(state, action as CompletePlaythroughAction);
+            return completePlaythrough(
+                state,
+                action as CompletePlaythroughAction,
+            );
         default:
             return state;
     }

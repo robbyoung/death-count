@@ -37,6 +37,7 @@ exports[`Input Component renders correctly 1`] = `
       }
     }
     underlineColorAndroid="transparent"
+    value="Some text"
   />
 </View>
 `;

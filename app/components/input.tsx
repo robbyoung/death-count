@@ -21,11 +21,12 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontSize: 18,
         padding: 10,
-    }
+    },
 });
 
 interface InputProps {
     title: string;
+    value: string;
     onTextChange: (text: string) => void;
 }
 export default class Input extends Component<InputProps> {
@@ -34,9 +35,11 @@ export default class Input extends Component<InputProps> {
             <View style={styles.container}>
                 <Text style={styles.title}>{this.props.title}</Text>
                 <TextInput
+                    value={this.props.value}
                     style={styles.textbox}
-                    onChangeText={text => this.props.onTextChange(text)}>
-                </TextInput>
+                    onChangeText={text =>
+                        this.props.onTextChange(text)
+                    }></TextInput>
             </View>
         );
     }

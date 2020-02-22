@@ -1,4 +1,4 @@
-import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import React, { Component } from 'react';
 import { white, buttonColor } from '../colors';
 
@@ -28,7 +28,9 @@ interface ButtonProps {
 export default class Button extends Component<ButtonProps> {
     public render() {
         return (
-            <TouchableOpacity style={styles.container} onPress={() => this.props.onPress()}>
+            <TouchableOpacity
+                style={styles.container}
+                onPress={() => this.props.onPress()}>
                 <Text style={styles.button}>{this.props.text}</Text>
             </TouchableOpacity>
         );

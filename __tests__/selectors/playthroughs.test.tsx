@@ -11,6 +11,16 @@ describe('Playthrough Selectors', () => {
                 expect(playthrough.id).toBe(`p${index}`);
             });
         });
+
+        it('Will omit incomplete playthroughs', () => {
+            const state = createTestState(2, 5, 10, 0, 0);
+            state.playthroughs.push(createTestPlaythrough(false));
+            const result = getAllPlaythroughs(state);
+            expect(result.length).toBe(5);
+            result.forEach((playthrough, index) => {
+                expect(playthrough.id).toBe(`p${index}`);
+            });
+        });
     });
 
     describe('Get Playthroughs For Current Game', () => {

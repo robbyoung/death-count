@@ -16,7 +16,9 @@ export function completePlaythrough(
     state: Playthrough[],
     _action: CompletePlaythroughAction,
 ): Playthrough[] {
-    const incompleteIndex = state.findIndex(playthrough => !playthrough.complete);
+    const incompleteIndex = state.findIndex(
+        playthrough => !playthrough.complete,
+    );
     const newState = [...state];
     const editedPlaythrough: Playthrough = {
         ...state[incompleteIndex],

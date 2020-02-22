@@ -3,8 +3,7 @@ import { State } from '../state';
 import { getSelectedGame } from './games';
 
 export const getAllPlaythroughs = (state: State) =>
-    // state.playthroughs.filter(playthrough => playthrough.complete)
-    state.playthroughs
+    state.playthroughs.filter(playthrough => playthrough.complete);
 
 export const getIncompletePlaythrough = (state: State) =>
     state.playthroughs.find(playthrough => !playthrough.complete);

@@ -20,13 +20,9 @@ export default class HeaderButton extends Component<HeaderButtonProps> {
         return (
             <View>
                 <TouchableOpacity onPress={() => this.props.onPress()}>
-                    <FontAwesome
-                        icon={this.props.icon}
-                        style={styles.button}
-                    />
+                    <FontAwesome icon={this.props.icon} style={styles.button} />
                 </TouchableOpacity>
             </View>
         );
     }
 }
-

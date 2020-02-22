@@ -19,7 +19,9 @@ exports[`Option Picker Component can render an option picker with a selected ite
         "marginTop": 5,
       }
     }
-  />
+  >
+    Title
+  </Text>
   <View
     style={
       Object {
@@ -82,7 +84,9 @@ exports[`Option Picker Component can render an option picker with nothing select
         "marginTop": 5,
       }
     }
-  />
+  >
+    Title
+  </Text>
   <View
     style={
       Object {

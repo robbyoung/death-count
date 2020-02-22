@@ -5,6 +5,7 @@ import OptionPicker from '../../app/components/optionPicker';
 describe('Option Picker Component', () => {
     it('can render an option picker with nothing selected', () => {
         const component = renderer.create(<OptionPicker
+            title="Title"
             onSelect={() => undefined}
             options={[{
                 key: 'key 1',
@@ -20,6 +21,7 @@ describe('Option Picker Component', () => {
 
     it('can render an option picker with a selected item', () => {
         const component = renderer.create(<OptionPicker
+            title="Title"
             onSelect={() => undefined}
             options={[{
                 key: 'key 1',

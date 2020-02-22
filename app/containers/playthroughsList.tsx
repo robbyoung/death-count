@@ -42,10 +42,13 @@ export default class PlaythroughsList extends Component<
             title: 'Playthroughs',
             headerTintColor: white,
             headerStyle: styles.header,
-            headerRight: () => (<HeaderButton
-                icon={SolidIcons.plus}
-                onPress={() => PlaythroughsList.onPlaythroughAdd(props)}
-            ></HeaderButton>)
+            headerRight: () => (
+                <HeaderButton
+                    icon={SolidIcons.plus}
+                    onPress={() =>
+                        PlaythroughsList.onPlaythroughAdd(props)
+                    }></HeaderButton>
+            ),
         };
     };
 

@@ -7,7 +7,9 @@ export interface UpdatePlaythroughAction extends Action {
     updated: Playthrough;
 }
 
-export function updatePlaythroughAction(updated: Playthrough): UpdatePlaythroughAction {
+export function updatePlaythroughAction(
+    updated: Playthrough,
+): UpdatePlaythroughAction {
     return {
         type: ActionType.UPDATE_PLAYTHROUGH,
         updated,
@@ -18,10 +20,8 @@ export function updatePlaythrough(
     state: Playthrough[],
     action: UpdatePlaythroughAction,
 ): Playthrough[] {
-    const updateIndex = state.findIndex(playthrough => !playthrough.complete)
-    const newState = [
-        ...state,
-    ];
+    const updateIndex = state.findIndex(playthrough => !playthrough.complete);
+    const newState = [...state];
     newState[updateIndex] = action.updated;
     return newState;
 }
