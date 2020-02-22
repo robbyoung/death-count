@@ -4,41 +4,61 @@ exports[`Option Picker Component can render an option picker with a selected ite
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
-      "borderRadius": 5,
-      "margin": 10,
+      "marginLeft": "5%",
+      "marginRight": "5%",
+      "width": "90%",
     }
   }
 >
-  <View>
-    <RCTPicker
-      items={
-        Array [
-          Object {
-            "label": "key 1",
-            "textColor": undefined,
-            "value": "value 1",
-          },
-          Object {
-            "label": "key 2",
-            "textColor": undefined,
-            "value": "value 2",
-          },
-        ]
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 18,
+        "marginBottom": 5,
+        "marginTop": 5,
       }
-      onChange={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      selectedIndex={0}
-      style={
-        Array [
-          Object {
-            "height": 216,
-          },
-          undefined,
-        ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderRadius": 5,
+        "width": "100%",
       }
-    />
+    }
+  >
+    <View>
+      <RCTPicker
+        items={
+          Array [
+            Object {
+              "label": "key 1",
+              "textColor": undefined,
+              "value": "value 1",
+            },
+            Object {
+              "label": "key 2",
+              "textColor": undefined,
+              "value": "value 2",
+            },
+          ]
+        }
+        onChange={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        selectedIndex={0}
+        style={
+          Array [
+            Object {
+              "height": 216,
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
   </View>
 </View>
 `;
@@ -47,46 +67,66 @@ exports[`Option Picker Component can render an option picker with nothing select
 <View
   style={
     Object {
-      "backgroundColor": "#ffffff",
-      "borderRadius": 5,
-      "margin": 10,
+      "marginLeft": "5%",
+      "marginRight": "5%",
+      "width": "90%",
     }
   }
 >
-  <View>
-    <RCTPicker
-      items={
-        Array [
-          Object {
-            "label": "None Selected",
-            "textColor": undefined,
-            "value": undefined,
-          },
-          Object {
-            "label": "key 1",
-            "textColor": undefined,
-            "value": "value 1",
-          },
-          Object {
-            "label": "key 2",
-            "textColor": undefined,
-            "value": "value 2",
-          },
-        ]
+  <Text
+    style={
+      Object {
+        "color": "#ffffff",
+        "fontSize": 18,
+        "marginBottom": 5,
+        "marginTop": 5,
       }
-      onChange={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      selectedIndex={0}
-      style={
-        Array [
-          Object {
-            "height": 216,
-          },
-          undefined,
-        ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderRadius": 5,
+        "width": "100%",
       }
-    />
+    }
+  >
+    <View>
+      <RCTPicker
+        items={
+          Array [
+            Object {
+              "label": "None Selected",
+              "textColor": undefined,
+              "value": undefined,
+            },
+            Object {
+              "label": "key 1",
+              "textColor": undefined,
+              "value": "value 1",
+            },
+            Object {
+              "label": "key 2",
+              "textColor": undefined,
+              "value": "value 2",
+            },
+          ]
+        }
+        onChange={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        selectedIndex={0}
+        style={
+          Array [
+            Object {
+              "height": 216,
+            },
+            undefined,
+          ]
+        }
+      />
+    </View>
   </View>
 </View>
 `;

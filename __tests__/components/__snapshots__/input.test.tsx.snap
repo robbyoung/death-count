@@ -14,7 +14,7 @@ exports[`Input Component renders correctly 1`] = `
     style={
       Object {
         "color": "#ffffff",
-        "fontSize": 22,
+        "fontSize": 18,
         "marginBottom": 5,
         "marginTop": 5,
       }
@@ -29,9 +29,9 @@ exports[`Input Component renders correctly 1`] = `
     style={
       Object {
         "backgroundColor": "#ffffff",
-        "borderRadius": 10,
+        "borderRadius": 5,
         "color": "#000000",
-        "fontSize": 22,
+        "fontSize": 18,
         "padding": 10,
         "width": "100%",
       }

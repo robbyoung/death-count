@@ -5,12 +5,12 @@ import { white, buttonColor } from '../colors';
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        padding: 10,
+        marginTop: 10,
     },
     button: {
-        width: '80%',
+        width: '90%',
+        marginLeft: '5%',
+        marginRight: '5%',
         backgroundColor: buttonColor,
         height: 50,
         fontSize: 30,
@@ -28,10 +28,8 @@ interface ButtonProps {
 export default class Button extends Component<ButtonProps> {
     public render() {
         return (
-            <TouchableOpacity onPress={() => this.props.onPress()}>
-                <View style={styles.container}>
-                    <Text style={styles.button}>{this.props.text}</Text>
-                </View>
+            <TouchableOpacity style={styles.container} onPress={() => this.props.onPress()}>
+                <Text style={styles.button}>{this.props.text}</Text>
             </TouchableOpacity>
         );
     }

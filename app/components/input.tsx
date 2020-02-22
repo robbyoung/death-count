@@ -10,16 +10,16 @@ const styles = StyleSheet.create({
     },
     title: {
         color: white,
-        fontSize: 22,
+        fontSize: 18,
         marginTop: 5,
         marginBottom: 5,
     },
     textbox: {
         backgroundColor: white,
         width: '100%',
-        borderRadius: 10,
+        borderRadius: 5,
         color: '#000000',
-        fontSize: 22,
+        fontSize: 18,
         padding: 10,
     }
 });

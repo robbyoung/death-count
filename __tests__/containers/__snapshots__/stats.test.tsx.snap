@@ -14,46 +14,68 @@ exports[`Stats Container Renders with chart and stats 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "#ffffff",
-            "borderRadius": 5,
-            "margin": 10,
+            "marginLeft": "5%",
+            "marginRight": "5%",
+            "width": "90%",
           }
         }
       >
-        <View>
-          <RCTPicker
-            items={
-              Array [
-                Object {
-                  "label": "Option Set 0",
-                  "textColor": undefined,
-                  "value": "o0",
-                },
-                Object {
-                  "label": "Option Set 1",
-                  "textColor": undefined,
-                  "value": "o2",
-                },
-                Object {
-                  "label": "Option Set 2",
-                  "textColor": undefined,
-                  "value": "o4",
-                },
-              ]
+        <Text
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 18,
+              "marginBottom": 5,
+              "marginTop": 5,
             }
-            onChange={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            selectedIndex={0}
-            style={
-              Array [
-                Object {
-                  "height": 216,
-                },
-                undefined,
-              ]
+          }
+        >
+          Pick a Death Detail
+        </Text>
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderRadius": 5,
+              "width": "100%",
             }
-          />
+          }
+        >
+          <View>
+            <RCTPicker
+              items={
+                Array [
+                  Object {
+                    "label": "Option Set 0",
+                    "textColor": undefined,
+                    "value": "o0",
+                  },
+                  Object {
+                    "label": "Option Set 1",
+                    "textColor": undefined,
+                    "value": "o2",
+                  },
+                  Object {
+                    "label": "Option Set 2",
+                    "textColor": undefined,
+                    "value": "o4",
+                  },
+                ]
+              }
+              onChange={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              selectedIndex={0}
+              style={
+                Array [
+                  Object {
+                    "height": 216,
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
         </View>
       </View>
       <View
@@ -478,51 +500,73 @@ exports[`Stats Container Renders with no option set selected 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#ffffff",
-        "borderRadius": 5,
-        "margin": 10,
+        "marginLeft": "5%",
+        "marginRight": "5%",
+        "width": "90%",
       }
     }
   >
-    <View>
-      <RCTPicker
-        items={
-          Array [
-            Object {
-              "label": "None Selected",
-              "textColor": undefined,
-              "value": undefined,
-            },
-            Object {
-              "label": "Option Set 0",
-              "textColor": undefined,
-              "value": "o0",
-            },
-            Object {
-              "label": "Option Set 1",
-              "textColor": undefined,
-              "value": "o2",
-            },
-            Object {
-              "label": "Option Set 2",
-              "textColor": undefined,
-              "value": "o4",
-            },
-          ]
+    <Text
+      style={
+        Object {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "marginBottom": 5,
+          "marginTop": 5,
         }
-        onChange={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        selectedIndex={0}
-        style={
-          Array [
-            Object {
-              "height": 216,
-            },
-            undefined,
-          ]
+      }
+    >
+      Pick a Death Detail
+    </Text>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ffffff",
+          "borderRadius": 5,
+          "width": "100%",
         }
-      />
+      }
+    >
+      <View>
+        <RCTPicker
+          items={
+            Array [
+              Object {
+                "label": "None Selected",
+                "textColor": undefined,
+                "value": undefined,
+              },
+              Object {
+                "label": "Option Set 0",
+                "textColor": undefined,
+                "value": "o0",
+              },
+              Object {
+                "label": "Option Set 1",
+                "textColor": undefined,
+                "value": "o2",
+              },
+              Object {
+                "label": "Option Set 2",
+                "textColor": undefined,
+                "value": "o4",
+              },
+            ]
+          }
+          onChange={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          selectedIndex={0}
+          style={
+            Array [
+              Object {
+                "height": 216,
+              },
+              undefined,
+            ]
+          }
+        />
+      </View>
     </View>
   </View>
 </View>

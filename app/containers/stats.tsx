@@ -59,6 +59,7 @@ export default class Stats extends Component<
 
         const picker = (
             <OptionPicker
+                title="Pick a Death Detail"
                 options={this.state.optionSets.map(set => ({
                     key: set.title,
                     value: set.id,

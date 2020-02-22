@@ -59,6 +59,7 @@ export default class PlaythroughCreator extends Component<NavigationInjectedProp
                 </Input>
 
                 <OptionPicker
+                    title="Game"
                     options={this.state.games.map(game => ({
                         key: game.name,
                         value: game.id,
