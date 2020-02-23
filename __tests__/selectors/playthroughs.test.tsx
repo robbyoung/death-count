@@ -1,4 +1,4 @@
-import { getAllPlaythroughs, getPlaythroughsForCurrentGame, getSelectedPlaythrough, getIncompletePlaythrough } from '../../app/selectors';
+import { getAllPlaythroughs, getSelectedPlaythrough, getIncompletePlaythrough } from '../../app/selectors';
 import { createTestState, createTestPlaythrough } from '../../app/state';
 
 describe('Playthrough Selectors', () => {
@@ -19,17 +19,6 @@ describe('Playthrough Selectors', () => {
             expect(result.length).toBe(5);
             result.forEach((playthrough, index) => {
                 expect(playthrough.id).toBe(`p${index}`);
-            });
-        });
-    });
-
-    describe('Get Playthroughs For Current Game', () => {
-        it('Can select playthroughs for current game', () => {
-            const state = createTestState(2, 5, 10, 0, 0);
-            const result = getPlaythroughsForCurrentGame(state);
-            expect(result.length).toBe(3);
-            result.forEach((playthrough, index) => {
-                expect(playthrough.id).toBe(`p${index * 2}`);
             });
         });
     });

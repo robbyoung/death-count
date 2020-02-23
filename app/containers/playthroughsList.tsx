@@ -12,7 +12,7 @@ import {
     addPlaythroughAction,
 } from '../actions';
 import { saveState } from '../storage';
-import { getPlaythroughsForCurrentGameExpanded } from '../selectors';
+import { getAllPlaythroughsExpanded } from '../selectors';
 import PlaythroughDisplay from '../components/playthroughDisplay';
 import HeaderButton from '../components/headerButton';
 import { Screens } from '../screens';
@@ -90,7 +90,7 @@ export default class PlaythroughsList extends Component<
     private refreshState() {
         const state = store.getState();
         this.setState({
-            playthroughs: getPlaythroughsForCurrentGameExpanded(state),
+            playthroughs: getAllPlaythroughsExpanded(state),
             selectedGame: getSelectedGame(state),
         });
     }

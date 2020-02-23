@@ -26,10 +26,9 @@ export function selectPlaythrough(
         ...state[toSelectIndex],
         selected: true,
     };
-    const gameId = selected.gameId;
 
     const toDeselectIndex = state.findIndex(
-        playthrough => playthrough.selected && playthrough.gameId === gameId,
+        playthrough => playthrough.selected,
     );
     if (toDeselectIndex !== -1) {
         const deselected = {
