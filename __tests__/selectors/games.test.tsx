@@ -23,9 +23,9 @@ describe('Game Selectors', () => {
     
     describe('Get Selected Game', () => {
         it('Can select the user-selected game', () => {
-            const state = createTestState(4, 5, 10, 2, 0);
+            const state = createTestState(4, 5, 10, 2, 1);
             const result = getSelectedGame(state);
-            expect(result.id).toBe('g2');
+            expect(result.id).toBe('g1');
         });
     });
     
